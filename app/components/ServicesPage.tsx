@@ -1,0 +1,322 @@
+"use client";
+
+import Link from "next/link";
+import TestimonialsSection from "./TestimonialsSection";
+
+// ─── Figma asset URLs (~7 days, replace with local files) ────────────────────
+const IMG = {
+  s02: "https://www.figma.com/api/mcp/asset/524c0501-083e-4454-9f5c-8e9d60cc1d4b",
+  s03: "https://www.figma.com/api/mcp/asset/404f25cb-eb4b-4709-a6ef-57b35fe6c2f9",
+  s04: "https://www.figma.com/api/mcp/asset/7b80c9b2-f9b3-4676-84f4-a98e9b1ac4ce",
+  s05: "https://www.figma.com/api/mcp/asset/478f0993-9127-40ef-823d-debadd7854ee",
+  s06: "https://www.figma.com/api/mcp/asset/1c46605c-4ea3-4eed-9096-4df18360e9e3",
+  s07: "https://www.figma.com/api/mcp/asset/5daba17e-298e-49c7-9dfa-e3ab10372224",
+  s08: "https://www.figma.com/api/mcp/asset/2b8af419-2d03-4bcd-9d04-e4ca981df6c5",
+  s09: "https://www.figma.com/api/mcp/asset/3379ede5-0baa-4811-8b3e-efd26f5d90fe",
+  s10: "https://www.figma.com/api/mcp/asset/3a2c5d21-d8bd-49d4-a5ca-785a38255057",
+} as const;
+
+// ─── Data ─────────────────────────────────────────────────────────────────────
+const SERVICES = [
+  {
+    num: "01",
+    title: "Création de Site Web",
+    points: [
+      "Sites vitrine et corporate",
+      "Sites responsives et performants",
+      "CMS WordPress personnalisé",
+      "Hébergement et maintenance",
+    ],
+    desc: "Sites web professionnels, rapides et optimisés pour tous les appareils.",
+    img: null,
+    video: "/Service-website.mp4",
+    slug: "creation-site-web",
+  },
+  {
+    num: "02",
+    title: "Audit SEO Gratuit",
+    points: [
+      "Audit technique complet",
+      "Analyse on-page et off-page",
+      "Rapport détaillé en 48h",
+      "100% gratuit et sans engagement",
+    ],
+    desc: "Analyse complète de votre référencement pour identifier les opportunités d'amélioration.",
+    img: IMG.s02,
+    video: null,
+    slug: "audit-seo",
+  },
+  {
+    num: "03",
+    title: "Développement\nd'Applications Mobiles",
+    points: [
+      "Applications natives iOS & Android",
+      "Développement cross-platform (React Native, Flutter)",
+      "Design UX/UI moderne et intuitif",
+      "Maintenance et support continu",
+    ],
+    desc: "Applications mobiles natives et cross-platform performantes pour iOS et Android.",
+    img: IMG.s03,
+    video: null,
+    slug: "applications-mobiles",
+  },
+  {
+    num: "04",
+    title: "Développement\nE-commerce",
+    points: [
+      "Plateformes e-commerce sur-mesure",
+      "Intégrations PrestaShop, Shopify, WooCommerce",
+      "Optimisation des conversions",
+      "Solutions de paiement sécurisées",
+    ],
+    desc: "Boutiques en ligne performantes et optimisées pour maximiser vos ventes.",
+    img: IMG.s04,
+    video: null,
+    slug: "ecommerce",
+  },
+  {
+    num: "05",
+    title: "Développement SaaS",
+    points: [
+      "Architecture cloud scalable",
+      "Gestion multi-tenant",
+      "Tableaux de bord analytics",
+      "Intégrations API et webhooks",
+    ],
+    desc: "Solutions SaaS évolutives et sécurisées pour votre modèle d'abonnement.",
+    img: IMG.s05,
+    video: null,
+    slug: "saas",
+  },
+  {
+    num: "06",
+    title: "Automatisation\n& Intelligence Artificielle",
+    points: [
+      "Automatisation des workflows",
+      "Chatbots et assistants IA",
+      "Analyse prédictive et machine learning",
+      "Intégrations intelligentes",
+    ],
+    desc: "Automatisez vos processus et intégrez l'IA pour gagner en efficacité.",
+    img: IMG.s06,
+    video: null,
+    slug: "ia-automatisation",
+  },
+  {
+    num: "07",
+    title: "Design Web & Mobile",
+    points: [
+      "Design UI/UX sur-mesure",
+      "Prototypage et wireframing",
+      "Design system et guidelines",
+      "Tests utilisateurs et optimisation",
+    ],
+    desc: "Designs modernes et interfaces utilisateur qui captivent votre audience.",
+    img: IMG.s07,
+    video: null,
+    slug: "design-web-mobile",
+  },
+  {
+    num: "08",
+    title: "Design Logo\n& Réseaux Sociaux",
+    points: [
+      "Création de logos professionnels",
+      "Charte graphique complète",
+      "Posts et visuels réseaux sociaux",
+      "Templates personnalisés",
+    ],
+    desc: "Identité visuelle forte et contenus percutants pour vos réseaux sociaux.",
+    img: IMG.s08,
+    video: null,
+    slug: "design-logo",
+  },
+  {
+    num: "09",
+    title: "Référencement\nNaturel (SEO)",
+    points: [
+      "Audit SEO technique complet",
+      "Optimisation on-page et off-page",
+      "Stratégie de contenu SEO",
+      "Suivi et reporting des performances",
+    ],
+    desc: "Positionnez votre site en première page de Google et générez du trafic qualifié.",
+    img: IMG.s09,
+    video: null,
+    slug: "seo",
+  },
+  {
+    num: "10",
+    title: "Marketing Digital",
+    points: [
+      "Stratégie réseaux sociaux",
+      "Publicités Facebook, Instagram, LinkedIn",
+      "Community management",
+      "Analytics et reporting",
+    ],
+    desc: "Stratégies digitales performantes pour booster votre visibilité et vos conversions.",
+    img: IMG.s10,
+    video: null,
+    slug: "marketing-digital",
+  },
+] as const;
+
+// ─── Arrow icon (matches Figma ← rotated CTA arrow) ──────────────────────────
+function ArrowIcon() {
+  return (
+    <svg
+      width="16"
+      height="16"
+      viewBox="0 0 16 16"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className="rotate-180"
+    >
+      <line x1="0" y1="8" x2="14" y2="8" stroke="currentColor" strokeWidth="1.2" />
+      <polyline points="8,2 14,8 8,14" stroke="currentColor" strokeWidth="1.2" fill="none" />
+    </svg>
+  );
+}
+
+// ─── Single service card ──────────────────────────────────────────────────────
+function ServiceCard({ service }: { service: (typeof SERVICES)[number] }) {
+  return (
+    <div className="w-full h-screen bg-white border-t border-b border-[#dadada] flex overflow-hidden">
+      {/* ── Left column ─────────────────────────────── */}
+      <div className="flex-1 relative flex flex-col justify-between px-10 md:px-20 lg:px-28 pt-16 pb-12 xl:pt-20 xl:pb-16">
+        {/* Number */}
+        <p className="absolute top-[6%] left-[4%] font-mono text-[13px] text-[#8f8f8f]">
+          {service.num}
+        </p>
+
+        <div className="flex flex-col gap-12 mt-4">
+          {/* Title */}
+          <h2 className="font-[Neue_Montreal] text-[42px] xl:text-[52px] font-medium leading-tight text-black whitespace-pre-line">
+            {service.title}
+          </h2>
+
+          {/* Key points */}
+          <div className="flex flex-col gap-1.5">
+            <p className="font-mono text-[12px] text-[#8f8f8f] mb-3">
+              {"{ Points clés }"}
+            </p>
+            {service.points.map((pt) => (
+              <div
+                key={pt}
+                className="flex items-center gap-3 py-2 border-b border-black/6 last:border-0"
+              >
+                <span className="w-1 h-1 rounded-full bg-black/20 shrink-0" />
+                <p className="font-[Neue_Montreal] text-[18px] xl:text-[22px] text-black leading-tight">
+                  {pt}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Bottom: description + CTA */}
+        <div className="flex flex-col gap-6">
+          <p className="font-[Neue_Montreal] text-[16px] xl:text-[18px] leading-[1.7] text-[#7f7f7f] max-w-110">
+            {service.desc}
+          </p>
+          <Link
+            href={`/services/${service.slug}`}
+            className="inline-flex items-center gap-10 self-start px-6 py-4 border border-black rounded-full font-mono text-[11px] tracking-widest text-black uppercase hover:bg-[#05ffe0] hover:border-[#05ffe0] transition-all duration-200"
+
+          >
+            En savoir plus
+            <ArrowIcon />
+          </Link>
+        </div>
+      </div>
+
+      {/* ── Right column (image) ─────────────────────── */}
+      <div className="hidden lg:block lg:w-[46%] xl:w-[48%] relative overflow-hidden shrink-0">
+        {service.img ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={service.img}
+            alt=""
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+        ) : service.video ? (
+          <video
+            src={service.video}
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+        ) : (
+          <div className="absolute inset-0 bg-linear-to-br from-[#f8f8f8] to-[#ebebeb]" />
+        )}
+      </div>
+    </div>
+  );
+}
+
+// ─── Page ─────────────────────────────────────────────────────────────────────
+export default function ServicesPage() {
+  return (
+    <main className="bg-[#101010]">
+      {/* ══ 1. HERO ══════════════════════════════════════════════════════════ */}
+      <section className="relative min-h-screen flex items-end pb-20 bg-[#101010] rounded-bl-[70px] rounded-br-[70px] overflow-hidden">
+        {/* Video background */}
+        <video
+          className="absolute inset-0 w-full h-full object-cover"
+          src="/bg-video.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
+        />
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-black/40" />
+
+        {/* Teal glow top-right */}
+        <div
+          className="absolute top-[-10%] right-[-5%] w-[50vw] h-[60vh] rounded-full opacity-30 blur-[120px] pointer-events-none"
+          style={{ background: "radial-gradient(circle, #05ffe0 0%, transparent 70%)" }}
+        />
+
+        {/* Title */}
+        <div className="relative z-10 px-10 md:px-20 max-w-300">
+          <p className="font-mono text-[11px] tracking-widest text-white/40 uppercase mb-6">
+            {"{ Nos services }"}
+          </p>
+          <h1 className="font-[Neue_Montreal] text-[52px] font-medium text-white leading-[1.15]">
+            Une agence digitale globale{" "}
+            <br className="hidden md:block" />
+            qui accompagne la transformation
+            <br className="hidden md:block" />
+            des marques à travers des expériences numériques{" "}
+            <span className="text-[#05ffe0]">puissantes et innovantes.</span>
+          </h1>
+        </div>
+      </section>
+
+      {/* ══ 2. STACKED SERVICE CARDS ═════════════════════════════════════════
+           Animation: each card is sticky top-0 inside the cards section.
+           Cards are siblings with increasing z-index.
+           As you scroll, the next card (higher z-index) slides up from below
+           and stacks over the previous one, creating a "card replace" effect.
+      ══════════════════════════════════════════════════════════════════════ */}
+      <section className="relative bg-white">
+        {SERVICES.map((service, index) => (
+          <div
+            key={service.num}
+            className="sticky top-0"
+            style={{ zIndex: index + 1 }}
+          >
+            <ServiceCard service={service} />
+          </div>
+        ))}
+      </section>
+
+      {/* ══ 3. TESTIMONIALS ══════════════════════════════════════════════════ */}
+      <div className="relative z-20">
+        <TestimonialsSection />
+      </div>
+    </main>
+  );
+}
