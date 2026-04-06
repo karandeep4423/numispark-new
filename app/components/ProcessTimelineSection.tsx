@@ -118,13 +118,13 @@ export default function ProcessTimelineSection({
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-6xl mx-auto px-8">
+      <div className="relative z-10 max-w-6xl mx-auto px-4 md:px-8">
         {/* Header */}
         <div className="text-center mb-24">
           <p className="font-mono text-xs text-[#8F8F8F] tracking-widest mb-6">
             {"{ Processus de collaboration }"}
           </p>
-          <h2 className="text-white font-[Neue_Montreal] text-[52px] font-medium leading-16.25">
+          <h2 className="text-white font-[Neue_Montreal] text-[32px] md:text-[52px] font-medium leading-[1.2] md:leading-16.25">
             Comment nous{" "}
             <span className="text-[#05FFE0] italic">construisons ensemble</span>
             <br />
@@ -136,7 +136,7 @@ export default function ProcessTimelineSection({
         <div ref={processTimelineRef} className="relative">
           {/* Dim background line */}
           <div
-            className="absolute inset-y-0 left-1/2 -translate-x-1/2 w-3 pointer-events-none"
+            className="absolute inset-y-0 left-4 md:left-1/2 md:-translate-x-1/2 w-3 pointer-events-none"
             style={{
               backgroundImage:
                 "repeating-linear-gradient(to bottom, #2A2A2A 0px, #2A2A2A 3px, transparent 3px, transparent 11px)",
@@ -144,7 +144,7 @@ export default function ProcessTimelineSection({
           />
           {/* Bright progress line */}
           <div
-            className="absolute top-0 left-1/2 -translate-x-1/2 w-3 pointer-events-none"
+            className="absolute top-0 left-4 md:left-1/2 md:-translate-x-1/2 w-3 pointer-events-none"
             style={{
               height: `${lineProgress * 100}%`,
               backgroundImage:
@@ -187,14 +187,14 @@ export default function ProcessTimelineSection({
             );
 
             return (
-              <div key={index} className="flex items-start py-16">
-                {/* Left */}
-                <div className="flex-1 pr-6 flex justify-end">
+              <div key={index} className="flex items-start py-8 md:py-16">
+                {/* Left — hidden on mobile, shows card for even steps on desktop */}
+                <div className="hidden md:flex flex-1 pr-6 justify-end">
                   {!isRight && card}
                 </div>
 
                 {/* Diamond marker */}
-                <div className="w-14 flex justify-center items-start shrink-0 relative z-10 pt-6">
+                <div className="w-8 md:w-14 flex justify-center items-start shrink-0 relative z-10 pt-1 md:pt-6">
                   <div
                     ref={(el) => { markerRefs.current[index] = el; }}
                     className="relative flex h-8 w-8 items-center justify-center"
@@ -210,9 +210,10 @@ export default function ProcessTimelineSection({
                   </div>
                 </div>
 
-                {/* Right */}
-                <div className="flex-1 pl-6">
-                  {isRight && card}
+                {/* Right — full width on mobile, only if isRight on desktop */}
+                <div className="flex-1 pl-4 md:pl-6">
+                  <div className="md:hidden">{card}</div>
+                  <div className="hidden md:block">{isRight ? card : null}</div>
                 </div>
               </div>
             );

@@ -4,7 +4,7 @@ import React from 'react'
 const Tools = () => {
   return (
     <div>
-         <div className="mt-16 ml-16 pb-16 overflow-hidden">
+         <div className="mt-16 ml-4 md:ml-16 pb-16 overflow-hidden">
         <div className="mb-8 px-4">
           <p className="font-mono text-[13px] font-normal text-black">
             La boite à outils du quotidien
@@ -15,7 +15,7 @@ const Tools = () => {
         </div>
 
         {/* Marquee track */}
-        <div className="relative flex overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+        <div className="relative flex overflow-hidden mask-[linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
           <div className="flex gap-4 animate-marquee whitespace-nowrap">
             {[
               { src: "/images/card-illustration-01.svg", alt: "Figma" },
@@ -60,7 +60,7 @@ const Tools = () => {
             ].map((logo, i) => (
               <div
                 key={i}
-                className="group flex-shrink-0 w-[140px] h-[100px] bg-[#F2F2F2] rounded-xl flex items-center justify-center p-4 cursor-pointer"
+                className="group shrink-0 w-35 h-25 bg-[#F2F2F2] rounded-xl flex items-center justify-center p-4 cursor-pointer"
               >
                 <img
                   src={logo.src}

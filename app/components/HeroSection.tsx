@@ -26,10 +26,10 @@ export default function HeroSection({
     <section
       className={`relative w-full h-screen overflow-hidden bg-[#0a0a12] ${className}`}
     >
-      {/* Background video */}
+      {/* Background video — full cover on mobile, offset on desktop */}
       {videoSrc && (
         <video
-          className="absolute top-[-40%] right-[-25%] w-[180%] h-[160%] object-cover"
+          className="absolute inset-0 w-full h-full object-cover object-center md:inset-auto md:top-[-40%] md:right-[-25%] md:w-[180%] md:h-[160%]"
           src={videoSrc}
           autoPlay
           loop
@@ -42,25 +42,37 @@ export default function HeroSection({
       {imageSrc && !videoSrc && (
         // eslint-disable-next-line @next/next/no-img-element
         <img
-          className="absolute top-[-40%] right-[-25%] w-[180%] h-[160%] object-cover"
+          className="absolute inset-0 w-full h-full object-cover object-center md:inset-auto md:top-[-40%] md:right-[-25%] md:w-[180%] md:h-[160%]"
           src={imageSrc}
           alt=""
         />
       )}
 
-      {/* Optional dark overlay */}
-      {/* {overlay && <div className="absolute inset-0 bg-black/30" />} */}
+      {/* Gradient overlay for text readability on mobile */}
+      <div className="absolute inset-0 bg-linear-to-b from-transparent via-black/20 to-black/75 md:hidden" />
 
-      {/* Title — anchored bottom-left */}
-      <div className="absolute bottom-16 left-12 max-w-xl z-10">
-        <h1 className="text-5xl text-white leading-tight tracking-tight">
+      {/* Mobile layout — title + description stacked at bottom */}
+      <div className="absolute bottom-0 left-0 right-0 z-10 flex flex-col gap-3 px-5 pb-8 pt-24 md:hidden">
+        <h1 className="text-[44px] font-medium text-white leading-[1.1] tracking-tight">
+          {title}
+        </h1>
+        {description && (
+          <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-4">
+            <p className="text-white/60 text-sm leading-relaxed font-mono">
+              {description}
+            </p>
+          </div>
+        )}
+      </div>
+
+      {/* Desktop layout — title bottom-left, description bottom-right */}
+      <div className="hidden md:block absolute bottom-16 left-12 max-w-xl z-10">
+        <h1 className="text-[clamp(28px,7vw,54px)] text-white leading-tight tracking-tight">
           {title}
         </h1>
       </div>
-
-      {/* Description card — anchored bottom-right */}
       {description && (
-        <div className="absolute bottom-16 right-12 z-10 max-w-xs bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-5">
+        <div className="hidden md:block absolute bottom-16 right-12 max-w-xs z-10 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-5">
           <p className="text-white/60 text-sm leading-relaxed font-mono">
             {description}
           </p>

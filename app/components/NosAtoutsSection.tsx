@@ -116,13 +116,15 @@ export default function NosAtoutsSection({
           <div className="relative mx-auto h-full w-full max-w-295 overflow-hidden rounded-[28px] border border-white/6 bg-[linear-gradient(180deg,#151515_0%,#0d0d0d_100%)]">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.05),transparent_34%),radial-gradient(circle_at_73%_42%,rgba(255,255,255,0.02),transparent_44%)] opacity-80" />
 
-            <div className="relative grid h-full grid-cols-1 gap-8 px-6 py-8 sm:px-8 sm:py-10 lg:grid-cols-[380px_1fr] lg:gap-4 lg:px-12 lg:py-12 xl:grid-cols-[420px_1fr] xl:px-14 xl:py-14">
-              {/* Left column: text */}
-              <div className="flex h-full flex-col justify-between lg:py-4">
-                <div className="relative min-h-37.5 sm:min-h-42.5 lg:min-h-52.5">
+            {/* Mobile: flex-col (title → circles → bullets)
+                Desktop: 2-col grid (title+bullets left, circles right) */}
+            <div className="relative flex h-full flex-col px-5 py-6 sm:px-8 sm:py-8 lg:grid lg:grid-cols-[380px_1fr] lg:grid-rows-[1fr_auto] lg:gap-x-4 lg:px-12 lg:py-12 xl:grid-cols-[420px_1fr] xl:px-14 xl:py-14">
+
+              {/* ── 1. Label + Title + Subtitle ── */}
+              <div className="lg:col-start-1 lg:row-start-1 lg:self-start lg:pt-4">
+                <div className="relative min-h-40 sm:min-h-42.5 lg:min-h-52.5">
                   {atouts.map((atout, index) => {
                     const isActive = index === activeAtoutIndex;
-
                     return (
                       <div
                         key={atout.accent}
@@ -132,7 +134,7 @@ export default function NosAtoutsSection({
                             : "pointer-events-none translate-y-4 opacity-0"
                         }`}
                       >
-                        <p className="mb-5 font-mono text-[11px] tracking-[0.04em] text-[#C8C8C8]">
+                        <p className="mb-5 text-center md:text-left font-mono text-[11px] tracking-[0.04em] text-[#C8C8C8]">
                           {"{ Nos atouts }"}
                         </p>
                         <h2 className="max-w-105 font-[Neue_Montreal] text-[30px] font-medium leading-[0.98] tracking-[-0.03em] text-white sm:text-[34px] lg:text-[38px] xl:text-[40px]">
@@ -146,33 +148,11 @@ export default function NosAtoutsSection({
                     );
                   })}
                 </div>
-
-                <div className="relative min-h-55 pt-4 sm:min-h-62.5 lg:min-h-70 lg:pt-0">
-                  <div className="mb-5 h-px w-full max-w-72.5 bg-white/30" />
-                  {atouts.map((atout, index) => {
-                    const isActive = index === activeAtoutIndex;
-
-                    return (
-                      <ul
-                        key={`${atout.accent}-list`}
-                        className={`absolute inset-x-0 top-6 max-w-75 space-y-2 font-mono text-[11px] leading-[1.8] text-[#B7B7B7] transition-all duration-500 sm:text-[12px] ${
-                          isActive
-                            ? "translate-y-0 opacity-100"
-                            : "pointer-events-none translate-y-4 opacity-0"
-                        }`}
-                      >
-                        {atout.bullets.map((bullet) => (
-                          <li key={bullet}>• {bullet}</li>
-                        ))}
-                      </ul>
-                    );
-                  })}
-                </div>
               </div>
 
-              {/* Right column: concentric circles */}
-              <div className="relative mb-10 flex min-h-75 items-center justify-center lg:min-h-0 lg:justify-end">
-                <div className="relative h-[min(55vw,420px)] w-[min(55vw,420px)] sm:h-[min(48vw,460px)] sm:w-[min(48vw,460px)] lg:-mr-8 lg:h-[min(70vh,520px)] lg:w-[min(70vh,520px)] xl:-mr-2.5">
+              {/* ── 2. Concentric circles (middle on mobile, right column on desktop) ── */}
+              <div className="flex flex-1 items-center justify-center lg:flex-none lg:col-start-2 lg:row-start-1 lg:row-span-2 lg:items-center lg:justify-end">
+                <div className="relative h-[min(78vw,340px)] w-[min(78vw,340px)] sm:h-[min(50vw,400px)] sm:w-[min(50vw,400px)] lg:-mr-8 lg:h-[min(70vh,520px)] lg:w-[min(70vh,520px)] xl:-mr-2.5">
                   {(
                     [
                       { key: "outer", size: "h-full w-full", zIndex: 10 },
@@ -181,7 +161,6 @@ export default function NosAtoutsSection({
                     ] as const
                   ).map((circle) => {
                     const isActive = activeAtout.activeCircle === circle.key;
-
                     return (
                       <div
                         key={circle.key}
@@ -197,6 +176,30 @@ export default function NosAtoutsSection({
                             : "transparent",
                         }}
                       />
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* ── 3. Separator + Bullets (bottom on both mobile and desktop) ── */}
+              <div className="lg:col-start-1 lg:row-start-2 lg:pb-4">
+                <div className="relative min-h-60 sm:min-h-62.5 lg:min-h-70">
+                  <div className="mb-5 h-px w-full max-w-72.5 bg-white/30" />
+                  {atouts.map((atout, index) => {
+                    const isActive = index === activeAtoutIndex;
+                    return (
+                      <ul
+                        key={`${atout.accent}-list`}
+                        className={`absolute inset-x-0 top-6 max-w-75 space-y-2 font-mono text-[11px] leading-[1.8] text-[#B7B7B7] transition-all duration-500 sm:text-[12px] ${
+                          isActive
+                            ? "translate-y-0 opacity-100"
+                            : "pointer-events-none translate-y-4 opacity-0"
+                        }`}
+                      >
+                        {atout.bullets.map((bullet) => (
+                          <li key={bullet}>• {bullet}</li>
+                        ))}
+                      </ul>
                     );
                   })}
                 </div>

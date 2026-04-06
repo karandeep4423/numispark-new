@@ -119,9 +119,9 @@ export default function ServicesAccordionSection({
   const [activeService, setActiveService] = useState(0);
 
   return (
-    <div className="flex bg-white border-t border-[#E0E0E0] ">
+    <div className="flex flex-col md:flex-row bg-white border-t border-[#E0E0E0]">
       {/* Left: sticky preview image */}
-        <div className="sticky top-0 w-[45%] h-screen overflow-hidden shrink-0">
+      <div className="hidden md:block md:sticky md:top-0 md:w-[45%] md:h-screen overflow-hidden shrink-0">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           key={activeService}
@@ -132,7 +132,7 @@ export default function ServicesAccordionSection({
       </div>
 
       {/* Right: accordion list */}
-      <div className="w-[55%] flex flex-col ">
+      <div className="w-full md:w-[55%] flex flex-col">
         {services.map((service, index) => (
           <div key={index} className="border-b border-[#E0E0E0] group transition-all duration-600 bg-[linear-gradient(127deg,transparent_0%,transparent_100%)] hover:bg-[linear-gradient(127deg,#E7ECF2_3.71%,rgba(231,236,242,0)_40.97%)]">
             <button
