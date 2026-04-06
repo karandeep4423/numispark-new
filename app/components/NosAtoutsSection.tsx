@@ -112,7 +112,7 @@ export default function NosAtoutsSection({
   return (
     <section className="bg-[#080808]">
       <div ref={atoutsSectionRef} className="relative h-[230vh] md:h-[240vh]">
-        <div className="sticky top-4 h-[calc(100vh-32px)] min-h-145 max-h-190 sm:top-6 sm:h-[calc(100vh-48px)] md:min-h-160">
+        <div className="sticky top-4 h-[calc(100vh-32px)] sm:top-6 sm:h-[calc(100vh-48px)]">
           <div className="relative mx-auto h-full w-full max-w-295 overflow-hidden rounded-[28px] border border-white/6 bg-[linear-gradient(180deg,#151515_0%,#0d0d0d_100%)]">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.05),transparent_34%),radial-gradient(circle_at_73%_42%,rgba(255,255,255,0.02),transparent_44%)] opacity-80" />
 
@@ -171,8 +171,8 @@ export default function NosAtoutsSection({
               </div>
 
               {/* Right column: concentric circles */}
-              <div className="relative flex min-h-75 items-end justify-center lg:min-h-0 lg:justify-end">
-                <div className="relative h-[min(68vw,520px)] w-[min(68vw,520px)] sm:h-[min(58vw,560px)] sm:w-[min(58vw,560px)] lg:-mr-8 lg:h-140 lg:w-140 xl:-mr-2.5 xl:h-155 xl:w-155">
+              <div className="relative mb-10 flex min-h-75 items-center justify-center lg:min-h-0 lg:justify-end">
+                <div className="relative h-[min(55vw,420px)] w-[min(55vw,420px)] sm:h-[min(48vw,460px)] sm:w-[min(48vw,460px)] lg:-mr-8 lg:h-[min(70vh,520px)] lg:w-[min(70vh,520px)] xl:-mr-2.5">
                   {(
                     [
                       { key: "outer", size: "h-full w-full", zIndex: 10 },

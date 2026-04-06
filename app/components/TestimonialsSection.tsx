@@ -137,8 +137,7 @@ export default function TestimonialsSection() {
             transform: `translateX(${-offset * (cardW + GAP)}px)`,
           }}
         >
-          {testimonials.map((t, i) => {
-            const isActive = i === offset;
+          {testimonials.map((t) => {
             return (
               <div
                 key={t.id}
@@ -147,11 +146,7 @@ export default function TestimonialsSection() {
                     ? `${cardW}px`
                     : `calc((100% - ${(visibleCount - 1) * GAP}px) / ${visibleCount})`,
                 }}
-                className={`shrink-0 border-2 p-7 flex flex-col justify-between min-h-70 transition-all duration-300 cursor-pointer ${
-                  isActive
-                    ? "border-black/25 bg-[#f5f5f5] shadow-[0_4px_20px_rgba(0,0,0,0.07)]"
-                    : "border-black/10 bg-white hover:border-black/20 hover:bg-[#fafafa] hover:-translate-y-1.5 hover:shadow-[0_8px_32px_rgba(0,0,0,0.08)]"
-                }`}
+                className="group shrink-0 border border-black/8 bg-white p-7 flex flex-col justify-between min-h-70 transition-all duration-500 cursor-pointer hover:border-black hover:bg-[linear-gradient(160deg,#f7f7f7_0%,#ffffff_100%)] hover:shadow-[0_4px_24px_rgba(0,0,0,0.06)]"
               >
                 <div>
                   <div className="flex justify-end mb-5">
@@ -162,15 +157,15 @@ export default function TestimonialsSection() {
                       height={28}
                     />
                   </div>
-                  <h3 className="font-[Neue_Montreal] text-[20px] font-semibold text-black mb-4 leading-snug">
+                  <h3 className="font-[Neue_Montreal] text-[20px] font-semibold transition-all duration-500 group-hover:translate-y-2 text-black mb-4 leading-snug">
                     {t.title}
                   </h3>
-                  <p className="font-[Neue_Montreal] text-[14px] leading-[1.72] text-black/50">
+                  <p className="font-[Neue_Montreal] group-hover:text-black transition-all duration-500 group-hover:translate-y-2 text-[14px] leading-[1.72] text-black/50">
                     {t.quote}
                   </p>
                 </div>
 
-                <div className="flex items-center gap-3 mt-8">
+                <div className="flex items-center gap-3 mt-8 transition-all duration-500 group-hover:-translate-y-2">
                   <div className="w-10 h-10 rounded-full overflow-hidden bg-black/5 border border-black/8 flex items-center justify-center shrink-0">
                     <Image
                       src={t.logo}

@@ -119,7 +119,7 @@ export default function ServicesAccordionSection({
   const [activeService, setActiveService] = useState(0);
 
   return (
-    <div className="flex bg-white border-t border-[#E0E0E0]">
+    <div className="flex bg-white border-t border-[#E0E0E0] ">
       {/* Left: sticky preview image */}
         <div className="sticky top-0 w-[45%] h-screen overflow-hidden shrink-0">
         {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -132,15 +132,15 @@ export default function ServicesAccordionSection({
       </div>
 
       {/* Right: accordion list */}
-      <div className="w-[55%] flex flex-col">
+      <div className="w-[55%] flex flex-col ">
         {services.map((service, index) => (
-          <div key={index} className="border-b border-[#E0E0E0]">
+          <div key={index} className="border-b border-[#E0E0E0] group transition-all duration-600 bg-[linear-gradient(127deg,transparent_0%,transparent_100%)] hover:bg-[linear-gradient(127deg,#E7ECF2_3.71%,rgba(231,236,242,0)_40.97%)]">
             <button
               className="w-full flex items-center justify-between py-6 px-8 text-left cursor-pointer"
               onClick={() => setActiveService(index)}
             >
               <div className="flex items-center gap-5">
-                <span className="font-mono text-xs text-[#8F8F8F] leading-none">
+                <span className="font-mono text-xs text-[#8F8F8F] leading-none transition-all duration-500  group-hover:ml-2">
                   {service.number}
                 </span>
                 <span

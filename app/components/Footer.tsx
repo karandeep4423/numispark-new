@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import CtaButton from "./CtaButton";
 
 const socials = ["TIKTOK", "LINKEDIN", "INSTAGRAM", "FACEBOOK"];
 
@@ -62,13 +63,7 @@ export default function Footer() {
                 et favorisent la croissance.
               </p>
               <div>
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center gap-3 px-7 py-3.5 border border-white/25 rounded-full font-mono text-[11px] tracking-[0.14em] text-white hover:bg-white hover:text-black transition-all duration-200"
-                >
-                  CONTACTEZ-NOUS
-                  <span className="text-[16px] leading-none opacity-50">†</span>
-                </Link>
+                <CtaButton href="/contact" variant="outline-footer">CONTACTEZ-NOUS</CtaButton>
               </div>
             </div>
           </div>

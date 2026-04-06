@@ -3,7 +3,6 @@
 import Link from "next/link";
 import TestimonialsSection from "./TestimonialsSection";
 
-// ─── Figma asset URLs (~7 days, replace with local files) ────────────────────
 const IMG = {
   s02: "https://www.figma.com/api/mcp/asset/524c0501-083e-4454-9f5c-8e9d60cc1d4b",
   s03: "https://www.figma.com/api/mcp/asset/404f25cb-eb4b-4709-a6ef-57b35fe6c2f9",
@@ -16,7 +15,6 @@ const IMG = {
   s10: "https://www.figma.com/api/mcp/asset/3a2c5d21-d8bd-49d4-a5ca-785a38255057",
 } as const;
 
-// ─── Data ─────────────────────────────────────────────────────────────────────
 const SERVICES = [
   {
     num: "01",
@@ -160,7 +158,6 @@ const SERVICES = [
   },
 ] as const;
 
-// ─── Arrow icon (matches Figma ← rotated CTA arrow) ──────────────────────────
 function ArrowIcon() {
   return (
     <svg
@@ -171,41 +168,50 @@ function ArrowIcon() {
       xmlns="http://www.w3.org/2000/svg"
       className="rotate-180"
     >
-      <line x1="0" y1="8" x2="14" y2="8" stroke="currentColor" strokeWidth="1.2" />
-      <polyline points="8,2 14,8 8,14" stroke="currentColor" strokeWidth="1.2" fill="none" />
+      <line
+        x1="0"
+        y1="8"
+        x2="14"
+        y2="8"
+        stroke="currentColor"
+        strokeWidth="1.2"
+      />
+      <polyline
+        points="8,2 14,8 8,14"
+        stroke="currentColor"
+        strokeWidth="1.2"
+        fill="none"
+      />
     </svg>
   );
 }
 
-// ─── Single service card ──────────────────────────────────────────────────────
 function ServiceCard({ service }: { service: (typeof SERVICES)[number] }) {
   return (
-    <div className="w-full h-screen bg-white border-t border-b border-[#dadada] flex overflow-hidden">
-      {/* ── Left column ─────────────────────────────── */}
-      <div className="flex-1 relative flex flex-col justify-between px-10 md:px-20 lg:px-28 pt-16 pb-12 xl:pt-20 xl:pb-16">
-        {/* Number */}
+    <div className="flex h-screen w-full overflow-hidden border-y border-[#dadada] bg-white">
+      <div className="relative grid flex-1 grid-rows-[auto_1fr_auto] px-10 pt-12 pb-8 md:px-16 lg:px-20 xl:px-24 xl:pt-18 xl:pb-10">
         <p className="absolute top-[6%] left-[4%] font-mono text-[13px] text-[#8f8f8f]">
           {service.num}
         </p>
 
-        <div className="flex flex-col gap-12 mt-4">
-          {/* Title */}
-          <h2 className="font-[Neue_Montreal] text-[42px] xl:text-[52px] font-medium leading-tight text-black whitespace-pre-line">
+        <div className="mt-4">
+          <h2 className="max-w-full whitespace-pre-line font-[Neue_Montreal] text-[34px] font-medium leading-[1.05] text-black  xl:text-[48px]">
             {service.title}
           </h2>
+        </div>
 
-          {/* Key points */}
-          <div className="flex flex-col gap-1.5">
-            <p className="font-mono text-[12px] text-[#8f8f8f] mb-3">
-              {"{ Points clés }"}
-            </p>
+        <div className="min-h-0 pt-6 xl:pt-8">
+          <p className="mb-3 font-mono text-[12px] text-[#8f8f8f]">
+            {"{ Points clés }"}
+          </p>
+          <div className="flex flex-col">
             {service.points.map((pt) => (
               <div
                 key={pt}
-                className="flex items-center gap-3 py-2 border-b border-black/6 last:border-0"
+                className="flex items-start gap-1.5 py-1.5 font-medium group   "
               >
-                <span className="w-1 h-1 rounded-full bg-black/20 shrink-0" />
-                <p className="font-[Neue_Montreal] text-[18px] xl:text-[22px] text-black leading-tight">
+                <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-black/20 transition-all duration-500 ease-out group-hover:translate-x-1 group-hover:bg-[linear-gradient(90deg,#05D9FF_0%,#05FFE0_38%,#000000_82%)] group-hover:bg-clip-text group-hover:text-transparent motion-reduce:transform-none" />
+                <p className="font-[Neue_Montreal] text-[16px] leading-[1.35] text-black lg:text-[17px] xl:text-[18px] transition-all duration-500 ease-out group-hover:translate-x-5.5 group-hover:bg-[linear-gradient(90deg,#05D9FF_0%,#05FFE0_38%,#000000_82%)] group-hover:bg-clip-text group-hover:text-transparent motion-reduce:transform-none">
                   {pt}
                 </p>
               </div>
@@ -213,30 +219,29 @@ function ServiceCard({ service }: { service: (typeof SERVICES)[number] }) {
           </div>
         </div>
 
-        {/* Bottom: description + CTA */}
-        <div className="flex flex-col gap-6">
-          <p className="font-[Neue_Montreal] text-[16px] xl:text-[18px] leading-[1.7] text-[#7f7f7f] max-w-110">
+        <div className="border-t border-black/8 bg-white pt-5 xl:pt-6">
+          <p className="max-w-110 font-[Neue_Montreal] text-[16px] leading-[1.6] text-[#7f7f7f] xl:text-[17px]">
             {service.desc}
           </p>
           <Link
             href={`/services/${service.slug}`}
-            className="inline-flex items-center gap-10 self-start px-6 py-4 border border-black rounded-full font-mono text-[11px] tracking-widest text-black uppercase hover:bg-[#05ffe0] hover:border-[#05ffe0] transition-all duration-200"
-
+            className="mt-5 inline-flex self-start rounded-full border border-black bg-black px-6 py-4 font-mono text-[11px] uppercase tracking-widest text-white transition-all duration-200 hover:border-[#05ffe0] hover:bg-[#05ffe0] hover:text-black"
           >
-            En savoir plus
-            <ArrowIcon />
+            <span className="flex items-center gap-8">
+              En savoir plus
+              <ArrowIcon />
+            </span>
           </Link>
         </div>
       </div>
 
-      {/* ── Right column (image) ─────────────────────── */}
-      <div className="hidden lg:block lg:w-[46%] xl:w-[48%] relative overflow-hidden shrink-0">
+      <div className="relative hidden shrink-0 overflow-hidden lg:block lg:w-[46%] xl:w-[48%]">
         {service.img ? (
           // eslint-disable-next-line @next/next/no-img-element
           <img
             src={service.img}
             alt=""
-            className="absolute inset-0 w-full h-full object-cover"
+            className="absolute inset-0 h-full w-full object-cover"
           />
         ) : service.video ? (
           <video
@@ -245,7 +250,7 @@ function ServiceCard({ service }: { service: (typeof SERVICES)[number] }) {
             muted
             loop
             playsInline
-            className="absolute inset-0 w-full h-full object-cover"
+            className="absolute inset-0 h-full w-full object-cover"
           />
         ) : (
           <div className="absolute inset-0 bg-linear-to-br from-[#f8f8f8] to-[#ebebeb]" />
@@ -255,38 +260,33 @@ function ServiceCard({ service }: { service: (typeof SERVICES)[number] }) {
   );
 }
 
-// ─── Page ─────────────────────────────────────────────────────────────────────
 export default function ServicesPage() {
   return (
     <main className="bg-[#101010]">
-      {/* ══ 1. HERO ══════════════════════════════════════════════════════════ */}
-      <section className="relative min-h-screen flex items-end pb-20 bg-[#101010] rounded-bl-[70px] rounded-br-[70px] overflow-hidden">
-        {/* Video background */}
+      <section className="relative flex min-h-screen items-end overflow-hidden rounded-br-[70px] rounded-bl-[70px] bg-[#101010] pb-20">
         <video
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 h-full w-full object-cover"
           src="/bg-video.mp4"
           autoPlay
           muted
           loop
           playsInline
         />
-        {/* Dark overlay */}
         <div className="absolute inset-0 bg-black/40" />
 
-        {/* Teal glow top-right */}
         <div
-          className="absolute top-[-10%] right-[-5%] w-[50vw] h-[60vh] rounded-full opacity-30 blur-[120px] pointer-events-none"
-          style={{ background: "radial-gradient(circle, #05ffe0 0%, transparent 70%)" }}
+          className="pointer-events-none absolute top-[-10%] right-[-5%] h-[60vh] w-[50vw] rounded-full opacity-30 blur-[120px]"
+          style={{
+            background: "radial-gradient(circle, #05ffe0 0%, transparent 70%)",
+          }}
         />
 
-        {/* Title */}
-        <div className="relative z-10 px-10 md:px-20 max-w-300">
-          <p className="font-mono text-[11px] tracking-widest text-white/40 uppercase mb-6">
+        <div className="relative z-10 max-w-300 px-10 md:px-20">
+          <p className="mb-6 font-mono text-[11px] uppercase tracking-widest text-white/40">
             {"{ Nos services }"}
           </p>
-          <h1 className="font-[Neue_Montreal] text-[52px] font-medium text-white leading-[1.15]">
-            Une agence digitale globale{" "}
-            <br className="hidden md:block" />
+          <h1 className="font-[Neue_Montreal] text-[52px] font-medium leading-[1.15] text-white">
+            Une agence digitale globale <br className="hidden md:block" />
             qui accompagne la transformation
             <br className="hidden md:block" />
             des marques à travers des expériences numériques{" "}
@@ -295,12 +295,6 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* ══ 2. STACKED SERVICE CARDS ═════════════════════════════════════════
-           Animation: each card is sticky top-0 inside the cards section.
-           Cards are siblings with increasing z-index.
-           As you scroll, the next card (higher z-index) slides up from below
-           and stacks over the previous one, creating a "card replace" effect.
-      ══════════════════════════════════════════════════════════════════════ */}
       <section className="relative bg-white">
         {SERVICES.map((service, index) => (
           <div
@@ -313,7 +307,6 @@ export default function ServicesPage() {
         ))}
       </section>
 
-      {/* ══ 3. TESTIMONIALS ══════════════════════════════════════════════════ */}
       <div className="relative z-20">
         <TestimonialsSection />
       </div>

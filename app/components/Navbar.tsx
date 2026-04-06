@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -15,13 +15,27 @@ const navLinks = [
 const Navbar = () => {
   const [langOpen, setLangOpen] = useState(false);
   const [selectedLang, setSelectedLang] = useState("Français");
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const languages = ["Français", "English", "Deutsch"];
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 80);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <nav className="absolute top-3 left-10 right-10  z-50 flex items-center justify-between px-8 py-4 ">
-      {/* Logo */}
-      <Link href="/" className="flex items-center shrink-0">
+    <nav className="absolute top-3 left-10 right-10 z-50 flex items-center justify-between px-8 py-1">
+      {/* Logo — hidden when scrolled */}
+      <Link
+        href="/"
+        className={`flex items-center shrink-0 transition-all duration-300 ${
+          isScrolled ? "opacity-0 pointer-events-none" : "opacity-100"
+        }`}
+      >
         <Image
           src="/full-logo-white.svg"
           alt="Numispark"
@@ -31,13 +45,13 @@ const Navbar = () => {
         />
       </Link>
 
-      {/* Center Nav Links */}
-      <ul className="hidden md:flex items-center gap-5 bg-white/5 rounded-full px-6 py-2 border border-white/10">
+      {/* Center Nav Links — always sticky */}
+      <ul className="fixed top-4 right-1/5 z-[70] hidden -translate-x-1/2 items-center gap-1 rounded-full border border-black/8 bg-[#5a5a5a]/92 px-3 py-2 shadow-[0_10px_30px_rgba(0,0,0,0.12)] backdrop-blur-md md:flex">
         {navLinks.map((link) => (
           <li key={link.href}>
             <Link
               href={link.href}
-              className=" text-sm text-white/70 hover:text-white rounded-full transition-colors duration-200 hover:bg-white/10"
+              className="rounded-full px-3 py-2 text-sm text-white/72 transition-colors duration-200 hover:bg-white/8 hover:text-white"
             >
               {link.label}
             </Link>
@@ -45,8 +59,12 @@ const Navbar = () => {
         ))}
       </ul>
 
-      {/* Right Side */}
-      <div className="flex items-center gap-3">
+      {/* Right Side — hidden when scrolled */}
+      <div
+        className={`flex items-center gap-3 transition-all duration-300 ${
+          isScrolled ? "opacity-0 pointer-events-none" : "opacity-100"
+        }`}
+      >
         {/* CTA Button */}
         <Link
           href="/pre-audit"

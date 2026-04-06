@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
+import CtaButton from "./CtaButton";
 
 const faqs = [
   {
@@ -37,7 +37,24 @@ const faqs = [
     answer:
       "Les délais varient selon la complexité du projet. Nous établissons un planning détaillé dès le démarrage avec des jalons clairs. Notre méthode de travail agile nous permet d'anticiper les imprévus et de respecter les engagements pris.",
   },
-];
+] as const;
+
+function FaqToggleIcon({ isOpen }: { isOpen: boolean }) {
+  return (
+    <span
+      className={`relative mt-0.5 h-[15px] w-[15px] shrink-0 text-black/40 transition-transform duration-300 ${
+        isOpen ? "rotate-0" : "group-hover:rotate-180"
+      }`}
+    >
+      <span className="absolute top-1/2 left-0 h-px w-full -translate-y-1/2 bg-current" />
+      <span
+        className={`absolute top-0 left-1/2 h-full w-px -translate-x-1/2 bg-current transition-transform duration-300 ${
+          isOpen ? "scale-y-0" : "scale-y-100"
+        }`}
+      />
+    </span>
+  );
+}
 
 export default function FaqSection() {
   const [openId, setOpenId] = useState<number | null>(null);
@@ -46,59 +63,55 @@ export default function FaqSection() {
     setOpenId((prev) => (prev === id ? null : id));
 
   return (
-    <section className="flex flex-col md:flex-row w-full">
-      {/* ── Left: FAQ ── */}
-      <div className="w-full md:w-[55%] px-8 md:px-14 lg:px-20 py-20 bg-white">
-        {/* Label */}
-        <p className="font-mono text-[11px] tracking-[0.18em] text-black/35 mb-6">
+    <section className="flex w-full flex-col md:flex-row">
+      <div className="w-full bg-white px-8 py-20 md:w-[55%] md:px-14 lg:px-20">
+        <p className="mb-6 font-mono text-[11px] tracking-[0.18em] text-black/35">
           {"{ F.A.Q }"}
         </p>
 
-        {/* Heading */}
-        <h2 className="font-[Neue_Montreal] text-[38px] md:text-[50px] font-medium leading-[1.08] tracking-[-0.02em] text-black mb-12">
+        <h2 className="mb-12 font-[Neue_Montreal] text-[38px] font-medium leading-[1.08] tracking-[-0.02em] text-black md:text-[50px]">
           Questions
           <br />
           fréquemment posées
         </h2>
 
-        {/* Top divider */}
         <div className="h-px bg-black/10" />
 
-        {/* Accordion */}
         <div>
           {faqs.map((faq) => {
             const isOpen = openId === faq.id;
+
             return (
-              <div key={faq.id} className="border-b border-black/10">
+              <div
+                key={faq.id}
+                className={`border-b border-black/10 transition-colors duration-200 ${
+                  isOpen
+                    ? "bg-[linear-gradient(180deg,#f6f9fc_0%,#f3f6fa_100%)]"
+                    : "hover:bg-[linear-gradient(180deg,#f7faff_0%,#eef3f8_100%)]"
+                }`}
+              >
                 <button
                   onClick={() => toggle(faq.id)}
-                  className="w-full flex items-start justify-between gap-6 py-6 text-left"
+                  className={`group flex w-full items-start justify-between gap-6 py-6 text-left transition-all duration-200 ${
+                    isOpen ? "px-3 hover:bg-black/[0.025]" : "hover:px-3"
+                  }`}
                 >
-                  <span className="font-[Neue_Montreal] text-[14px] md:text-[15px] font-normal text-black leading-snug">
+                  <span className="font-[Neue_Montreal] text-[14px] leading-snug font-normal text-black md:text-[15px]">
                     {faq.question}
                   </span>
-                  {/* + rotates 45° to become × when open */}
-                  <span
-                    className={`mt-0.5 shrink-0 text-[10px] leading-none text-black/40 transition-transform duration-300 ${
-                      isOpen ? "rotate-45" : "rotate-0"
-                    }`}
-                  >
-                    <Image
-                      src="/faq-btn.svg"
-                      alt="Toggle answer"
-                      width={15}
-                      height={15}
-                    />
-                  </span>
+                  <FaqToggleIcon isOpen={isOpen} />
                 </button>
 
-                {/* Collapsible answer */}
                 <div
                   className={`grid transition-all duration-300 ease-in-out ${
                     isOpen ? "grid-rows-[1fr] pb-6" : "grid-rows-[0fr]"
                   }`}
                 >
-                  <div className="overflow-hidden">
+                  <div
+                    className={`overflow-hidden transition-colors duration-200 ${
+                      isOpen ? "px-3 hover:bg-black/[0.045]" : ""
+                    }`}
+                  >
                     <p className="font-[Neue_Montreal] text-[13px] leading-[1.78] text-black/40">
                       {faq.answer}
                     </p>
@@ -109,17 +122,12 @@ export default function FaqSection() {
           })}
         </div>
 
-        {/* CTA button */}
         <div className="mt-12">
-          <button className="flex items-center gap-3 px-6 py-3 border border-black/20 rounded-full font-mono text-[11px] tracking-[0.14em] text-black/50 hover:border-black hover:text-black transition-all duration-200">
-            D&apos;AUTRES QUESTIONS
-            <span className="text-[16px] leading-none">+</span>
-          </button>
+          <CtaButton>D&apos;AUTRES QUESTIONS</CtaButton>
         </div>
       </div>
 
-      {/* ── Right: sticky video panel ── */}
-      <div className="hidden md:block md:w-[45%] bg-black self-stretch relative">
+      <div className="relative hidden self-stretch bg-black md:block md:w-[45%]">
         <div className="top-0 h-screen overflow-hidden">
           <video
             src="/faq-video.mp4"
@@ -127,7 +135,7 @@ export default function FaqSection() {
             loop
             muted
             playsInline
-            className="absolute inset-0 w-full h-full object-cover"
+            className="absolute inset-0 h-full w-full object-cover"
           />
         </div>
       </div>

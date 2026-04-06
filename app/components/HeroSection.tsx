@@ -20,7 +20,6 @@ export default function HeroSection({
   imageSrc,
   title,
   description,
-  overlay = true,
   className = "",
 }: HeroSectionProps) {
   return (
@@ -30,7 +29,7 @@ export default function HeroSection({
       {/* Background video */}
       {videoSrc && (
         <video
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute top-[-40%] right-[-25%] w-[180%] h-[160%] object-cover"
           src={videoSrc}
           autoPlay
           loop
@@ -43,14 +42,14 @@ export default function HeroSection({
       {imageSrc && !videoSrc && (
         // eslint-disable-next-line @next/next/no-img-element
         <img
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute top-[-40%] right-[-25%] w-[180%] h-[160%] object-cover"
           src={imageSrc}
           alt=""
         />
       )}
 
       {/* Optional dark overlay */}
-      {overlay && <div className="absolute inset-0 bg-black/30" />}
+      {/* {overlay && <div className="absolute inset-0 bg-black/30" />} */}
 
       {/* Title — anchored bottom-left */}
       <div className="absolute bottom-16 left-12 max-w-xl z-10">

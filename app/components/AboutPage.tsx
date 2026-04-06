@@ -1,9 +1,9 @@
 "use client";
 
 import Link from "next/link";
+import CtaButton from "./CtaButton";
 import { useState } from "react";
 import TestimonialsSection from "./TestimonialsSection";
-import Footer from "./Footer";
 import Tools from "./Tools";
 
 // ─── Figma asset URLs (temporary ~7 days – replace with local files) ─────────
@@ -72,21 +72,95 @@ const FOUNDERS = [
     name: "Karandeep",
     role: "Fondateur & Directeur Général",
     photo: P.karandeep,
+    bio: "Expert en développement et stratégie digitale, ancienne expérience en startups parisiennes.",
+    hoverMedia: "/bg-video.mp4",
   },
-  { name: "Thomas", role: "Co-fondateur & Chef de projet", photo: P.thomas },
+  {
+    name: "Thomas",
+    role: "Co-fondateur & Chef de projet",
+    photo: P.thomas,
+    bio: "Pilotage produit, coordination d'équipes et structuration de projets digitaux sur mesure.",
+    hoverMedia: "/bg-video.mp4",
+  },
 ];
 const TECH_TEAM = [
-  { name: "Samuel", role: "Lead Développeur", photo: P.samuel },
-  { name: "Lucas", role: "Développeur Backend", photo: P.lucas },
-  { name: "Mathéo", role: "Développeur Frontend", photo: P.matheo },
-  { name: "Antoine", role: "Développeur Full Stack", photo: P.antoine },
-  { name: "Louis", role: "Développeur Mobile", photo: P.louis },
+  {
+    name: "Samuel",
+    role: "Lead Développeur",
+    photo: P.samuel,
+    bio: "Architecture technique, revue de code et accompagnement des projets les plus ambitieux.",
+    hoverMedia: "/bg-video.mp4",
+  },
+  {
+    name: "Lucas",
+    role: "Développeur Backend",
+    photo: P.lucas,
+    bio: "Conçoit des bases solides, des APIs fiables et des systèmes pensés pour durer.",
+    hoverMedia: "/bg-video.mp4",
+  },
+  {
+    name: "Mathéo",
+    role: "Développeur Frontend",
+    photo: P.matheo,
+    bio: "Transforme les maquettes en interfaces fluides, rapides et agréables à utiliser.",
+    hoverMedia: "/bg-video.mp4",
+  },
+  {
+    name: "Antoine",
+    role: "Développeur Full Stack",
+    photo: P.antoine,
+    bio: "Intervient de l'interface à la logique métier pour connecter chaque brique du produit.",
+    hoverMedia: "/bg-video.mp4",
+  },
+  {
+    name: "Louis",
+    role: "Développeur Mobile",
+    photo: P.louis,
+    bio: "Développe des expériences mobiles robustes, natives ou cross-platform, centrées utilisateur.",
+    hoverMedia: "/bg-video.mp4",
+  },
 ];
 const DESIGN_TEAM = [
-  { name: "Charlotte", role: "Designer Graphique & UI/UX", photo: P.charlotte },
-  { name: "Amélie", role: "Experte SEO", photo: P.amelie },
-  { name: "Sophia", role: "Spécialiste Marketing Digital", photo: P.sophia },
+  {
+    name: "Charlotte",
+    role: "Designer Graphique & UI/UX",
+    photo: P.charlotte,
+    bio: "Imagine des univers visuels cohérents et des interfaces pensées pour guider l'utilisateur.",
+    hoverMedia: "/bg-video.mp4",
+  },
+  {
+    name: "Amélie",
+    role: "Experte SEO",
+    photo: P.amelie,
+    bio: "Travaille la visibilité organique avec une approche stratégique, éditoriale et technique.",
+    hoverMedia: "/bg-video.mp4",
+  },
+  {
+    name: "Sophia",
+    role: "Spécialiste Marketing Digital",
+    photo: P.sophia,
+    bio: "Active les bons leviers d'acquisition pour transformer l'attention en croissance mesurable.",
+    hoverMedia: "/bg-video.mp4",
+  },
 ];
+
+const TEAM_SECTIONS = {
+  founders: {
+    title: "Les fondateurs",
+    description:
+      "À l'origine du projet, deux profils complémentaires réunis par la même vision : créer des expériences digitales utiles, performantes et élégantes. Entre stratégie, gestion de projet et expertise technique, ils accompagnent chaque client avec exigence, transparence et ambition.",
+  },
+  tech: {
+    title: "Équipe technique",
+    description:
+      "Notre équipe technique conçoit des solutions robustes, évolutives et parfaitement optimisées. Du développement backend aux interfaces les plus fluides, chaque ligne de code est pensée pour la performance, la sécurité et la scalabilité. Nous privilégions des technologies fiables et modernes pour garantir des produits durables.",
+  },
+  design: {
+    title: "Équipe Design\n& Marketing",
+    description:
+      "Créativité et stratégie avancent main dans la main. Nous concevons des identités fortes, des interfaces intuitives et des expériences centrées utilisateur. En parallèle, nous mettons en place des stratégies marketing précises pour assurer visibilité, engagement et croissance. Chaque projet est pensé pour séduire autant qu'il convertit.",
+  },
+} as const;
 
 const SECTORS = [
   {
@@ -126,35 +200,94 @@ function TeamCard({
   name,
   role,
   photo,
+  bio,
+  hoverMedia,
 }: {
   name: string;
   role: string;
   photo: string;
+  bio: string;
+  hoverMedia?: string;
 }) {
+  const isVideoHoverMedia = hoverMedia
+    ? /\.(mp4|webm|ogg)$/i.test(hoverMedia)
+    : false;
+
   return (
     <div
-      className="relative overflow-hidden bg-[#1a1a1a] group"
+      className="group relative overflow-hidden bg-[#1a1a1a]"
       style={{ aspectRatio: "478 / 614" }}
     >
+      {/* Default photo – grayscale, fades out on hover */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={photo}
         alt={name}
-        className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+        className="absolute inset-0 h-full w-full object-cover grayscale transition-all duration-500 ease-out group-hover:scale-[1.03] group-hover:opacity-0"
       />
-      {/* Gradient */}
-      <div className="absolute inset-x-0 bottom-0 h-[50%] bg-linear-to-t from-black/75 to-transparent" />
-      {/* Name + role */}
-      <div className="absolute bottom-8 left-8 text-white">
-        <p className="font-[Neue_Montreal] text-[22px] font-medium leading-tight">
-          {name}
-        </p>
-        <p className="font-mono text-[12px] text-white/50 mt-1">{role}</p>
+      {/* Hover media – GIF / video that appears on hover */}
+      {hoverMedia &&
+        (isVideoHoverMedia ? (
+          <video
+            src={hoverMedia}
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 h-full w-full scale-[1.06] object-cover opacity-0 transition-all duration-500 ease-out group-hover:scale-100 group-hover:opacity-100"
+          />
+        ) : (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={hoverMedia}
+            alt=""
+            aria-hidden="true"
+            className="absolute inset-0 h-full w-full scale-[1.06] object-cover opacity-0 transition-all duration-500 ease-out group-hover:scale-100 group-hover:opacity-100"
+          />
+        ))}
+      <div className="absolute inset-0 bg-black/10 transition-colors duration-500 ease-out group-hover:bg-black/24" />
+      <div className="absolute inset-x-0 bottom-0 h-[34%] bg-linear-to-t from-black/90 via-black/36 to-transparent transition-all duration-500 ease-out group-hover:h-[54%] group-hover:from-black/94 group-hover:via-black/58" />
+      <div className="absolute inset-x-0 bottom-0 p-5 text-white sm:p-6">
+        <div className="max-w-[18rem]">
+          <p className="font-[Neue_Montreal] text-[20px] font-medium leading-tight sm:text-[21px]">
+            {name}
+          </p>
+          <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.14em] text-white/65 sm:text-[11px]">
+            {role}
+          </p>
+          <div className="max-h-0 overflow-hidden opacity-0 transition-all duration-500 ease-out group-hover:mt-4 group-hover:max-h-24 group-hover:opacity-100">
+            <p className="max-w-[16rem] text-[14px] leading-[1.5] text-white/92">
+              {bio}
+            </p>
+          </div>
+        </div>
       </div>
-      {/* Teal cross (Figma detail) */}
-      <span className="absolute bottom-9 right-8 text-[#05ffe0] text-[22px] font-thin leading-none">
+      <span className="absolute bottom-6 right-5 z-10 text-[#05ffe0] text-[22px] font-thin leading-none transition-transform duration-500 ease-out group-hover:rotate-45 sm:bottom-7 sm:right-6">
         +
       </span>
+    </div>
+  );
+}
+
+function TeamTextCard({
+  title,
+  description,
+  className = "",
+}: {
+  title: string;
+  description: string;
+  className?: string;
+}) {
+  return (
+    <div
+      className={`flex flex-col justify-center bg-white px-0 py-4 sm:px-2 lg:px-4 ${className}`}
+    >
+      <h3 className="whitespace-pre-line font-[Neue_Montreal] text-[28px] font-medium leading-[1.15] text-black">
+        {title}
+      </h3>
+      <p className="mt-5 max-w-[17rem] font-[Neue_Montreal] text-[16px] leading-[1.72] text-[#7f7f7f]">
+        {description}
+      </p>
     </div>
   );
 }
@@ -190,7 +323,7 @@ export default function AboutPage() {
 
         {/* Hero title – pinned toward the bottom */}
         <div className="relative z-10 flex-1 flex items-end px-10 md:px-20 pb-28 pt-40">
-          <h1 className="font-[Neue_Montreal] text-[52px] md:text-[68px] lg:text-[80px] font-medium leading-[1.05] text-white max-w-5xl">
+          <h1 className="font-[Neue_Montreal] text-[52px]  lg:text-[60px] font-medium leading-[1.05] text-white max-w-5xl">
             Une agence digitale née pour construire{" "}
             <span className="text-[#05ffe0]">des produits qui performent.</span>
           </h1>
@@ -202,7 +335,7 @@ export default function AboutPage() {
       ════════════════════════════════════════════════════════════════════ */}
       <section id="agence" className="bg-white overflow-hidden">
         {/* ── Sticky internal section nav ── */}
-        <div className="sticky top-0 z-20 bg-white/80 backdrop-blur-sm border-b border-black/5">
+        {/* <div className="sticky top-0 z-20 bg-white/80 backdrop-blur-sm border-b border-black/5">
           <div className="px-10 md:px-20">
             <div className="flex items-center gap-1 py-3">
               {[
@@ -222,33 +355,21 @@ export default function AboutPage() {
               ))}
             </div>
           </div>
-        </div>
+        </div> */}
 
         {/* ── Content ── */}
-        <div className="px-10 md:px-20 py-16">
+        <div className="px-10 md:px-10 pt-16">
           <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-start">
             {/* Left: heading + large decorative image */}
             <div className="lg:w-[40%]">
               <h2 className="font-[Neue_Montreal] text-[48px] font-medium leading-tight text-black mb-8">
                 L&apos;agence
               </h2>
-              {/* Decorative 3-D shapes image */}
-              <div
-                className="relative w-full overflow-hidden"
-                style={{ aspectRatio: "4/5" }}
-              >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={AGENCE_IMG}
-                  alt=""
-                  className="w-full h-full object-cover"
-                />
-              </div>
             </div>
 
             {/* Right: description + CTA + 2×2 stats */}
             <div className="lg:w-[60%] flex flex-col gap-6 pt-0 lg:pt-2">
-              <p className="font-[Neue_Montreal] text-[17px] leading-[1.75] text-black/60">
+              <p className="font-[Neue_Montreal] text-[17px] leading-[1.75] text-black">
                 Créée en 2022 par Karandeep et Thomas, Numispark est née
                 d&apos;un constat simple&nbsp;: les TPE et PME françaises
                 méritent la même expertise technique que les grandes
@@ -256,27 +377,38 @@ export default function AboutPage() {
                 adaptés.
               </p>
               <div>
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center gap-10 px-6 py-4 border border-black rounded-full font-mono text-[11px] tracking-widest text-black uppercase hover:bg-[#05ffe0] hover:border-[#05ffe0] transition-all duration-200"
+                <CtaButton href="/contact">Planifier un appel</CtaButton>
+              </div>
+            </div>
+          </div>
+          <div className="flex gap-10 items-center justify-center mt-6">
+            {/* Decorative 3-D shapes image */}
+            <div
+              className="relative w-full h-full overflow-y-visible"
+              style={{ aspectRatio: "4/5" }}
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={AGENCE_IMG}
+                alt=""
+                className="w-full h-full object-cover"
+              />
+            </div>
+            {/* 2 × 2 stats grid */}
+            <div className="grid grid-cols-2 gap-x-10 gap-y-0   border-black/8 ">
+              {STATS.map((s) => (
+                <div
+                  key={s.value}
+                  className="group px-4 pt-6 pb-4 border-t-2 border-[#E0E0E0] hover:border-black transition-all duration-600 bg-[linear-gradient(127deg,transparent_0%,transparent_100%)] hover:bg-[linear-gradient(127deg,#E7ECF2_3.71%,rgba(231,236,242,0)_40.97%)]"
                 >
-                  Planifier un appel
-                  <span className="text-xs leading-none opacity-40">←</span>
-                </Link>
-              </div>
-              {/* 2 × 2 stats grid */}
-              <div className="grid grid-cols-2 gap-x-10 gap-y-10 mt-4 border-t border-black/8 pt-10">
-                {STATS.map((s) => (
-                  <div key={s.value}>
-                    <p className="font-[Neue_Montreal] text-[56px] font-medium text-black leading-none mb-3">
-                      {s.value}
-                    </p>
-                    <p className="font-[Neue_Montreal] text-[13px] leading-[1.6] text-black/40">
-                      {s.desc}
-                    </p>
-                  </div>
-                ))}
-              </div>
+                  <p className="font-[Neue_Montreal] text-[56px] font-medium text-black leading-none mb-3 transition-all duration-600 group-hover:translate-y-1">
+                    {s.value}
+                  </p>
+                  <p className="font-[Neue_Montreal] text-[13px] leading-[1.6] text-black/40 group-hover:text-black transition-all duration-600 group-hover:-translate-y-1">
+                    {s.desc}
+                  </p>
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -285,13 +417,13 @@ export default function AboutPage() {
       {/* ════════════════════════════════════════════════════════════════════
           3. EXPERTISES
       ════════════════════════════════════════════════════════════════════ */}
-      <section className="py-24 bg-white">
+      <section className=" bg-white">
         <div className="h-px bg-[#dadada] mb-0" />
-        <div className="px-10 md:px-20 pt-16">
+        <div className="">
           <div className="flex flex-col lg:flex-row gap-16 lg:gap-24">
             {/* Left: lists */}
-            <div className="lg:w-[45%]">
-              <h2 className="font-[Neue_Montreal] text-[52px] font-medium leading-tight text-black mb-14">
+            <div className="lg:w-[45%] mt-10 px-16">
+              <h2 className="font-[Neue_Montreal] text-[42px] font-medium leading-tight text-black mb-14">
                 Expertises
               </h2>
 
@@ -301,8 +433,8 @@ export default function AboutPage() {
               </p>
               <div className="mb-12">
                 {WEB_SKILLS.map((skill) => (
-                  <div key={skill} className="border-b border-black/8 py-4">
-                    <p className="font-[Neue_Montreal] text-[26px] text-black">
+                  <div key={skill} className="group py-0.5 w-full cursor-default">
+                    <p className="inline-block font-[Neue_Montreal] text-[20px] text-black transition-all duration-500 ease-out group-hover:translate-x-[22px] group-hover:bg-[linear-gradient(90deg,#05D9FF_0%,#05FFE0_38%,#000000_82%)] group-hover:bg-clip-text group-hover:text-transparent motion-reduce:transform-none">
                       {skill}
                     </p>
                   </div>
@@ -315,8 +447,8 @@ export default function AboutPage() {
               </p>
               <div>
                 {MOBILE_SKILLS.map((skill) => (
-                  <div key={skill} className="border-b border-black/8 py-4">
-                    <p className="font-[Neue_Montreal] text-[26px] text-black">
+                  <div key={skill} className="group py-0.5 w-full cursor-default">
+                    <p className="inline-block font-[Neue_Montreal] text-[20px] text-black transition-all duration-500 ease-out group-hover:translate-x-[22px] group-hover:bg-[linear-gradient(90deg,#05D9FF_0%,#05FFE0_38%,#000000_82%)] group-hover:bg-clip-text group-hover:text-transparent motion-reduce:transform-none">
                       {skill}
                     </p>
                   </div>
@@ -334,10 +466,10 @@ export default function AboutPage() {
             </div>
 
             {/* Right: sticky decorative image */}
-            <div className="lg:w-[55%]">
+            <div className="lg:w-[55%] h-full">
               <div
-                className="sticky top-10 overflow-hidden bg-[#eee]"
-                style={{ height: "80vh", maxHeight: "700px" }}
+                className=" overflow-hidden bg-[#eee]"
+                style={{ height: "155vh", maxHeight: "1200px" }}
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
@@ -354,122 +486,96 @@ export default function AboutPage() {
       {/* ════════════════════════════════════════════════════════════════════
           4. TEAM
       ════════════════════════════════════════════════════════════════════ */}
-      <section className="py-24 bg-white">
+      <section id="team" className="bg-white">
         <div className="h-px bg-[#dadada] mb-0" />
-        <div className="px-10 md:px-20 pt-16">
-          {/* Header row */}
-          <p className="font-mono text-[12px] tracking-widest text-black/30 mb-4">
+        <div className="px-10 md:px-20 pt-16 pb-8">
+          <p className="mb-4 font-mono text-[12px] tracking-widest text-black/30">
             {"{ Team Numispark }"}
           </p>
-          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-14">
-            <h2 className="font-[Neue_Montreal] text-[52px] font-medium leading-tight text-black">
+          <div className="mb-14 flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+            <h2 className="font-[Neue_Montreal] text-[35px] font-medium leading-tight text-black">
               Notre équipe
               <br />
               d&apos;experts full remote
             </h2>
-            {/* Filter pill tabs */}
-            <div className="flex items-center bg-[#f1f1f1] rounded-full p-1 shrink-0">
-              {(["all", "tech", "design"] as TeamFilter[]).map((f) => {
-                const labels: Record<TeamFilter, string> = {
-                  all: "Toute l'équipe",
-                  tech: "Équipe technique",
-                  design: "Équipe Design & Marketing",
-                };
-                return (
-                  <button
-                    key={f}
-                    onClick={() => setTeamFilter(f)}
-                    className={`px-5 py-3 rounded-full font-mono text-[11px] tracking-widest whitespace-nowrap transition-all duration-200 ${
-                      teamFilter === f
-                        ? "bg-[#101010] text-white"
-                        : "text-black hover:text-black/60"
-                    }`}
-                  >
-                    {labels[f].toUpperCase()}
-                  </button>
-                );
-              })}
+            <div className="shrink-0 rounded-full bg-[#f1f1f1] p-1">
+              <div className="flex items-center">
+                {(["all", "tech", "design"] as TeamFilter[]).map((f) => {
+                  const labels: Record<TeamFilter, string> = {
+                    all: "Toute l'équipe",
+                    tech: "Équipe technique",
+                    design: "Équipe Design & Marketing",
+                  };
+                  return (
+                    <button
+                      key={f}
+                      onClick={() => setTeamFilter(f)}
+                      className={`rounded-full px-5 py-3 font-mono text-[11px] tracking-widest whitespace-nowrap transition-all duration-200 ${
+                        teamFilter === f
+                          ? "bg-[#101010] text-white"
+                          : "text-black hover:text-black/60"
+                      }`}
+                    >
+                      {labels[f].toUpperCase()}
+                    </button>
+                  );
+                })}
+              </div>
             </div>
           </div>
 
-          {/* ── Founders ── */}
           {teamFilter === "all" && (
-            <div className="mb-24">
-              <div className="flex flex-col lg:flex-row gap-12 items-start">
-                <div className="lg:w-[35%] lg:sticky lg:top-10">
-                  <h3 className="font-[Neue_Montreal] text-[30px] font-medium text-black mb-4">
-                    Les fondateurs
-                  </h3>
-                  <p className="font-[Neue_Montreal] text-[18px] leading-[1.72] text-[#7f7f7f]">
-                    À l&apos;origine du projet, deux profils complémentaires
-                    réunis par la même vision&nbsp;: créer des expériences
-                    digitales utiles, performantes et élégantes. Entre
-                    stratégie, gestion de projet et expertise technique, ils
-                    accompagnent chaque client avec exigence, transparence et
-                    ambition.
-                  </p>
-                </div>
-                <div className="lg:w-[65%] grid grid-cols-2 gap-6">
-                  {FOUNDERS.map((m) => (
-                    <TeamCard key={m.name} {...m} />
-                  ))}
-                </div>
-              </div>
+            <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+              <TeamTextCard
+                title={TEAM_SECTIONS.founders.title}
+                description={TEAM_SECTIONS.founders.description}
+              />
+              <TeamCard {...FOUNDERS[0]} />
+              <TeamCard {...FOUNDERS[1]} />
+              <TeamCard {...TECH_TEAM[0]} />
+              <TeamCard {...TECH_TEAM[1]} />
+              <TeamTextCard
+                title={TEAM_SECTIONS.tech.title}
+                description={TEAM_SECTIONS.tech.description}
+              />
+              <TeamCard {...TECH_TEAM[2]} />
+              <TeamCard {...TECH_TEAM[3]} />
+              <TeamCard {...TECH_TEAM[4]} />
+              <TeamTextCard
+                title={TEAM_SECTIONS.design.title}
+                description={TEAM_SECTIONS.design.description}
+              />
+              <TeamCard {...DESIGN_TEAM[0]} />
+              <TeamCard {...DESIGN_TEAM[1]} />
+              <div className="hidden xl:block" />
+              <TeamCard {...DESIGN_TEAM[2]} />
             </div>
           )}
 
-          {/* ── Technical team ── */}
-          {(teamFilter === "all" || teamFilter === "tech") && (
-            <div className="mb-24">
-              <div className="flex flex-col lg:flex-row gap-12 items-start">
-                {/* Cards on left */}
-                <div className="lg:w-[65%] grid grid-cols-2 md:grid-cols-3 gap-6">
-                  {TECH_TEAM.map((m) => (
-                    <TeamCard key={m.name} {...m} />
-                  ))}
-                </div>
-                {/* Label on right */}
-                <div className="lg:w-[35%] lg:sticky lg:top-24">
-                  <h3 className="font-[Neue_Montreal] text-[30px] font-medium text-black mb-4">
-                    Équipe technique
-                  </h3>
-                  <p className="font-[Neue_Montreal] text-[18px] leading-[1.72] text-[#7f7f7f]">
-                    Notre équipe technique conçoit des solutions robustes,
-                    évolutives et parfaitement optimisées. Du développement
-                    backend aux interfaces les plus fluides, chaque ligne de
-                    code est pensée pour la performance, la sécurité et la
-                    scalabilité. Nous privilégions des technologies fiables et
-                    modernes.
-                  </p>
-                </div>
-              </div>
+          {teamFilter === "tech" && (
+            <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 ">
+              <TeamTextCard
+                title={TEAM_SECTIONS.tech.title}  
+                description={TEAM_SECTIONS.tech.description}
+              />
+              <TeamCard {...TECH_TEAM[0]} />
+              <TeamCard {...TECH_TEAM[1]} />
+              <TeamCard {...TECH_TEAM[2]} />
+              <TeamCard {...TECH_TEAM[3]} />
+              <TeamCard {...TECH_TEAM[4]} />
             </div>
           )}
 
-          {/* ── Design & Marketing ── */}
-          {(teamFilter === "all" || teamFilter === "design") && (
-            <div>
-              <div className="flex flex-col lg:flex-row gap-12 items-start">
-                <div className="lg:w-[35%] lg:sticky lg:top-10">
-                  <h3 className="font-[Neue_Montreal] text-[30px] font-medium text-black mb-4">
-                    Équipe Design
-                    <br />
-                    &amp; Marketing
-                  </h3>
-                  <p className="font-[Neue_Montreal] text-[18px] leading-[1.72] text-[#7f7f7f]">
-                    Créativité et stratégie avancent main dans la main. Nous
-                    concevons des identités fortes, des interfaces intuitives et
-                    des expériences centrées utilisateur. En parallèle, nous
-                    mettons en place des stratégies marketing précises pour
-                    assurer visibilité, engagement et croissance.
-                  </p>
-                </div>
-                <div className="lg:w-[65%] grid grid-cols-2 md:grid-cols-3 gap-6">
-                  {DESIGN_TEAM.map((m) => (
-                    <TeamCard key={m.name} {...m} />
-                  ))}
-                </div>
-              </div>
+          {teamFilter === "design" && (
+            <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+              <TeamTextCard
+                title={TEAM_SECTIONS.design.title}
+                description={TEAM_SECTIONS.design.description}
+              />
+              <TeamCard {...DESIGN_TEAM[0]} />
+              <TeamCard {...DESIGN_TEAM[1]} />
+              <div className="hidden xl:block" />
+              <TeamCard {...DESIGN_TEAM[2]} />
             </div>
           )}
         </div>

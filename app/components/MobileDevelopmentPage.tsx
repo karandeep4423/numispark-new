@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
+import CtaButton from "./CtaButton";
 import ProcessTimelineSection, {
   type ProcessStep,
 } from "./ProcessTimelineSection";
@@ -574,20 +575,8 @@ export default function MobileDevelopmentPage() {
             sur-mesure à Caen en Normandie
           </h1>
           <div className="mt-8 flex flex-wrap gap-3 sm:gap-4">
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-4 rounded-full bg-white px-6 py-4 font-mono text-[11px] uppercase tracking-[0.18em] text-black transition-colors duration-300 hover:bg-[#05ffe0]"
-            >
-              Consultation gratuite
-              <span className="text-[15px] leading-none">+</span>
-            </Link>
-            <Link
-              href="/services"
-              className="inline-flex items-center gap-4 rounded-full border border-white/50 bg-transparent px-6 py-4 font-mono text-[11px] uppercase tracking-[0.18em] text-white transition-colors duration-300 hover:border-white hover:bg-white/10"
-            >
-              Découvrez nos services
-              <span className="text-[15px] leading-none">+</span>
-            </Link>
+            <CtaButton href="/contact" variant="filled-white">Consultation gratuite</CtaButton>
+            <CtaButton href="/services" variant="outline-light">Découvrez nos services</CtaButton>
           </div>
         </div>
       </section>

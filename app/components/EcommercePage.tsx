@@ -1,11 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
+import CtaButton from "./CtaButton";
 import ProcessTimelineSection, {
   type ProcessStep,
 } from "./ProcessTimelineSection";
 import NosProjectsSection from "./NosProjectsSection";
 import FaqSection from "./FaqSection";
+import Tools from "./Tools";
 
 type EcommerceServiceSection = {
   title: string;
@@ -13,7 +15,13 @@ type EcommerceServiceSection = {
   blurb?: string;
   media:
     | { kind?: "image" | "video"; src: string; alt: string }
-    | { kind: "color"; bg: string; logoSrc: string; logoAlt: string; alt: string };
+    | {
+        kind: "color";
+        bg: string;
+        logoSrc: string;
+        logoAlt: string;
+        alt: string;
+      };
   items: Array<{
     number: string;
     title: string;
@@ -47,13 +55,25 @@ const SERVICE_SECTIONS: EcommerceServiceSection[] = [
       alt: "Boutique e-commerce sur-mesure",
     },
     items: [
-      { number: "01", title: "Architectures e-commerce robustes et évolutives" },
-      { number: "02", title: "Design unique et parfaitement aligné avec votre identité" },
+      {
+        number: "01",
+        title: "Architectures e-commerce robustes et évolutives",
+      },
+      {
+        number: "02",
+        title: "Design unique et parfaitement aligné avec votre identité",
+      },
       { number: "03", title: "Expérience d'achat fluide et intuitive" },
       { number: "04", title: "Fonctionnalités avancées et personnalisées" },
       { number: "05", title: "Optimisation SEO intégrée dès la conception" },
-      { number: "06", title: "Performances et vitesse de chargement optimales" },
-      { number: "07", title: "Compatibilité multi-appareils (responsive design)" },
+      {
+        number: "06",
+        title: "Performances et vitesse de chargement optimales",
+      },
+      {
+        number: "07",
+        title: "Compatibilité multi-appareils (responsive design)",
+      },
     ],
   },
   {
@@ -65,7 +85,7 @@ const SERVICE_SECTIONS: EcommerceServiceSection[] = [
     media: {
       kind: "color",
       bg: "#fadeeb",
-      logoSrc: "/ecommerce/logo-prestashop.png",
+      logoSrc: "/ecommerce/presta-shop-logo.png",
       logoAlt: "PrestaShop",
       alt: "Développement PrestaShop",
     },
@@ -76,7 +96,10 @@ const SERVICE_SECTIONS: EcommerceServiceSection[] = [
       { number: "04", title: "Migration et mise à niveau de versions" },
       { number: "05", title: "Optimisation des performances" },
       { number: "06", title: "Intégration multi-boutiques et multilingue" },
-      { number: "07", title: "Connexion avec vos outils métier (ERP, CRM, logistique)" },
+      {
+        number: "07",
+        title: "Connexion avec vos outils métier (ERP, CRM, logistique)",
+      },
     ],
   },
   {
@@ -136,7 +159,10 @@ const SERVICE_SECTIONS: EcommerceServiceSection[] = [
     items: [
       { number: "01", title: "Audit complet de votre plateforme actuelle" },
       { number: "02", title: "Recommandations stratégiques et techniques" },
-      { number: "03", title: "Migration de données (produits, clients, commandes)" },
+      {
+        number: "03",
+        title: "Migration de données (produits, clients, commandes)",
+      },
       { number: "04", title: "Refonte UX/UI pour maximiser les conversions" },
       { number: "05", title: "Préservation du référencement et redirection" },
       { number: "06", title: "Transition sans interruption d'activité" },
@@ -154,13 +180,22 @@ const SERVICE_SECTIONS: EcommerceServiceSection[] = [
       alt: "Optimisation e-commerce et conversion",
     },
     items: [
-      { number: "01", title: "Analyse des parcours d'achat et points de friction" },
+      {
+        number: "01",
+        title: "Analyse des parcours d'achat et points de friction",
+      },
       { number: "02", title: "Optimisation du tunnel de conversion" },
       { number: "03", title: "A/B testing sur les éléments clés" },
       { number: "04", title: "Amélioration de l'expérience mobile" },
       { number: "05", title: "Optimisation des fiches produits" },
-      { number: "06", title: "Mise en place de stratégies cross-selling et upselling" },
-      { number: "07", title: "Analyse et amélioration continue basée sur les données" },
+      {
+        number: "06",
+        title: "Mise en place de stratégies cross-selling et upselling",
+      },
+      {
+        number: "07",
+        title: "Analyse et amélioration continue basée sur les données",
+      },
     ],
   },
 ];
@@ -168,8 +203,11 @@ const SERVICE_SECTIONS: EcommerceServiceSection[] = [
 const ECOMMERCE_TYPE_SECTIONS: EcommerceTypeSection[] = [
   {
     title: "E-commerce B2C",
-    description:
-      "Solutions optimisées pour la vente aux particuliers",
+    description: "Solutions optimisées pour la vente aux particuliers",
+     media: {
+      src: "/ecommerce/ecommerce-b2c.svg",
+      alt: "E-commerce B2C — vente aux particuliers",
+    },
     items: [
       "Catalogues produits attractifs",
       "Parcours d'achat simplifiés",
@@ -182,8 +220,7 @@ const ECOMMERCE_TYPE_SECTIONS: EcommerceTypeSection[] = [
   },
   {
     title: "E-commerce B2B",
-    description:
-      "Plateformes spécialisées pour la vente aux professionnels",
+    description: "Plateformes spécialisées pour la vente aux professionnels",
     media: {
       src: "/ecommerce/section-b2b.jpg",
       alt: "E-commerce B2B — vente aux professionnels",
@@ -202,6 +239,10 @@ const ECOMMERCE_TYPE_SECTIONS: EcommerceTypeSection[] = [
     title: "Marketplaces & Plateformes multi-vendeurs",
     description:
       "Solutions pour créer votre propre plateforme de mise en relation",
+      media: {
+      src: "/ecommerce/marketplaces.svg",
+      alt: "Marketplaces & Plateformes multi-vendeurs",
+    },
     items: [
       "Gestion des vendeurs et commissionnement",
       "Système de notation et avis",
@@ -214,8 +255,11 @@ const ECOMMERCE_TYPE_SECTIONS: EcommerceTypeSection[] = [
   },
   {
     title: "E-commerce international",
-    description:
-      "Boutiques optimisées pour la vente à l'international",
+    description: "Boutiques optimisées pour la vente à l'international",
+      media: {
+      src: "/ecommerce/ecom-international.svg",
+      alt: "E-commerce international — vente à l'international",
+    },
     items: [
       "Multi-devises et multi-langues",
       "Adaptation aux spécificités locales",
@@ -261,12 +305,6 @@ const PROCESS_STEPS: ProcessStep[] = [
   },
 ];
 
-const PLATFORM_LOGOS = [
-  { src: "/ecommerce/logo-woocommerce.png", alt: "WooCommerce", width: 160 },
-  { src: "/ecommerce/logo-shopify.png", alt: "Shopify", width: 120 },
-  { src: "/ecommerce/logo-prestashop.png", alt: "PrestaShop", width: 150 },
-  { src: "/ecommerce/logo-bigcommerce.png", alt: "BigCommerce", width: 160 },
-];
 
 const WHY_CHOOSE: WhyChooseCard[] = [
   {
@@ -275,14 +313,13 @@ const WHY_CHOOSE: WhyChooseCard[] = [
     description:
       "Notre équipe combine expertise technique et compréhension des enjeux business du e-commerce pour créer des solutions qui génèrent des résultats concrets.",
     icon: (
-      <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path
-          d="M30 5L32.5 22.5L47 15L37 28L55 30L37 32L47 45L32.5 37.5L30 55L27.5 37.5L13 45L23 32L5 30L23 28L13 15L27.5 22.5Z"
-          stroke="black"
-          strokeWidth="1.4"
-          strokeLinejoin="round"
-        />
-      </svg>
+      <Image
+        src="/ecommerce/expertise-icon.svg"
+        alt="Expertise e-commerce complète"
+        width={60}
+        height={60}
+        unoptimized
+      />
     ),
   },
   {
@@ -291,14 +328,14 @@ const WHY_CHOOSE: WhyChooseCard[] = [
     description:
       "Nous ne nous contentons pas de créer des sites beaux, mais des plateformes qui convertissent vos visiteurs en clients grâce à des parcours d'achat optimisés.",
     icon: (
-      <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path
-          d="M6 30C6 30 15.5 12 30 12C44.5 12 54 30 54 30C54 30 44.5 48 30 48C15.5 48 6 30 6 30Z"
-          stroke="black"
-          strokeWidth="1.4"
-        />
-        <circle cx="30" cy="30" r="8" stroke="black" strokeWidth="1.4" />
-      </svg>
+      <Image
+        src="/ecommerce/conversion-icon.svg"
+        alt="Focus sur la conversion"
+        width={60}
+        height={60}
+        unoptimized
+      />
+
     ),
   },
   {
@@ -307,19 +344,14 @@ const WHY_CHOOSE: WhyChooseCard[] = [
     description:
       "Nos solutions sont conçues pour évoluer avec votre business, de vos premiers clients à des volumes de commandes importants, sans compromettre les performances.",
     icon: (
-      <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path
-          d="M7 53H22V39H37V25H52V11"
-          stroke="black"
-          strokeWidth="1.4"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path d="M7 39H22" stroke="black" strokeWidth="1.4" strokeLinecap="round" />
-        <path d="M22 53V39" stroke="black" strokeWidth="1.4" strokeLinecap="round" />
-        <path d="M37 39V25" stroke="black" strokeWidth="1.4" strokeLinecap="round" />
-        <path d="M52 25V11" stroke="black" strokeWidth="1.4" strokeLinecap="round" />
-      </svg>
+      <Image
+        src="/ecommerce/scalability-icon.svg"
+        alt="Évolutivité et scalabilité"
+        width={60}
+        height={60}
+        unoptimized
+      />
+
     ),
   },
   {
@@ -328,15 +360,13 @@ const WHY_CHOOSE: WhyChooseCard[] = [
     description:
       "Nous implémentons les standards les plus stricts en matière de sécurité des paiements (PCI-DSS) et de protection des données (RGPD) pour une totale tranquillité.",
     icon: (
-      <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="30" cy="30" r="9" stroke="black" strokeWidth="1.4" />
-        <path
-          d="M30 8V12M30 48V52M52 30H48M12 30H8M45.5 14.5L42.7 17.3M17.3 42.7L14.5 45.5M45.5 45.5L42.7 42.7M17.3 17.3L14.5 14.5"
-          stroke="black"
-          strokeWidth="1.4"
-          strokeLinecap="round"
-        />
-      </svg>
+      <Image
+        src="/ecommerce/security-icon.svg"
+        alt="Sécurité et conformité"
+        width={60}
+        height={60}
+        unoptimized
+      />  
     ),
   },
   {
@@ -345,17 +375,23 @@ const WHY_CHOOSE: WhyChooseCard[] = [
     description:
       "Nos décisions sont guidées par les données, avec mise en place d'outils d'analyse permettant de mesurer précisément vos performances et d'identifier les opportunités.",
     icon: (
-      <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="8" y="34" width="10" height="18" stroke="black" strokeWidth="1.4" strokeLinejoin="round" />
-        <rect x="24" y="24" width="10" height="28" stroke="black" strokeWidth="1.4" strokeLinejoin="round" />
-        <rect x="40" y="14" width="10" height="38" stroke="black" strokeWidth="1.4" strokeLinejoin="round" />
-        <line x1="5" y1="52" x2="55" y2="52" stroke="black" strokeWidth="1.4" strokeLinecap="round" />
-      </svg>
+      <Image
+        src="/ecommerce/data-driven-icon.svg"
+        alt="Approche data-driven"
+        width={60}
+        height={60}
+        unoptimized
+      />
+
     ),
   },
 ];
 
-function EcommerceServiceMedia({ media }: { media: EcommerceServiceSection["media"] }) {
+function EcommerceServiceMedia({
+  media,
+}: {
+  media: EcommerceServiceSection["media"];
+}) {
   if (media.kind === "color") {
     return (
       <div
@@ -480,7 +516,11 @@ function ServiceSectionBlock({
   );
 }
 
-function EcommerceTypeSectionBlock({ section }: { section: EcommerceTypeSection }) {
+function EcommerceTypeSectionBlock({
+  section,
+}: {
+  section: EcommerceTypeSection;
+}) {
   return (
     <section className="py-10">
       <div className="mx-auto grid max-w-350 gap-10 px-6 sm:px-8 lg:grid-cols-[minmax(0,420px)_minmax(0,1fr)] lg:gap-16 lg:px-12 xl:px-16">
@@ -499,9 +539,11 @@ function EcommerceTypeSectionBlock({ section }: { section: EcommerceTypeSection 
             </>
           ) : (
             <div className="absolute inset-0 bg-linear-to-br from-[#121417] to-[#1e222a]">
-              <div className="absolute inset-0 opacity-10"
+              <div
+                className="absolute inset-0 opacity-10"
                 style={{
-                  backgroundImage: "radial-gradient(circle, #ffffff 1px, transparent 1px)",
+                  backgroundImage:
+                    "radial-gradient(circle, #ffffff 1px, transparent 1px)",
                   backgroundSize: "28px 28px",
                 }}
               />
@@ -601,20 +643,8 @@ export default function EcommercePage() {
             avec une boutique en ligne performante
           </h1>
           <div className="mt-8 flex flex-wrap gap-3 sm:gap-4">
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-4 rounded-full bg-white px-6 py-4 font-mono text-[11px] uppercase tracking-[0.18em] text-black transition-colors duration-300 hover:bg-[#05ffe0]"
-            >
-              Consultation gratuite
-              <span className="text-[15px] leading-none">+</span>
-            </Link>
-            <Link
-              href="/services"
-              className="inline-flex items-center gap-4 rounded-full border border-white/50 bg-transparent px-6 py-4 font-mono text-[11px] uppercase tracking-[0.18em] text-white transition-colors duration-300 hover:border-white hover:bg-white/10"
-            >
-              Découvrez nos services
-              <span className="text-[15px] leading-none">+</span>
-            </Link>
+            <CtaButton href="/contact" variant="filled-white">Consultation gratuite</CtaButton>
+            <CtaButton href="/services" variant="outline-light">Découvrez nos services</CtaButton>
           </div>
         </div>
       </section>
@@ -629,35 +659,17 @@ export default function EcommercePage() {
           </div>
           <div className="grid gap-4 text-[15px] leading-7 text-black sm:grid-cols-2 lg:grid-cols-1">
             <p>
-              Chez Numispark, nous développons des solutions e-commerce sur-mesure qui transforment
-              vos visiteurs en clients fidèles et boostent votre chiffre d&apos;affaires.
+              Chez Numispark, nous développons des solutions e-commerce
+              sur-mesure qui transforment vos visiteurs en clients fidèles et
+              boostent votre chiffre d&apos;affaires.
             </p>
             <p>
-              Nous maîtrisons les principales plateformes du marché pour vous proposer la solution
-              la mieux adaptée à vos besoins et ambitions.
+              Nous maîtrisons les principales plateformes du marché pour vous
+              proposer la solution la mieux adaptée à vos besoins et ambitions.
             </p>
           </div>
         </div>
-
-        <div className="mx-auto mt-12 max-w-350 px-6 pb-16 sm:px-8 lg:px-12 xl:px-16">
-          <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
-            {PLATFORM_LOGOS.map((logo) => (
-              <div
-                key={logo.alt}
-                className="flex items-center justify-center rounded-2xl bg-[#f5f5f5] px-8 py-10"
-              >
-                <Image
-                  src={logo.src}
-                  alt={logo.alt}
-                  width={logo.width}
-                  height={60}
-                  className="object-contain"
-                  unoptimized
-                />
-              </div>
-            ))}
-          </div>
-        </div>
+        <Tools />
       </section>
 
       {/* Service blocks */}
