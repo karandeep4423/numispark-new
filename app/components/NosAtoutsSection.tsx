@@ -137,11 +137,11 @@ export default function NosAtoutsSection({
                         <p className="mb-5 text-center md:text-left font-mono text-[11px] tracking-[0.04em] text-[#C8C8C8]">
                           {"{ Nos atouts }"}
                         </p>
-                        <h2 className="max-w-105 font-[Neue_Montreal] text-[30px] font-medium leading-[0.98] tracking-[-0.03em] text-white sm:text-[34px] lg:text-[38px] xl:text-[40px]">
+                        <h2 className="text-center md:text-left font-[Neue_Montreal] text-[30px] font-medium leading-[0.98] tracking-[-0.03em] text-white sm:text-[34px] lg:text-[38px] xl:text-[40px]">
                           {atout.titlePrefix}{" "}
                           <span className="text-[#05FFE0]">{atout.accent}</span>
                         </h2>
-                        <p className="mt-4 max-w-90 font-[Neue_Montreal] text-[13px] leading-[1.65] text-[#ACACAC] sm:text-[14px] lg:max-w-82.5 xl:max-w-90">
+                        <p className="mt-4 text-center md:text-left font-[Neue_Montreal] text-[13px] leading-[1.65] text-[#ACACAC] sm:text-[14px] lg:max-w-82.5 xl:max-w-90">
                           {atout.subtitle}
                         </p>
                       </div>

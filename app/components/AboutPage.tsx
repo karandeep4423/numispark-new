@@ -1,6 +1,4 @@
 "use client";
-
-import Link from "next/link";
 import CtaButton from "./CtaButton";
 import { useState } from "react";
 import TestimonialsSection from "./TestimonialsSection";
