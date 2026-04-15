@@ -16,7 +16,7 @@ const SERVICES = [
     desc: "Sites web professionnels, rapides et optimisés pour tous les appareils.",
     img: null,
     video: "/Service-website.mp4",
-    slug: "creation-site-web",
+    slug: "creation-de-site-web",
   },
   {
     num: "02",
@@ -30,7 +30,7 @@ const SERVICES = [
     desc: "Analyse complète de votre référencement pour identifier les opportunités d'amélioration.",
     img:"/services/seo-audit.jpg",
     video: null,
-    slug: "audit-seo",
+    slug: "audit-seo-gratuit",
   },
   {
     num: "03",
@@ -58,7 +58,7 @@ const SERVICES = [
     desc: "Boutiques en ligne performantes et optimisées pour maximiser vos ventes.",
     img: "/services/ecommerce.jpg",
     video: null,
-    slug: "ecommerce",
+    slug: "e-commerce",
   },
   {
     num: "05",
