@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import type { ReactNode } from "react";
 import CtaButton from "./CtaButton";
 import ProcessTimelineSection, {
@@ -417,7 +416,7 @@ function ServiceSectionBlock({
 }) {
   return (
     <section className={`py-16 ${isFirst ? "" : "border-t border-[#ececec]"}`}>
-      <div className="mx-auto grid max-w-350 gap-10 px-6 sm:px-8 lg:grid-cols-[minmax(0,420px)_minmax(0,1fr)] lg:gap-16 lg:px-12 xl:px-16">
+      <div className="mx-auto grid max-w-7xl w-full gap-10 px-6 sm:px-8 lg:grid-cols-[minmax(0,420px)_minmax(0,1fr)] lg:gap-16 lg:px-12 xl:px-16">
         <div className="flex flex-col gap-8">
           {section.eyebrow ? (
             <p className="font-[Neue_Montreal] text-[30px] font-medium leading-tight text-black lg:text-[36px]">
@@ -485,7 +484,7 @@ function ServiceSectionBlock({
 function AppTypeSectionBlock({ section }: { section: ApplicationSection }) {
   return (
     <section className="py-10">
-      <div className="mx-auto grid max-w-350 gap-10 px-6 sm:px-8 lg:grid-cols-[minmax(0,420px)_minmax(0,1fr)] lg:gap-16 lg:px-12 xl:px-16">
+      <div className="mx-auto grid max-w-7xl w-full gap-10 px-6 sm:px-8 lg:grid-cols-[minmax(0,420px)_minmax(0,1fr)] lg:gap-16 lg:px-12 xl:px-16">
         <div className="relative aspect-4/5 overflow-hidden bg-[#0f0f0f]">
           <ServiceMedia {...section.media} />
           <div className="absolute inset-0 bg-linear-to-t from-black/40 via-transparent to-transparent" />
@@ -526,8 +525,10 @@ function AppTypeSectionBlock({ section }: { section: ApplicationSection }) {
 function WhyCardBlock({ card }: { card: WhyChooseCard }) {
   return (
     <article className="group relative min-h-85 border border-[#ececec] bg-white px-6 py-8 transition-all duration-600 hover:bg-gradient-to-b hover:from-white hover:to-[#ebebeb] sm:px-8 sm:py-10">
-      <div className="flex items-start justify-between gap-6" >
-        <div className="text-black transition-transform duration-600 group-hover:translate-y-3">{card.icon}</div>
+      <div className="flex items-start justify-between gap-6">
+        <div className="text-black transition-transform duration-600 group-hover:translate-y-3">
+          {card.icon}
+        </div>
         <span className="font-mono text-[11px] text-black">{card.number}</span>
       </div>
       <h3 className="mt-8 font-[Neue_Montreal] text-[28px] font-medium leading-tight text-black transition-transform duration-600 group-hover:translate-y-3 group-hover:underline group-hover:decoration-1 group-hover:underline-offset-4">
@@ -560,7 +561,7 @@ export default function MobileDevelopmentPage() {
   return (
     <main className="bg-white">
       {/* Hero */}
-      <section className="relative w-full h-screen overflow-hidden bg-[#121417] text-white">
+      <section className="relative w-full flex flex-col min-h-screen overflow-hidden bg-[#121417] text-white">
         <img
           src="/images/rectangle-2108.svg"
           alt="Background"
@@ -568,22 +569,26 @@ export default function MobileDevelopmentPage() {
         />
 
         {/* Bottom-left content */}
-        <div className="absolute bottom-16 left-8 max-w-3xl z-10 sm:left-12">
+        <div className="relative max-w-7xl mx-auto w-full z-10 flex-1 flex flex-col justify-end px-10 md:px-20 pb-24">
           <h1 className="font-[Neue_Montreal] text-[44px] font-medium leading-[1.05] tracking-[-0.04em] text-white sm:text-[54px]">
             Agence création applications mobile
             <br className="hidden sm:block" />
             sur-mesure à Caen en Normandie
           </h1>
           <div className="mt-8 flex flex-wrap gap-3 sm:gap-4">
-            <CtaButton href="/contact" variant="filled-white">Consultation gratuite</CtaButton>
-            <CtaButton href="/services" variant="outline-light">Découvrez nos services</CtaButton>
+            <CtaButton href="/contact" variant="filled-white">
+              Consultation gratuite
+            </CtaButton>
+            <CtaButton href="/services" variant="outline-light">
+              Découvrez nos services
+            </CtaButton>
           </div>
         </div>
       </section>
 
       {/* Technologies */}
       <section className="border-t border-[#efefef] bg-white pt-16">
-        <div className="mx-auto grid max-w-350 gap-10 px-6 sm:px-8 lg:grid-cols-[minmax(0,0.75fr)_minmax(0,1fr)] lg:px-12 xl:px-16">
+        <div className="mx-auto grid max-w-7xl w-full gap-10 px-6 sm:px-8 lg:grid-cols-[minmax(0,0.75fr)_minmax(0,1fr)] lg:px-12 xl:px-16">
           <div>
             <h2 className="font-[Neue_Montreal] text-[32px] font-medium leading-tight text-black sm:text-[38px] lg:text-[44px]">
               Technologies
@@ -609,7 +614,7 @@ export default function MobileDevelopmentPage() {
 
       {/* Service blocks */}
       <section className="">
-        <div className="mx-auto max-w-350 px-6 sm:px-8 lg:px-12 xl:px-16">
+        <div className="mx-auto max-w-7xl w-full px-6 sm:px-8 lg:px-12 xl:px-16">
           <h2 className="font-[Neue_Montreal] text-[30px] font-medium leading-tight text-black lg:text-[36px]">
             Nos services de développement mobile
           </h2>
@@ -628,7 +633,7 @@ export default function MobileDevelopmentPage() {
 
       {/* Types of apps */}
       <section className="bg-white py-16">
-        <div className="mx-auto max-w-350 px-6 sm:px-8 lg:px-12 xl:px-16">
+        <div className="mx-auto max-w-7xl w-full px-6 sm:px-8 lg:px-12 xl:px-16">
           <h2 className="font-[Neue_Montreal] text-[32px] font-medium leading-tight text-black sm:text-[38px] lg:text-[44px]">
             Types d&apos;applications que nous développons
           </h2>
@@ -643,13 +648,13 @@ export default function MobileDevelopmentPage() {
 
       {/* Why choose us */}
       <section className="bg-white">
-        <div className="mx-auto max-w-350 px-6 sm:px-8 lg:px-12 xl:px-16">
+        <div className="mx-auto max-w-7xl w-full px-6 sm:px-8 lg:px-12 xl:px-16">
           <h2 className="font-[Neue_Montreal] text-[32px] font-medium leading-tight text-black sm:text-[38px] lg:text-[44px]">
             Pourquoi choisir Numispark ?
           </h2>
         </div>
 
-        <div className="mx-auto mt-10 grid max-w-350 grid-cols-1 md:grid-cols-2 ">
+        <div className="mx-auto mt-10 grid max-w-7xl w-full grid-cols-1 md:grid-cols-2 ">
           <WhyCardBlock card={WHY_CHOOSE[0]} />
           <WhyImageBlock />
           {WHY_CHOOSE.slice(1).map((card) => (

@@ -152,13 +152,12 @@ function FeatureCardItem({ card }: { card: FeatureCard }) {
 // ─── Main component ──────────────────────────────────────────────────────────
 
 import React from "react";
-import Link from "next/link";
 
 export default function WebCreationPage() {
   return (
     <div className="bg-white">
       {/* ── 1. Hero ─────────────────────────────────────────────────────── */}
-      <section className="relative w-full h-screen overflow-hidden bg-[#0a0a12]">
+      <section className="relative w-full flex flex-col min-h-screen overflow-hidden bg-[#0a0a12]">
         <Image
           className="absolute inset-0 w-full h-full object-cover"
           src="/images/rectangle-2108.png"
@@ -171,7 +170,7 @@ export default function WebCreationPage() {
         {/* Navbar logo placeholder — handled by layout */}
 
         {/* Bottom-left content */}
-        <div className="absolute bottom-16 left-12 max-w-3xl z-10">
+        <div className="relative max-w-7xl mx-auto w-full z-10 flex-1 flex flex-col justify-end px-10 md:px-20 pb-24">
           <h1 className="font-[Neue_Montreal] text-5xl text-white leading-tight tracking-tight mb-10">
             Agence experte en création de sites web sur mesure à Caen en
             Normandie
@@ -186,7 +185,7 @@ export default function WebCreationPage() {
       {/* ── 2. Technologies ──────────────────────────────────────────────── */}
       <section className="pt-24 px-12 bg-white">
         {/* 2-col header */}
-        <div className="mx-auto grid max-w-350 gap-10 px-6 sm:px-8 lg:grid-cols-[minmax(0,0.75fr)_minmax(0,1fr)] lg:px-12 xl:px-16">
+        <div className="mx-auto grid max-w-7xl w-full gap-10 px-6 sm:px-8 lg:grid-cols-[minmax(0,0.75fr)_minmax(0,1fr)] lg:px-12 xl:px-16">
           <div>
             <h2 className="font-[Neue_Montreal] text-[32px] font-medium leading-tight text-black sm:text-[38px] lg:text-[44px]">
               Technologies
@@ -211,13 +210,13 @@ export default function WebCreationPage() {
 
       {/* ── 3. Features — top 4 ─────────────────────────────────────────── */}
       <section className="bg-white">
-        <div className="mx-auto max-w-350 px-6 sm:px-8 lg:px-12 xl:px-16">
+        <div className="mx-auto max-w-7xl w-full px-6 sm:px-8 lg:px-12 xl:px-16">
           <h2 className="font-[Neue_Montreal] text-[30px] font-medium leading-tight text-black lg:text-[36px]">
             Principales caractéristiques de nos sites web
           </h2>
         </div>
         {/* 2×2 grid */}
-        <div className="grid grid-cols-2 mt-10">
+        <div className="grid grid-cols-2 mt-10 max-w-7xl mx-auto w-full">
           {FEATURES_TOP.map((card) => (
             <FeatureCardItem key={card.number + card.title} card={card} />
           ))}
@@ -226,7 +225,7 @@ export default function WebCreationPage() {
 
       {/* ── 4. Dark CTA — Avantages ─────────────────────────────────────── */}
 
-      <div className="bg-[#080808] mx-auto max-w-350 px-6 pt-20 pb-20 sm:px-8 lg:px-12 xl:px-16">
+      <div className="bg-[#080808] mx-auto max-w-7xl w-full px-6 pt-20 pb-20 sm:px-8 lg:px-12 xl:px-16">
         <p className="mb-4 text-center font-[Roboto_Mono] text-[12px] text-white">
           {"{ Avantages de Nous Choisir }"}
         </p>
@@ -268,7 +267,7 @@ export default function WebCreationPage() {
 
       {/* ── 5. Features — bottom 4 ──────────────────────────────────────── */}
       <section className="bg-white">
-        <div className="grid grid-cols-2">
+        <div className="grid grid-cols-2 max-w-7xl mx-auto w-full">
           {FEATURES_BOTTOM.map((card) => (
             <FeatureCardItem key={card.number + card.title} card={card} />
           ))}

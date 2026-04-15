@@ -3,7 +3,7 @@ import React from 'react'
 
 const Tools = () => {
   return (
-    <div>
+    <div className='max-w-7xl mx-auto w-full'>
          <div className="mt-16 ml-4 md:ml-16 pb-16 overflow-hidden">
         <div className="mb-8 px-4">
           <p className="font-mono text-[13px] font-normal text-black">

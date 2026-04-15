@@ -3,18 +3,6 @@
 import Link from "next/link";
 import TestimonialsSection from "./TestimonialsSection";
 
-const IMG = {
-  s02: "https://www.figma.com/api/mcp/asset/524c0501-083e-4454-9f5c-8e9d60cc1d4b",
-  s03: "https://www.figma.com/api/mcp/asset/404f25cb-eb4b-4709-a6ef-57b35fe6c2f9",
-  s04: "https://www.figma.com/api/mcp/asset/7b80c9b2-f9b3-4676-84f4-a98e9b1ac4ce",
-  s05: "https://www.figma.com/api/mcp/asset/478f0993-9127-40ef-823d-debadd7854ee",
-  s06: "https://www.figma.com/api/mcp/asset/1c46605c-4ea3-4eed-9096-4df18360e9e3",
-  s07: "https://www.figma.com/api/mcp/asset/5daba17e-298e-49c7-9dfa-e3ab10372224",
-  s08: "https://www.figma.com/api/mcp/asset/2b8af419-2d03-4bcd-9d04-e4ca981df6c5",
-  s09: "https://www.figma.com/api/mcp/asset/3379ede5-0baa-4811-8b3e-efd26f5d90fe",
-  s10: "https://www.figma.com/api/mcp/asset/3a2c5d21-d8bd-49d4-a5ca-785a38255057",
-} as const;
-
 const SERVICES = [
   {
     num: "01",
@@ -40,7 +28,7 @@ const SERVICES = [
       "100% gratuit et sans engagement",
     ],
     desc: "Analyse complète de votre référencement pour identifier les opportunités d'amélioration.",
-    img: IMG.s02,
+    img:"/services/seo-audit.jpg",
     video: null,
     slug: "audit-seo",
   },
@@ -54,7 +42,7 @@ const SERVICES = [
       "Maintenance et support continu",
     ],
     desc: "Applications mobiles natives et cross-platform performantes pour iOS et Android.",
-    img: IMG.s03,
+    img: "/services/mobile.jpg",
     video: null,
     slug: "applications-mobiles",
   },
@@ -68,7 +56,7 @@ const SERVICES = [
       "Solutions de paiement sécurisées",
     ],
     desc: "Boutiques en ligne performantes et optimisées pour maximiser vos ventes.",
-    img: IMG.s04,
+    img: "/services/ecommerce.jpg",
     video: null,
     slug: "ecommerce",
   },
@@ -82,7 +70,7 @@ const SERVICES = [
       "Intégrations API et webhooks",
     ],
     desc: "Solutions SaaS évolutives et sécurisées pour votre modèle d'abonnement.",
-    img: IMG.s05,
+    img: "/services/saas.jpg",
     video: null,
     slug: "saas",
   },
@@ -96,7 +84,7 @@ const SERVICES = [
       "Intégrations intelligentes",
     ],
     desc: "Automatisez vos processus et intégrez l'IA pour gagner en efficacité.",
-    img: IMG.s06,
+    img: "/services/ia.jpg",
     video: null,
     slug: "ia-automatisation",
   },
@@ -110,7 +98,7 @@ const SERVICES = [
       "Tests utilisateurs et optimisation",
     ],
     desc: "Designs modernes et interfaces utilisateur qui captivent votre audience.",
-    img: IMG.s07,
+    img: "/services/design-web-mobile.jpg",
     video: null,
     slug: "design-web-mobile",
   },
@@ -124,7 +112,7 @@ const SERVICES = [
       "Templates personnalisés",
     ],
     desc: "Identité visuelle forte et contenus percutants pour vos réseaux sociaux.",
-    img: IMG.s08,
+    img: "/services/design-logo.jpg",
     video: null,
     slug: "design-logo",
   },
@@ -138,7 +126,7 @@ const SERVICES = [
       "Suivi et reporting des performances",
     ],
     desc: "Positionnez votre site en première page de Google et générez du trafic qualifié.",
-    img: IMG.s09,
+    img: "/services/seo.jpg",
     video: null,
     slug: "seo",
   },
@@ -152,7 +140,7 @@ const SERVICES = [
       "Analytics et reporting",
     ],
     desc: "Stratégies digitales performantes pour booster votre visibilité et vos conversions.",
-    img: IMG.s10,
+    img: "/services/ecommerce.jpg",
     video: null,
     slug: "marketing-digital",
   },
@@ -281,7 +269,7 @@ export default function ServicesPage() {
           }}
         />
 
-        <div className="relative z-10 max-w-300 px-10 md:px-20">
+        <div className="relative z-10 max-w-7xl w-full mx-auto px-10 md:px-20">
           <p className="mb-6 font-mono text-[11px] uppercase tracking-widest text-white/40">
             {"{ Nos services }"}
           </p>
@@ -299,7 +287,7 @@ export default function ServicesPage() {
         {SERVICES.map((service, index) => (
           <div
             key={service.num}
-            className="sticky top-0"
+            className="sticky top-0 max-w-7xl mx-auto w-full"
             style={{ zIndex: index + 1 }}
           >
             <ServiceCard service={service} />

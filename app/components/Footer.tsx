@@ -16,7 +16,7 @@ const legalLinks = [
 
 export default function Footer() {
   return (
-    <footer className="relative bg-black text-white overflow-hidden">
+    <footer className="relative bg-black text-white  overflow-hidden">
       {/* Full-bleed background video */}
       <video
         src="/bg-video.mp4"
@@ -31,7 +31,7 @@ export default function Footer() {
       <div className="absolute inset-0 bg-black/25" />
 
       {/* Outer padding â€” video shows above and around the card */}
-      <div className="relative z-10 px-6 md:px-10 pt-46 pb-8">
+      <div className="relative z-10 px-6 md:px-10 pt-46 pb-8 max-w-7xl mx-auto w-full">
         {/* â”€â”€ Inset dark card â”€â”€ */}
         <div className="rounded-2xl overflow-hidden bg-[#111]/70 backdrop-blur-sm border border-white/5">
           {/* Top section: socials (left) + tagline/CTA (right) */}

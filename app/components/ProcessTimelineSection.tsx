@@ -101,7 +101,7 @@ export default function ProcessTimelineSection({
   }, []);
 
   return (
-    <section className="relative bg-[#080808] py-24">
+    <section className="relative bg-[#080808] py-24 w-full">
       {/* Sticky globe background */}
       <div
         className="absolute inset-0 z-0 pointer-events-none"
@@ -118,7 +118,7 @@ export default function ProcessTimelineSection({
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-6xl mx-auto px-4 md:px-8">
+      <div className="relative z-10 max-w-7xl  w-full mx-auto px-4 md:px-8">
         {/* Header */}
         <div className="text-center mb-24">
           <p className="font-mono text-xs text-[#8F8F8F] tracking-widest mb-6">

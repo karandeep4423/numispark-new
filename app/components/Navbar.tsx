@@ -36,13 +36,15 @@ const Navbar = () => {
   /* Lock body scroll when mobile menu is open */
   useEffect(() => {
     document.body.style.overflow = mobileMenuOpen ? "hidden" : "";
-    return () => { document.body.style.overflow = ""; };
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [mobileMenuOpen]);
 
   return (
     <>
       {/* ━━━━━━━━━━━━━━━━━━ DESKTOP NAV ━━━━━━━━━━━━━━━━━━ */}
-      <nav className="absolute  top-3 left-10 right-10 z-50 hidden md:flex items-center justify-between px-8 py-1">
+      <nav className="absolute max-w-7xl mx-auto top-3 left-10 right-10 z-50 hidden md:flex items-center justify-between px-8 py-1">
         {/* Logo */}
         <Link
           href="/"
@@ -50,7 +52,13 @@ const Navbar = () => {
             isScrolled ? "opacity-0 pointer-events-none" : "opacity-100"
           }`}
         >
-          <Image src="/full-logo-white.svg" alt="Numispark" width={140} height={36} priority />
+          <Image
+            src="/full-logo-white.svg"
+            alt="Numispark"
+            width={140}
+            height={36}
+            priority
+          />
         </Link>
 
         {/* Center pill nav — sticky */}
@@ -86,13 +94,32 @@ const Navbar = () => {
               onClick={() => setLangOpen(!langOpen)}
               className="flex items-center gap-1.5 px-3 py-2 rounded-full border border-white/10 text-white/70 hover:text-white hover:border-white/30 transition-colors duration-200 text-sm"
             >
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.8"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
                 <circle cx="12" cy="12" r="10" />
                 <path d="M12 2a14.5 14.5 0 0 0 0 20A14.5 14.5 0 0 0 12 2" />
                 <path d="M2 12h20" />
               </svg>
               <span>{selectedLang}</span>
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={`transition-transform duration-200 ${langOpen ? "rotate-180" : ""}`}>
+              <svg
+                width="12"
+                height="12"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className={`transition-transform duration-200 ${langOpen ? "rotate-180" : ""}`}
+              >
                 <path d="m6 9 6 6 6-6" />
               </svg>
             </button>
@@ -101,9 +128,14 @@ const Navbar = () => {
                 {languages.map((lang) => (
                   <button
                     key={lang}
-                    onClick={() => { setSelectedLang(lang); setLangOpen(false); }}
+                    onClick={() => {
+                      setSelectedLang(lang);
+                      setLangOpen(false);
+                    }}
                     className={`w-full text-left px-4 py-2.5 text-sm transition-colors duration-150 ${
-                      selectedLang === lang ? "text-white bg-white/10" : "text-white/60 hover:text-white hover:bg-white/5"
+                      selectedLang === lang
+                        ? "text-white bg-white/10"
+                        : "text-white/60 hover:text-white hover:bg-white/5"
                     }`}
                   >
                     {lang}
@@ -123,7 +155,13 @@ const Navbar = () => {
           onClick={() => setMobileMenuOpen(true)}
           className="flex h-11.5 w-11.5 items-center justify-center rounded-full bg-white shadow-[0px_4px_34px_0px_rgba(0,0,0,0.1)]"
         >
-          <svg width="20" height="13" viewBox="0 0 20 13" fill="none" aria-hidden="true">
+          <svg
+            width="20"
+            height="13"
+            viewBox="0 0 20 13"
+            fill="none"
+            aria-hidden="true"
+          >
             <rect width="20" height="1.8" rx="0.9" fill="#0f0f0f" />
             <rect y="5.6" width="20" height="1.8" rx="0.9" fill="#0f0f0f" />
             <rect y="11.2" width="20" height="1.8" rx="0.9" fill="#0f0f0f" />
@@ -132,7 +170,13 @@ const Navbar = () => {
 
         {/* Logo */}
         <Link href="/" className="flex items-center">
-          <Image src="/full-logo-white.svg" alt="Numispark" width={120} height={30} priority />
+          <Image
+            src="/full-logo-white.svg"
+            alt="Numispark"
+            width={120}
+            height={30}
+            priority
+          />
         </Link>
       </div>
 
@@ -160,8 +204,19 @@ const Navbar = () => {
           onClick={() => setMobileMenuOpen(false)}
           className="absolute left-4.5 top-15.75 flex h-11.5 w-11.5 shrink-0 items-center justify-center rounded-full border border-white bg-white shadow-[0px_4px_34px_0px_rgba(0,0,0,0.1)]"
         >
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M18 6 6 18M6 6l12 12" stroke="#0f0f0f" strokeWidth="2.2" strokeLinecap="round" />
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            aria-hidden="true"
+          >
+            <path
+              d="M18 6 6 18M6 6l12 12"
+              stroke="#0f0f0f"
+              strokeWidth="2.2"
+              strokeLinecap="round"
+            />
           </svg>
         </button>
 
@@ -175,9 +230,13 @@ const Navbar = () => {
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
                 className={`font-[Neue_Montreal] text-[29px] font-medium leading-14 text-white transition-colors duration-200 hover:text-[#05ffe0] ${
-                  mobileMenuOpen ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
+                  mobileMenuOpen
+                    ? "translate-y-0 opacity-100"
+                    : "translate-y-4 opacity-0"
                 }`}
-                style={{ transitionDelay: mobileMenuOpen ? `${80 + i * 40}ms` : "0ms" }}
+                style={{
+                  transitionDelay: mobileMenuOpen ? `${80 + i * 40}ms` : "0ms",
+                }}
               >
                 {link.label}
               </Link>
@@ -220,13 +279,34 @@ const Navbar = () => {
                 onClick={() => setLangOpen(!langOpen)}
                 className="flex items-center gap-2.25 text-white"
               >
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
                   <circle cx="12" cy="12" r="10" />
                   <path d="M12 2a14.5 14.5 0 0 0 0 20A14.5 14.5 0 0 0 12 2" />
                   <path d="M2 12h20" />
                 </svg>
-                <span className="font-['Jost'] text-[16px] text-white whitespace-nowrap">{selectedLang}</span>
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={`transition-transform duration-200 ${langOpen ? "rotate-180" : ""}`}>
+                <span className="font-['Jost'] text-[16px] text-white whitespace-nowrap">
+                  {selectedLang}
+                </span>
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className={`transition-transform duration-200 ${langOpen ? "rotate-180" : ""}`}
+                >
                   <path d="m6 9 6 6 6-6" />
                 </svg>
               </button>
@@ -235,9 +315,14 @@ const Navbar = () => {
                   {languages.map((lang) => (
                     <button
                       key={lang}
-                      onClick={() => { setSelectedLang(lang); setLangOpen(false); }}
+                      onClick={() => {
+                        setSelectedLang(lang);
+                        setLangOpen(false);
+                      }}
                       className={`w-full text-left px-4 py-2.5 text-sm transition-colors duration-150 ${
-                        selectedLang === lang ? "text-white bg-white/10" : "text-white/60 hover:text-white hover:bg-white/5"
+                        selectedLang === lang
+                          ? "text-white bg-white/10"
+                          : "text-white/60 hover:text-white hover:bg-white/5"
                       }`}
                     >
                       {lang}

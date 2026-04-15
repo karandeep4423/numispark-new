@@ -63,7 +63,7 @@ export default function FaqSection() {
     setOpenId((prev) => (prev === id ? null : id));
 
   return (
-    <section className="flex w-full flex-col md:flex-row">
+    <section className="flex w-full max-w-7xl mx-auto flex-col md:flex-row">
       <div className="w-full bg-white px-8 py-20 md:w-[55%] md:px-14 lg:px-20">
         <p className="mb-6 font-mono text-[11px] tracking-[0.18em] text-black/35">
           {"{ F.A.Q }"}

@@ -110,10 +110,10 @@ export default function NosAtoutsSection({
   const activeAtout = atouts[activeAtoutIndex];
 
   return (
-    <section className="bg-[#080808]">
+    <section className="bg-black">
       <div ref={atoutsSectionRef} className="relative h-[230vh] md:h-[240vh]">
-        <div className="sticky top-4 h-[calc(100vh-32px)] sm:top-6 sm:h-[calc(100vh-48px)]">
-          <div className="relative mx-auto h-full w-full max-w-295 overflow-hidden rounded-[28px] border border-white/6 bg-[linear-gradient(180deg,#151515_0%,#0d0d0d_100%)]">
+        <div className="sticky mb-6 top-4 h-[calc(100vh-32px)] sm:top-6 sm:h-[calc(100vh-48px)]">
+          <div className="relative mx-auto h-full w-full max-w-7xl overflow-hidden bg-black">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.05),transparent_34%),radial-gradient(circle_at_73%_42%,rgba(255,255,255,0.02),transparent_44%)] opacity-80" />
 
             {/* Mobile: flex-col (title → circles → bullets)

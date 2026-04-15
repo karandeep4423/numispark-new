@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import type { ReactNode } from "react";
 import CtaButton from "./CtaButton";
 import ProcessTimelineSection, {
@@ -392,7 +391,7 @@ function ServiceSectionBlock({
 }) {
   return (
     <section className={`py-16 ${isFirst ? "" : "border-t border-[#ececec]"}`}>
-      <div className="mx-auto grid max-w-350 gap-10 px-6 sm:px-8 lg:grid-cols-[minmax(0,420px)_minmax(0,1fr)] lg:gap-16 lg:px-12 xl:px-16">
+      <div className="mx-auto grid max-w-7xl w-full gap-10 px-6 sm:px-8 lg:grid-cols-[minmax(0,420px)_minmax(0,1fr)] lg:gap-16 lg:px-12 xl:px-16">
         <div className="flex flex-col gap-6">
           <div className="relative aspect-4/5 overflow-hidden bg-[#111] shadow-[0_20px_80px_rgba(0,0,0,0.08)]">
             <Image
@@ -464,7 +463,7 @@ function ServiceSectionBlock({
 function SeoTypeSectionBlock({ section }: { section: SeoTypeSection }) {
   return (
     <section className="py-10">
-      <div className="mx-auto grid max-w-350 gap-10 px-6 sm:px-8 lg:grid-cols-[minmax(0,420px)_minmax(0,1fr)] lg:gap-16 lg:px-12 xl:px-16">
+      <div className="mx-auto grid max-w-7xl w-full gap-10 px-6 sm:px-8 lg:grid-cols-[minmax(0,420px)_minmax(0,1fr)] lg:gap-16 lg:px-12 xl:px-16">
         <div className="relative aspect-4/5 overflow-hidden bg-[#0f0f0f]">
           <Image
             src={section.media.src}
@@ -548,7 +547,7 @@ export default function SeoPage() {
   return (
     <main className="bg-white">
       {/* Hero */}
-      <section className="relative w-full h-screen overflow-hidden bg-[#121417] text-white">
+      <section className="relative min-h-screen bg-[#121417] overflow-hidden flex flex-col text-white">
         <Image
           src="/seo/hero-bg.jpg"
           alt="Stratégie SEO sur-mesure"
@@ -559,7 +558,7 @@ export default function SeoPage() {
         />
         <div className="absolute inset-0 bg-black/50" />
 
-        <div className="absolute bottom-16 left-8 max-w-3xl z-10 sm:left-12">
+        <div className="relative max-w-7xl mx-auto w-full z-10 flex-1 flex flex-col justify-end px-10 md:px-20 pb-24">
           <h1 className="font-[Neue_Montreal] text-[44px] font-medium leading-[1.05] tracking-[-0.04em] text-white sm:text-[54px]">
             Boostez votre visibilité et votre
             <br className="hidden sm:block" />
@@ -576,7 +575,7 @@ export default function SeoPage() {
 
       {/* Technologies */}
       <section className="border-t border-[#efefef] bg-white pt-16">
-        <div className="mx-auto grid max-w-350 gap-10 px-6 sm:px-8 lg:grid-cols-[minmax(0,0.75fr)_minmax(0,1fr)] lg:px-12 xl:px-16">
+        <div className="mx-auto grid max-w-7xl w-full gap-10 px-6 sm:px-8 lg:grid-cols-[minmax(0,0.75fr)_minmax(0,1fr)] lg:px-12 xl:px-16">
           <div>
             <h2 className="font-[Neue_Montreal] text-[32px] font-medium leading-tight text-black sm:text-[38px] lg:text-[44px]">
               Technologies
@@ -602,7 +601,7 @@ export default function SeoPage() {
 
       {/* Service blocks */}
       <section className="">
-        <div className="mx-auto max-w-350 px-6 sm:px-8 lg:px-12 xl:px-16">
+        <div className="mx-auto max-w-7xl w-full px-6 sm:px-8 lg:px-12 xl:px-16">
           <h2 className="font-[Neue_Montreal] text-[30px] font-medium leading-tight text-black lg:text-[36px]">
             Nos services de référencement naturel
           </h2>
@@ -621,7 +620,7 @@ export default function SeoPage() {
 
       {/* SEO types */}
       <section className="bg-white py-16">
-        <div className="mx-auto max-w-350 px-6 sm:px-8 lg:px-12 xl:px-16">
+        <div className="mx-auto max-w-7xl w-full px-6 sm:px-8 lg:px-12 xl:px-16">
           <h2 className="font-[Neue_Montreal] text-[32px] font-medium leading-tight text-black sm:text-[38px] lg:text-[44px]">
             SEO adapté à vos besoins
           </h2>
@@ -636,13 +635,13 @@ export default function SeoPage() {
 
       {/* Why choose us */}
       <section className="bg-white">
-        <div className="mx-auto max-w-350 px-6 sm:px-8 lg:px-12 xl:px-16">
+        <div className="mx-auto max-w-7xl w-full px-6 sm:px-8 lg:px-12 xl:px-16">
           <h2 className="font-[Neue_Montreal] text-[32px] font-medium leading-tight text-black sm:text-[38px] lg:text-[44px]">
             Pourquoi choisir Numispark pour votre SEO&nbsp;?
           </h2>
         </div>
 
-        <div className="mx-auto mt-10 grid max-w-350 grid-cols-1 md:grid-cols-2">
+        <div className="mx-auto mt-10 grid max-w-7xl w-full grid-cols-1 md:grid-cols-2">
           <WhyCardBlock card={WHY_CHOOSE[0]} />
           <WhyImageBlock />
           {WHY_CHOOSE.slice(1).map((card) => (

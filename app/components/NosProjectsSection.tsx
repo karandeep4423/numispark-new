@@ -128,8 +128,8 @@ export default function NosProjectsSection() {
         className="relative hidden lg:block"
         style={{ height: desktopSectionHeight }}
       >
-        <div className="sticky top-0 h-screen overflow-hidden">
-          <div className="mx-auto flex h-full max-w-[1700px] items-center gap-14 px-10 py-10 xl:px-16">
+        <div className="sticky top-0 h-screen overflow-hidden ">
+          <div className="mx-auto flex h-full max-w-7xl w-full items-center gap-14 px-10 py-10 xl:px-16">
             <div
               className="flex w-[38%] shrink-0 flex-col justify-between py-4 pr-8"
               style={{ height: desktopTrackHeightCss }}
@@ -148,8 +148,8 @@ export default function NosProjectsSection() {
                           index === activeIndex
                             ? "translate-y-0 opacity-100"
                             : index < activeIndex
-                            ? "-translate-y-full opacity-0"
-                            : "translate-y-full opacity-0"
+                              ? "-translate-y-full opacity-0"
+                              : "translate-y-full opacity-0"
                         }`}
                       >
                         {project.name}
@@ -280,7 +280,7 @@ export default function NosProjectsSection() {
           </div>
         </div>
       </div>
-
+      {/* Mobile screen */}
       <div className="mx-auto max-w-3xl space-y-6 px-5 py-16 lg:hidden">
         <p className="mb-8 font-mono text-[11px] uppercase tracking-[0.22em] text-black">
           Nos projets

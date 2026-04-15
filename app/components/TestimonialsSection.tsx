@@ -89,7 +89,7 @@ export default function TestimonialsSection() {
   const handleNext = () => setOffset((o) => Math.min(maxOffset, o + 1));
 
   return (
-    <section className="py-24 bg-white">
+    <section className="py-24 bg-white max-w-7xl mx-auto w-full">
       {/* Header */}
       <div className="text-center px-8 mb-10">
         <p className="font-mono text-[12px] tracking-[0.18em] text-black/40">

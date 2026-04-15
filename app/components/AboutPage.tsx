@@ -6,32 +6,17 @@ import Tools from "./Tools";
 
 // ─── Figma asset URLs (temporary ~7 days – replace with local files) ─────────
 const P = {
-  karandeep:
-    "https://www.figma.com/api/mcp/asset/fe5b40c8-a6ff-4b57-b601-cb9ce460293e",
-  thomas:
-    "https://www.figma.com/api/mcp/asset/e21be67f-4643-4bec-bfc4-b2afceed3aea",
-  samuel:
-    "https://www.figma.com/api/mcp/asset/91d69cb4-e9ba-4d9e-aac7-326ddfd87fa2",
-  lucas:
-    "https://www.figma.com/api/mcp/asset/96402993-fd88-44a2-a132-186ce0458ea4",
-  matheo:
-    "https://www.figma.com/api/mcp/asset/4683ca0b-aae8-43b8-a5a8-e1d17c1cb050",
-  antoine:
-    "https://www.figma.com/api/mcp/asset/9bf9a19e-110b-49d0-aff2-350b55eed327",
-  louis:
-    "https://www.figma.com/api/mcp/asset/4301c43e-dab1-4ffa-bc4b-1453968ba43b",
-  charlotte:
-    "https://www.figma.com/api/mcp/asset/69c68873-1387-4652-b484-43932e4c7842",
-  amelie:
-    "https://www.figma.com/api/mcp/asset/30f5e18c-bc25-43ee-8f40-b94f844e7aa7",
-  sophia:
-    "https://www.figma.com/api/mcp/asset/3760675a-5864-4f58-9fa6-defc4fcc2d03",
+  karandeep: "/about/team.png",
+  thomas: "/about/team.png",
+  samuel: "/about/team.png",
+  lucas: "/about/team.png",
+  matheo: "/about/team.png",
+  antoine: "/about/team.png",
+  louis: "/about/team.png",
+  charlotte: "/about/team.png",
+  amelie: "/about/team.png",
+  sophia: "/about/team.png",
 } as const;
-
-const AGENCE_IMG =
-  "https://www.figma.com/api/mcp/asset/7b280407-5380-467c-a7cb-59b1ca58ee6b";
-const EXPERTISE_IMG =
-  "https://www.figma.com/api/mcp/asset/4ca6037c-3f65-426d-9d4e-181f6c65493d";
 
 // ─── Data ─────────────────────────────────────────────────────────────────────
 const STATS = [
@@ -283,7 +268,7 @@ function TeamTextCard({
       <h3 className="whitespace-pre-line font-[Neue_Montreal] text-[28px] font-medium leading-[1.15] text-black">
         {title}
       </h3>
-      <p className="mt-5 max-w-[17rem] font-[Neue_Montreal] text-[16px] leading-[1.72] text-[#7f7f7f]">
+      <p className="mt-5 max-w-68 font-[Neue_Montreal] text-[16px] leading-[1.72] text-[#7f7f7f]">
         {description}
       </p>
     </div>
@@ -320,7 +305,7 @@ export default function AboutPage() {
         </div>
 
         {/* Hero title – pinned toward the bottom */}
-        <div className="relative z-10 flex-1 flex items-end px-10 md:px-20 pb-28 pt-40">
+        <div className="relative max-w-7xl mx-auto w-full z-10 flex-1 flex items-end px-10 md:px-20 pb-28 pt-40">
           <h1 className="font-[Neue_Montreal] text-[52px]  lg:text-[60px] font-medium leading-[1.05] text-white max-w-5xl">
             Une agence digitale née pour construire{" "}
             <span className="text-[#05ffe0]">des produits qui performent.</span>
@@ -356,7 +341,7 @@ export default function AboutPage() {
         </div> */}
 
         {/* ── Content ── */}
-        <div className="px-10 md:px-10 pt-16">
+        <div className="max-w-7xl mx-auto w-full px-10 md:px-10 pt-16">
           <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-start">
             {/* Left: heading + large decorative image */}
             <div className="lg:w-[40%]">
@@ -387,7 +372,7 @@ export default function AboutPage() {
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src={AGENCE_IMG}
+                src="/about/agency-logo.jpg"
                 alt=""
                 className="w-full h-full object-cover"
               />
@@ -417,7 +402,7 @@ export default function AboutPage() {
       ════════════════════════════════════════════════════════════════════ */}
       <section className=" bg-white">
         <div className="h-px bg-[#dadada] mb-0" />
-        <div className="">
+        <div className="max-w-7xl mx-auto w-full">
           <div className="flex flex-col lg:flex-row gap-16 lg:gap-24">
             {/* Left: lists */}
             <div className="lg:w-[45%] mt-10 px-16">
@@ -431,7 +416,10 @@ export default function AboutPage() {
               </p>
               <div className="mb-12">
                 {WEB_SKILLS.map((skill) => (
-                  <div key={skill} className="group py-0.5 w-full cursor-default">
+                  <div
+                    key={skill}
+                    className="group py-0.5 w-full cursor-default"
+                  >
                     <p className="inline-block font-[Neue_Montreal] text-[20px] text-black transition-all duration-500 ease-out group-hover:translate-x-[22px] group-hover:bg-[linear-gradient(90deg,#05D9FF_0%,#05FFE0_38%,#000000_82%)] group-hover:bg-clip-text group-hover:text-transparent motion-reduce:transform-none">
                       {skill}
                     </p>
@@ -445,7 +433,10 @@ export default function AboutPage() {
               </p>
               <div>
                 {MOBILE_SKILLS.map((skill) => (
-                  <div key={skill} className="group py-0.5 w-full cursor-default">
+                  <div
+                    key={skill}
+                    className="group py-0.5 w-full cursor-default"
+                  >
                     <p className="inline-block font-[Neue_Montreal] text-[20px] text-black transition-all duration-500 ease-out group-hover:translate-x-[22px] group-hover:bg-[linear-gradient(90deg,#05D9FF_0%,#05FFE0_38%,#000000_82%)] group-hover:bg-clip-text group-hover:text-transparent motion-reduce:transform-none">
                       {skill}
                     </p>
@@ -471,7 +462,7 @@ export default function AboutPage() {
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src={EXPERTISE_IMG}
+                  src="/about/expertise.jpg"
                   alt=""
                   className="w-full h-full object-cover"
                 />
@@ -486,7 +477,7 @@ export default function AboutPage() {
       ════════════════════════════════════════════════════════════════════ */}
       <section id="team" className="bg-white">
         <div className="h-px bg-[#dadada] mb-0" />
-        <div className="px-10 md:px-20 pt-16 pb-8">
+        <div className="max-w-7xl mx-auto w-full px-10 md:px-20 pt-16 pb-8">
           <p className="mb-4 font-mono text-[12px] tracking-widest text-black/30">
             {"{ Team Numispark }"}
           </p>
@@ -553,7 +544,7 @@ export default function AboutPage() {
           {teamFilter === "tech" && (
             <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 ">
               <TeamTextCard
-                title={TEAM_SECTIONS.tech.title}  
+                title={TEAM_SECTIONS.tech.title}
                 description={TEAM_SECTIONS.tech.description}
               />
               <TeamCard {...TECH_TEAM[0]} />
@@ -588,7 +579,7 @@ export default function AboutPage() {
           6. SECTORS (dark)
       ════════════════════════════════════════════════════════════════════ */}
       <section className="py-20 bg-[#101010]">
-        <div className="px-10 md:px-20">
+        <div className="max-w-7xl mx-auto w-full px-10 md:px-20">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-14">
             {SECTORS.map((s) => (
               <div key={s.num}>

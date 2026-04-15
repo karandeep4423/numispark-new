@@ -2,22 +2,14 @@ import Image from "next/image";
 import Link from "next/link";
 
 /* ── Image assets from Figma ── */
-const IMG_HERO =
-  "https://www.figma.com/api/mcp/asset/277d4e62-61dd-49ba-b0d1-fc0977332af2";
-const IMG_LEFT_PORTRAIT =
-  "https://www.figma.com/api/mcp/asset/24649e49-597a-46ec-b8b0-65d6db65dc3b";
-const IMG_RIGHT_TOP =
-  "https://www.figma.com/api/mcp/asset/e5649be6-5f06-484d-bab4-99f7d0b4bd87";
-const IMG_RIGHT_BOTTOM =
-  "https://www.figma.com/api/mcp/asset/a3e47620-13c0-4e47-9176-eb9d0a4210a0";
-const IMG_WIDE =
-  "https://www.figma.com/api/mcp/asset/646df8f5-57bd-4075-9897-eea7731e7cca";
-const IMG_ARTICLE_2 =
-  "https://www.figma.com/api/mcp/asset/2612b396-37db-46ae-8a6d-08ef5e3279ba";
-const IMG_ARTICLE_3 =
-  "https://www.figma.com/api/mcp/asset/e6e44959-726d-48be-aea5-ee44bb9e9930";
-const IMG_ARTICLE_4 =
-  "https://www.figma.com/api/mcp/asset/8d5660b3-c0a1-4574-b12e-aa4fb7043f94";
+const IMG_HERO = "/services/seo.jpg";
+const IMG_LEFT_PORTRAIT = "/services/seo.jpg";
+const IMG_RIGHT_TOP = "/services/seo.jpg ";
+const IMG_RIGHT_BOTTOM = "/services/seo.jpg";
+const IMG_WIDE = "/services/seo.jpg";
+const IMG_ARTICLE_2 = "/services/seo.jpg";
+const IMG_ARTICLE_3 = "/services/seo.jpg";
+const IMG_ARTICLE_4 = "/services/seo.jpg";
 
 /* ── Icons ── */
 function ArrowBackIcon() {
@@ -147,7 +139,7 @@ export default function BlogDetailPage() {
 
       {/* ─── Article header ─── */}
       <section className="bg-white">
-        <div className="mx-auto max-w-350 px-6 pt-10 pb-0 sm:px-8 lg:px-12 xl:px-16">
+        <div className="mx-auto max-w-7xl w-full px-6 pt-10 pb-0 sm:px-8 lg:px-12 xl:px-16">
           <div className="flex items-start justify-between gap-6">
             {/* Back button + meta */}
             <div className="flex items-center gap-6">
@@ -185,7 +177,7 @@ export default function BlogDetailPage() {
 
       {/* ─── Article body ─── */}
       <section className="bg-white">
-        <div className="mx-auto max-w-350 px-6 py-12 sm:px-8 lg:px-12 xl:px-16">
+        <div className="mx-auto max-w-7xl w-full px-6 py-12 sm:px-8 lg:px-12 xl:px-16">
           {/* First heading + intro text */}
           <h2 className="mb-6 font-[Neue_Montreal] text-[24px] font-medium leading-tight text-black sm:text-[28px] lg:text-[32px]">
             Ut porttitor leo a diam sollicitudin tempor
@@ -308,7 +300,7 @@ export default function BlogDetailPage() {
 
       {/* ─── Prev / Next navigation ─── */}
       <section className="bg-white">
-        <div className="mx-auto max-w-350 px-6 py-10 sm:px-8 lg:px-12 xl:px-16">
+        <div className="mx-auto max-w-7xl w-full px-6 py-10 sm:px-8 lg:px-12 xl:px-16">
           <div className="flex items-center justify-between">
             <Link
               href="/blog"
@@ -327,13 +319,13 @@ export default function BlogDetailPage() {
       </section>
 
       {/* ─── Divider ─── */}
-      <div className="mx-auto max-w-350 px-6 sm:px-8 lg:px-12 xl:px-16">
+      <div className="mx-auto max-w-7xl w-full px-6 sm:px-8 lg:px-12 xl:px-16">
         <div className="h-px bg-[#e0e0e0]" />
       </div>
 
       {/* ─── Related articles ─── */}
       <section className="bg-white">
-        <div className="mx-auto max-w-350 px-6 py-12 sm:px-8 lg:px-12 xl:px-16">
+        <div className="mx-auto max-w-7xl w-full px-6 py-12 sm:px-8 lg:px-12 xl:px-16">
           <div className="grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
             {RELATED_ARTICLES.map((article) => (
               <RelatedCard key={article.slug} article={article} />

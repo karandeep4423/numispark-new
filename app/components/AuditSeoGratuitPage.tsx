@@ -507,7 +507,7 @@ export default function AuditSeoGratuitPage() {
         </div>
 
         {/* Title pinned toward bottom */}
-        <div className="relative z-10 flex flex-1 items-end px-8 pb-28 pt-40 md:px-20">
+        <div className="relative z-10 max-w-7xl mx-auto w-full flex flex-1 items-end px-8 pb-28 pt-40 md:px-20">
           <h1 className="max-w-5xl font-[Neue_Montreal] text-[32px] font-medium leading-[1.05] text-white sm:text-[38px] lg:text-[52px]">
             <span className="text-[#05ffe0]">Audit SEO Gratuit</span>
             <span>. Découvrez ce qui Freine Votre Visibilité sur Google</span>
@@ -528,7 +528,7 @@ export default function AuditSeoGratuitPage() {
         </div>
 
         {/* Form + Benefits grid */}
-        <div className="mx-auto grid max-w-350 gap-10 px-6 pb-16 sm:px-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)] lg:gap-16 lg:px-12 xl:px-16">
+        <div className="mx-auto grid max-w-7xl w-full gap-10 px-6 pb-16 sm:px-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)] lg:gap-16 lg:px-12 xl:px-16">
           {/* Left: Image */}
           <div>
             <div className="relative aspect-602/786 overflow-hidden">
@@ -581,7 +581,7 @@ export default function AuditSeoGratuitPage() {
 
       {/* ─── Problems Grid ─── */}
       <section className="bg-white py-16">
-        <div className="mx-auto max-w-350 px-6 sm:px-8 lg:px-12 xl:px-16">
+        <div className="mx-auto max-w-7xl w-full px-6 sm:px-8 lg:px-12 xl:px-16">
           <h2 className="mb-10 font-[Neue_Montreal] text-[28px] font-medium leading-tight text-black sm:text-[32px] lg:text-[36px]">
             Bénéfices immédiats
             <br />
@@ -609,7 +609,7 @@ export default function AuditSeoGratuitPage() {
       {/* ─── Dark Section: Pourquoi + Benefits + 3 Pillar Tabs ─── */}
       <section className="bg-[#0f0f0f] text-white">
         {/* Pourquoi */}
-        <div className="mx-auto max-w-350 px-6 pt-20 sm:px-8 lg:px-12 xl:px-16">
+        <div className="mx-auto max-w-7xl w-full px-6 pt-20 sm:px-8 lg:px-12 xl:px-16">
           <p className="mb-4 text-center font-[Roboto_Mono] text-[12px] text-white">
             {"{ POURQUOI ? }"}
           </p>
@@ -648,7 +648,7 @@ export default function AuditSeoGratuitPage() {
         <div className="h-px w-full bg-[#2a2a2a]" />
 
         {/* Benefits Items (dark) */}
-        <div className="mx-auto max-w-350 px-6 py-16 sm:px-8 lg:px-12 xl:px-16">
+        <div className="mx-auto max-w-7xl w-full px-6 py-16 sm:px-8 lg:px-12 xl:px-16">
           <h2 className="mb-10 text-center font-[Neue_Montreal] text-[28px] font-medium leading-tight sm:text-[32px] lg:text-[36px]">
             <span className="text-[#05ffe0]">Bénéfices immédiats</span>{" "}
             de notre audit SEO gratuit
@@ -674,7 +674,7 @@ export default function AuditSeoGratuitPage() {
         <div className="h-px w-full bg-[#2a2a2a]" />
 
         {/* 3 Pillar Tabs */}
-        <div className="mx-auto max-w-350 px-6 py-16 sm:px-8 lg:px-12 xl:px-16">
+        <div className="mx-auto max-w-7xl w-full px-6 py-16 sm:px-8 lg:px-12 xl:px-16">
           <h2 className="mb-10 text-center font-[Neue_Montreal] text-[28px] font-medium leading-tight sm:text-[32px] lg:text-[36px]">
             Notre audit SEO gratuit couvre les{" "}
             <span className="text-[#05ffe0]">
@@ -783,7 +783,7 @@ export default function AuditSeoGratuitPage() {
 
       {/* ─── Process Steps ─── */}
       <section className="bg-white py-16">
-        <div className="mx-auto max-w-350 px-6 sm:px-8 lg:px-12 xl:px-16">
+        <div className="mx-auto max-w-7xl w-full px-6 sm:px-8 lg:px-12 xl:px-16">
           <div className="mb-10 grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
             <div>
               <p className="mb-2 font-[Roboto_Mono] text-[12px] text-[#8f8f8f] lg:text-left">
@@ -822,7 +822,7 @@ export default function AuditSeoGratuitPage() {
 
       {/* ─── Advantages Grid ─── */}
       <section className="bg-white py-16">
-        <div className="mx-auto max-w-350 px-6 sm:px-8 lg:px-12 xl:px-16">
+        <div className="mx-auto max-w-7xl w-full px-6 sm:px-8 lg:px-12 xl:px-16">
           <h2 className="mb-10 font-[Neue_Montreal] text-[28px] font-medium leading-tight text-black sm:text-[32px] lg:text-[36px]">
             Pourquoi votre site n&apos;apparaît pas en première page de Google ?
           </h2>
@@ -847,7 +847,7 @@ export default function AuditSeoGratuitPage() {
 
       {/* ─── Audience Section (Dark) ─── */}
       <section className="bg-[#0f0f0f] py-16 text-white">
-        <div className="mx-auto max-w-350 px-6 sm:px-8 lg:px-12 xl:px-16">
+        <div className="mx-auto max-w-7xl w-full px-6 sm:px-8 lg:px-12 xl:px-16">
           <h2 className="mb-10 font-[Neue_Montreal] text-[28px] font-medium leading-tight sm:text-[32px] lg:text-[36px]">
             Pour qui est cet{" "}
             <span className="text-[#05ffe0]">audit SEO complet ?</span>
@@ -874,7 +874,7 @@ export default function AuditSeoGratuitPage() {
       {/* ─── Bottom Form Section (Dark) ─── */}
       <section className="bg-[#0f0f0f] text-white">
         <div className="h-px w-full bg-[#2a2a2a]" />
-        <div className="mx-auto grid max-w-350 gap-10 px-6 py-16 sm:px-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)] lg:gap-16 lg:px-12 xl:px-16">
+        <div className="mx-auto grid max-w-7xl w-full gap-10 px-6 py-16 sm:px-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)] lg:gap-16 lg:px-12 xl:px-16">
           {/* Left: Heading */}
           <div className="self-start lg:sticky lg:top-8">
             <h2 className="font-[Neue_Montreal] text-[28px] font-medium leading-tight sm:text-[32px] lg:text-[36px]">

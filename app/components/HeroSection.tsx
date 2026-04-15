@@ -24,7 +24,7 @@ export default function HeroSection({
 }: HeroSectionProps) {
   return (
     <section
-      className={`relative w-full h-screen overflow-hidden bg-[#0a0a12] ${className}`}
+      className={`relative w-full  h-screen overflow-hidden bg-[#0a0a12] ${className}`}
     >
       {/* Background video — full cover on mobile, offset on desktop */}
       {videoSrc && (

@@ -3,25 +3,25 @@ import Link from "next/link";
 
 /* ────────────────────────── Article images from Figma ────────────────────────── */
 const IMG_FEATURED =
-  "https://www.figma.com/api/mcp/asset/fcaf12be-580c-47fb-9cbd-77e37067f819";
+  "/services/seo.jpg";
 const IMG_ARTICLE_2 =
-  "https://www.figma.com/api/mcp/asset/61447b28-ca37-4ae9-b177-12ce0deddb0e";
+  "/services/seo-audit.jpg";
 const IMG_ARTICLE_3 =
-  "https://www.figma.com/api/mcp/asset/13eb3955-e8c5-480d-ac31-2a45ae76b3b1";
+  "/services/ecommerce.jpg";
 const IMG_ARTICLE_4 =
-  "https://www.figma.com/api/mcp/asset/c47b909e-32e3-4fc2-8e91-f5570a718154";
+  "/services/ia.jpg";
 const IMG_ARTICLE_5 =
-  "https://www.figma.com/api/mcp/asset/cf4fec9d-1c76-4528-b2f3-efa5e169e6c9";
+  "/services/saas.jpg";
 const IMG_ARTICLE_6 =
-  "https://www.figma.com/api/mcp/asset/7e939762-8488-4a2a-b4cb-1c103cca3d69";
+  "/services/design-web-mobile.jpg";
 const IMG_ARTICLE_7 =
-  "https://www.figma.com/api/mcp/asset/6ede0bba-57e3-488a-add0-6d5ed7532cf3";
+  "/services/design-logo.jpg";
 const IMG_ARTICLE_8 =
-  "https://www.figma.com/api/mcp/asset/37bad6d5-0755-4dd3-8651-8f8d52be0dd8";
+  "/services/seo.jpg";
 const IMG_ARTICLE_9 =
-  "https://www.figma.com/api/mcp/asset/4ba0ef42-3c47-497c-81ff-8247e75f76e5";
+  "/services/seo.jpg";
 const IMG_ARTICLE_10 =
-  "https://www.figma.com/api/mcp/asset/259d9860-89a3-44d7-92e8-b4ea1301b094";
+  "/services/seo.jpg";
 
 /* ────────────────────────── Data ────────────────────────── */
 
@@ -181,7 +181,7 @@ export default function BlogPage() {
     <main className="bg-white">
       {/* ─── Hero header ─── */}
       <section className="border-b border-[#dadada]">
-        <div className="mx-auto max-w-350 px-6 py-16 sm:px-8 lg:px-12 xl:px-16">
+        <div className="mx-auto max-w-7xl w-full px-6 py-16 sm:px-8 lg:px-12 xl:px-16">
           {/* Breadcrumb */}
           <p className="mb-8 font-[Roboto_Mono] text-[12px] uppercase text-[#8f8f8f]">
             {"{ Le blog }"}
@@ -209,7 +209,7 @@ export default function BlogPage() {
 
       {/* ─── Filter bar ─── */}
       <section className="border-b border-[#dadada]">
-        <div className="mx-auto flex max-w-350 flex-wrap items-center justify-between gap-4 px-6 py-5 sm:px-8 lg:px-12 xl:px-16">
+        <div className="mx-auto flex max-w-7xl w-full flex-wrap items-center justify-between gap-4 px-6 py-5 sm:px-8 lg:px-12 xl:px-16">
           {/* Article count */}
           <p className="font-[Neue_Montreal] text-[16px] font-medium text-black">
             22 articles
@@ -231,7 +231,7 @@ export default function BlogPage() {
 
       {/* ─── Featured article ─── */}
       <section className="border-b border-[#dadada]">
-        <div className="mx-auto max-w-350 px-6 py-12 sm:px-8 lg:px-12 xl:px-16">
+        <div className="mx-auto max-w-7xl w-full px-6 py-12 sm:px-8 lg:px-12 xl:px-16">
           <Link
             href={`/blog/${FEATURED_ARTICLE.slug}`}
             className="group grid gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)] lg:items-center lg:gap-16"
@@ -274,7 +274,7 @@ export default function BlogPage() {
 
       {/* ─── Article grid ─── */}
       <section className="border-b border-[#dadada]">
-        <div className="mx-auto max-w-350 px-6 py-12 sm:px-8 lg:px-12 xl:px-16">
+        <div className="mx-auto max-w-7xl w-full px-6 py-12 sm:px-8 lg:px-12 xl:px-16">
           <div className="grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
             {ARTICLES.map((article) => (
               <ArticleCard key={article.slug} article={article} />
@@ -285,7 +285,7 @@ export default function BlogPage() {
 
       {/* ─── Pagination ─── */}
       <section className="border-b border-[#dadada]">
-        <div className="mx-auto flex max-w-350 items-center justify-center gap-3 px-6 py-10 sm:px-8 lg:px-12 xl:px-16">
+        <div className="mx-auto flex max-w-7xl w-full items-center justify-center gap-3 px-6 py-10 sm:px-8 lg:px-12 xl:px-16">
           <button className="font-[Roboto_Mono] text-[12px] uppercase tracking-wider text-[#8f8f8f] hover:text-black">
             Précédent
           </button>
