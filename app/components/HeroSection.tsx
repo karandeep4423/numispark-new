@@ -41,13 +41,21 @@ export default function HeroSection({
         <video
           ref={videoRef}
           className="absolute inset-0 w-full h-full object-cover object-center md:inset-auto md:top-[-40%] md:right-[-25%] md:w-[180%] md:h-[160%]"
-          src={videoSrc}
           autoPlay
           loop
           muted
           playsInline
           preload="auto"
-        />
+        >
+          {/* Mobile: small compressed file (no audio track — required for iOS autoplay) */}
+          <source
+            src={videoSrc.replace(/\.mp4$/, "-mobile.mp4")}
+            media="(max-width: 767px)"
+            type="video/mp4"
+          />
+          {/* Desktop: full quality */}
+          <source src={videoSrc} type="video/mp4" />
+        </video>
       )}
 
       {/* Background image (fallback when no video) */}
