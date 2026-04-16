@@ -171,19 +171,19 @@ export default function WebCreationPage() {
 
         {/* Bottom-left content */}
         <div className="relative max-w-7xl mx-auto w-full z-10 flex-1 flex flex-col justify-end px-10 md:px-20 pb-24">
-          <h1 className="font-[Neue_Montreal] text-5xl text-white leading-tight tracking-tight mb-10">
+          <h1 className="font-[Neue_Montreal] text-4xl sm:text-5xl text-white leading-tight tracking-tight mb-10">
             Agence experte en création de sites web sur mesure à Caen en
             Normandie
           </h1>
-          <div className="flex items-center gap-4">
-            <CtaButton href="/contact" variant="filled-cyan">Demander un devis</CtaButton>
-            <CtaButton href="/projets" variant="outline-light">Voir nos réalisations</CtaButton>
+          <div className="flex flex-col items-start sm:flex-row sm:items-center gap-4">
+            <CtaButton href="/contact" variant="filled-cyan">Consultation gratuite</CtaButton>
+            <CtaButton href="/projets" variant="outline-light">Découvrez nos services</CtaButton>
           </div>
         </div>
       </section>
 
       {/* ── 2. Technologies ──────────────────────────────────────────────── */}
-      <section className="pt-24 px-12 bg-white">
+      <section className="pt-16 sm:pt-24  bg-white">
         {/* 2-col header */}
         <div className="mx-auto grid max-w-7xl w-full gap-10 px-6 sm:px-8 lg:grid-cols-[minmax(0,0.75fr)_minmax(0,1fr)] lg:px-12 xl:px-16">
           <div>
@@ -216,7 +216,7 @@ export default function WebCreationPage() {
           </h2>
         </div>
         {/* 2×2 grid */}
-        <div className="grid grid-cols-2 mt-10 max-w-7xl mx-auto w-full">
+        <div className="grid grid-cols-1 md:grid-cols-2 mt-10 max-w-7xl mx-auto w-full">
           {FEATURES_TOP.map((card) => (
             <FeatureCardItem key={card.number + card.title} card={card} />
           ))}
@@ -267,7 +267,7 @@ export default function WebCreationPage() {
 
       {/* ── 5. Features — bottom 4 ──────────────────────────────────────── */}
       <section className="bg-white">
-        <div className="grid grid-cols-2 max-w-7xl mx-auto w-full">
+        <div className="grid grid-cols-1 md:grid-cols-2 max-w-7xl mx-auto w-full">
           {FEATURES_BOTTOM.map((card) => (
             <FeatureCardItem key={card.number + card.title} card={card} />
           ))}

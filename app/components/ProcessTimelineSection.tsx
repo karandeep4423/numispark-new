@@ -194,7 +194,7 @@ export default function ProcessTimelineSection({
                 </div>
 
                 {/* Diamond marker */}
-                <div className="w-8 md:w-14 flex justify-center items-start shrink-0 relative z-10 pt-1 md:pt-6">
+                <div className="w-8 md:w-14 ml-1.5 md:ml-0 flex justify-center items-start shrink-0 relative z-10 pt-1 md:pt-6">
                   <div
                     ref={(el) => { markerRefs.current[index] = el; }}
                     className="relative flex h-8 w-8 items-center justify-center"

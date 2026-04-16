@@ -176,7 +176,7 @@ function ArrowIcon() {
 
 function ServiceCard({ service }: { service: (typeof SERVICES)[number] }) {
   return (
-    <div className="flex h-screen w-full overflow-hidden border-y border-[#dadada] bg-white">
+    <div className="flex flex-col h-screen w-full overflow-hidden border-y border-[#dadada] bg-white lg:flex-row">
       <div className="relative grid flex-1 grid-rows-[auto_1fr_auto] px-10 pt-12 pb-8 md:px-16 lg:px-20 xl:px-24 xl:pt-18 xl:pb-10">
         <p className="absolute top-[6%] left-[4%] font-mono text-[13px] text-[#8f8f8f]">
           {service.num}
@@ -223,7 +223,7 @@ function ServiceCard({ service }: { service: (typeof SERVICES)[number] }) {
         </div>
       </div>
 
-      <div className="relative hidden shrink-0 overflow-hidden lg:block lg:w-[46%] xl:w-[48%]">
+      <div className="relative block shrink-0 overflow-hidden h-[38%] w-full lg:h-auto lg:w-[46%] xl:w-[48%]">
         {service.img ? (
           // eslint-disable-next-line @next/next/no-img-element
           <img
@@ -270,10 +270,7 @@ export default function ServicesPage() {
         />
 
         <div className="relative z-10 max-w-7xl w-full mx-auto px-10 md:px-20">
-          <p className="mb-6 font-mono text-[11px] uppercase tracking-widest text-white/40">
-            {"{ Nos services }"}
-          </p>
-          <h1 className="font-[Neue_Montreal] text-[52px] font-medium leading-[1.15] text-white">
+          <h1 className="font-[Neue_Montreal] text-4xl sm:text-[52px] font-medium leading-[1.15] text-white">
             Une agence digitale globale <br className="hidden md:block" />
             qui accompagne la transformation
             <br className="hidden md:block" />
