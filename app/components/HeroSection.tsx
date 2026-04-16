@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import React, { useEffect, useRef } from "react";
 
 interface HeroSectionProps {
   /** Path to a video file (takes priority over imageSrc) */
@@ -22,6 +23,15 @@ export default function HeroSection({
   description,
   className = "",
 }: HeroSectionProps) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    video.muted = true;
+    video.play().catch(() => {});
+  }, []);
+
   return (
     <section
       className={`relative w-full  h-screen overflow-hidden bg-[#0a0a12] ${className}`}
@@ -29,12 +39,14 @@ export default function HeroSection({
       {/* Background video — full cover on mobile, offset on desktop */}
       {videoSrc && (
         <video
+          ref={videoRef}
           className="absolute inset-0 w-full h-full object-cover object-center md:inset-auto md:top-[-40%] md:right-[-25%] md:w-[180%] md:h-[160%]"
           src={videoSrc}
           autoPlay
           loop
           muted
           playsInline
+          preload="auto"
         />
       )}
 
