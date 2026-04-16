@@ -268,7 +268,7 @@ function TeamTextCard({
       <h3 className="whitespace-pre-line font-[Neue_Montreal] text-[28px] font-medium leading-[1.15] text-black">
         {title}
       </h3>
-      <p className="mt-5 max-w-68 font-[Neue_Montreal] text-[16px] leading-[1.72] text-[#7f7f7f]">
+      <p className="mt-5  font-[Neue_Montreal] text-[16px] leading-[1.72] text-[#7f7f7f]">
         {description}
       </p>
     </div>
@@ -305,8 +305,8 @@ export default function AboutPage() {
         </div>
 
         {/* Hero title – pinned toward the bottom */}
-        <div className="relative max-w-7xl mx-auto w-full z-10 flex-1 flex items-end px-10 md:px-20 pb-28 pt-40">
-          <h1 className="font-[Neue_Montreal] text-[52px]  lg:text-[60px] font-medium leading-[1.05] text-white max-w-5xl">
+        <div className="relative max-w-7xl mx-auto w-full z-10 flex-1 flex items-end px-6 md:px-20 pb-20 pt-32 md:pb-28 md:pt-40">
+          <h1 className="font-[Neue_Montreal] text-[32px] sm:text-[42px] lg:text-[52px] xl:text-[60px] font-medium leading-[1.1] text-white max-w-5xl">
             Une agence digitale née pour construire{" "}
             <span className="text-[#05ffe0]">des produits qui performent.</span>
           </h1>
@@ -341,11 +341,11 @@ export default function AboutPage() {
         </div> */}
 
         {/* ── Content ── */}
-        <div className="max-w-7xl mx-auto w-full px-10 md:px-10 pt-16">
+        <div className="max-w-7xl mx-auto w-full px-6 md:px-10 pt-12 md:pt-16">
           <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-start">
             {/* Left: heading + large decorative image */}
             <div className="lg:w-[40%]">
-              <h2 className="font-[Neue_Montreal] text-[48px] font-medium leading-tight text-black mb-8">
+              <h2 className="font-[Neue_Montreal] text-[36px] md:text-[48px] font-medium leading-tight text-black mb-8">
                 L&apos;agence
               </h2>
             </div>
@@ -364,7 +364,7 @@ export default function AboutPage() {
               </div>
             </div>
           </div>
-          <div className="flex gap-10 items-center justify-center mt-6">
+          <div className="flex gap-10 flex-col md:flex-row items-center justify-center mt-6">
             {/* Decorative 3-D shapes image */}
             <div
               className="relative w-full h-full overflow-y-visible"
@@ -378,13 +378,13 @@ export default function AboutPage() {
               />
             </div>
             {/* 2 × 2 stats grid */}
-            <div className="grid grid-cols-2 gap-x-10 gap-y-0   border-black/8 ">
+            <div className="grid grid-cols-1  md:grid-cols-2 gap-x-10 gap-y-0   border-black/8 ">
               {STATS.map((s) => (
                 <div
                   key={s.value}
                   className="group px-4 pt-6 pb-4 border-t-2 border-[#E0E0E0] hover:border-black transition-all duration-600 bg-[linear-gradient(127deg,transparent_0%,transparent_100%)] hover:bg-[linear-gradient(127deg,#E7ECF2_3.71%,rgba(231,236,242,0)_40.97%)]"
                 >
-                  <p className="font-[Neue_Montreal] text-[56px] font-medium text-black leading-none mb-3 transition-all duration-600 group-hover:translate-y-1">
+                  <p className="font-[Neue_Montreal] text-[40px] md:text-[56px] font-medium text-black leading-none mb-3 transition-all duration-600 group-hover:translate-y-1">
                     {s.value}
                   </p>
                   <p className="font-[Neue_Montreal] text-[13px] leading-[1.6] text-black/40 group-hover:text-black transition-all duration-600 group-hover:-translate-y-1">
@@ -402,11 +402,11 @@ export default function AboutPage() {
       ════════════════════════════════════════════════════════════════════ */}
       <section className=" bg-white">
         <div className="h-px bg-[#dadada] mb-0" />
-        <div className="max-w-7xl mx-auto w-full">
+        <div className="max-w-7xl mx-auto px-6 md:px-10 w-full">
           <div className="flex flex-col lg:flex-row gap-16 lg:gap-24">
             {/* Left: lists */}
-            <div className="lg:w-[45%] mt-10 px-16">
-              <h2 className="font-[Neue_Montreal] text-[42px] font-medium leading-tight text-black mb-14">
+            <div className="lg:w-[45%] mt-10 px-6 md:px-10 lg:px-16">
+              <h2 className="font-[Neue_Montreal] text-[32px] md:text-[42px] font-medium leading-tight text-black mb-10 md:mb-14">
                 Expertises
               </h2>
 
@@ -455,7 +455,7 @@ export default function AboutPage() {
             </div>
 
             {/* Right: sticky decorative image */}
-            <div className="lg:w-[55%] h-full">
+            <div className=" hidden md:flex lg:w-[55%] h-full">
               <div
                 className=" overflow-hidden bg-[#eee]"
                 style={{ height: "155vh", maxHeight: "1200px" }}
@@ -477,7 +477,7 @@ export default function AboutPage() {
       ════════════════════════════════════════════════════════════════════ */}
       <section id="team" className="bg-white">
         <div className="h-px bg-[#dadada] mb-0" />
-        <div className="max-w-7xl mx-auto w-full px-10 md:px-20 pt-16 pb-8">
+        <div className="max-w-7xl mx-auto w-full px-5 md:px-20 pt-16 pb-8">
           <p className="mb-4 font-mono text-[12px] tracking-widest text-black/30">
             {"{ Team Numispark }"}
           </p>
@@ -487,8 +487,8 @@ export default function AboutPage() {
               <br />
               d&apos;experts full remote
             </h2>
-            <div className="shrink-0 rounded-full bg-[#f1f1f1] p-1">
-              <div className="flex items-center">
+            <div className="shrink-0 rounded-full bg-[#f1f1f1] p-1 max-w-full overflow-x-auto">
+              <div className="flex items-center min-w-max">
                 {(["all", "tech", "design"] as TeamFilter[]).map((f) => {
                   const labels: Record<TeamFilter, string> = {
                     all: "Toute l'équipe",
