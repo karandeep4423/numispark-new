@@ -11,14 +11,14 @@ const DESKTOP_VISIBLE_CARDS = 1;
 const projects = [
   {
     id: "01",
-    slug: "portail-immobilier",
-    name: "Portail Immobilier",
-    category: "Experience Web + CRM",
+    slug: "monhubimmo",
+    name: "MonHubImmo",
+    category: "Plateforme SaaS Immobilier",
     year: "2025",
     description:
-      "Refonte d'un portail immobilier pense pour mettre en valeur chaque bien, simplifier la prise de contact et donner plus de vitesse aux equipes commerciales.",
-    tags: ["WEB", "UX", "DEV"],
-    image: "/images/image-jpeg-51.png",
+      "Creation de la premiere plateforme collaborative inter-enseignes pour les professionnels de l'immobilier : partage de mandats, reseau social metier et agent IA integre.",
+    tags: ["WEB", "SAAS", "IA"],
+    image: "/projects/monhubimmo/monhubimmo-hero-section.png",
   },
   {
     id: "02",
@@ -52,6 +52,17 @@ const projects = [
       "Mise en scene d'une marque dans un site editorial fort, avec une narration visuelle, des animations selectives et un socle technique simple a faire evoluer.",
     tags: ["MOTION", "CREATIVE", "DEV"],
     image: "/images/capture-decran-20260310-a-1052222.svg",
+  },
+  {
+    id: "05",
+    slug: "monhubimmo",
+    name: "MonHubImmo",
+    category: "Plateforme SaaS Immobilier",
+    year: "2025",
+    description:
+      "Creation de la premiere plateforme collaborative inter-enseignes pour les professionnels de l'immobilier : partage de mandats, reseau social metier et agent IA integre.",
+    tags: ["WEB", "SAAS", "IA"],
+    image: "/projects/monhubimmo/monhubimmo-hero-section.png",
   },
 ] as const;
 

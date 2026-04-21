@@ -1,5 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
+import VideoPlayer from "@/app/components/VideoPlayer";
+import ProjectGallery from "@/app/components/ProjectGallery";
 
 /* ── Arrow-left icon for the back button ── */
 function ArrowLeftIcon() {
@@ -63,6 +65,8 @@ interface Project {
   galleryImages: string[];
   siteUrl: string;
   sections: ProjectSection[];
+  techStack?: string[];
+  awardImage?: { src: string; label: string };
 }
 
 const projects: Project[] = [
@@ -190,6 +194,61 @@ const projects: Project[] = [
       },
     ],
   },
+  {
+    slug: "monhubimmo",
+    id: "05",
+    name: "MonHubImmo",
+    category: "Plateforme SaaS Immobilier",
+    year: "2025",
+    duration: "12 mois",
+    location: "France",
+    heroTagline:
+      "La première plateforme collaborative inter-enseignes pour les professionnels de l'immobilier — partage de mandats, réseau social métier et agent IA intégré.",
+    objectivesDescription:
+      "Conception et développement de MonHubImmo, un écosystème SaaS dédié aux agents et mandataires immobiliers de tous réseaux. L'objectif : briser les silos entre enseignes pour permettre la co-exclusivité, le partage de mandats et la mise en relation entre confrères à l'échelle nationale.",
+    tags: ["WEB", "SAAS", "IA"],
+    heroImage: "/projects/monhubimmo/monhubimmo-hero-section.png",
+    galleryImages: [
+      "/projects/monhubimmo/temoignage-monhubimmo.mp4",
+      "/projects/monhubimmo/monhubimmo-home-page.png",
+      "/projects/monhubimmo/search-agents.png",
+      "/projects/monhubimmo/monhubimmo-biens.png",
+      "/projects/monhubimmo/bien-details.png",
+      "/projects/monhubimmo/bien-details-2.png",
+      "/projects/monhubimmo/agent-dashboard.png",
+      "/projects/monhubimmo/search-clients.png",
+      "/projects/monhubimmo/search-client-detail.png",
+      "/projects/monhubimmo/admin-dashboard.png",
+      "/projects/monhubimmo/admin-users.png",
+    ],
+    siteUrl: "https://www.monhubimmo.fr/",
+    techStack: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "OpenAI",
+      "Stripe",
+      "Vercel",
+    ],
+    awardImage: {
+      src: "/projects/monhubimmo/sweet-award.webp",
+      label: "Sweet Awards 2025 · Salon RENT",
+    },
+    sections: [
+      {
+        title: "Produit & Architecture",
+        body: "MonHubImmo repose sur trois piliers produit : une plateforme collaborative inter-cabinets pour le partage de mandats et de recherches acquéreurs, Hubie — le réseau social dédié à la profession immobilière — et Hugo, un agent IA qui accompagne les conseillers au quotidien.\n\nL'architecture a été pensée pour absorber une croissance rapide : backend scalable, API REST découplée et interface mobile-first pour les équipes terrain.",
+      },
+      {
+        title: "Impact & Reconnaissance",
+        body: "Dès son lancement, MonHubImmo a été adopté par des conseillers issus de plus de 20 réseaux nationaux — IAD, SAFTI, BSK, Capifrance, Guy Hoquet, Optimhome et bien d'autres.\n\nLa plateforme a été récompensée aux Sweet Awards 2025 au salon RENT et distinguée par Les Pépites Tech comme startup innovante de la French Tech. Les médias spécialisés — MySweetImmo, Radio Immo, Le Média Immo — ont relayé son impact sur la collaboration inter-enseignes.",
+      },
+    ],
+  },
 ];
 
 export function generateStaticParams() {
@@ -230,13 +289,13 @@ export default async function ProjectPage({
         <Link
           href="/projets"
           aria-label="Retour aux projets"
-          className="absolute bottom-[10%] left-[7.3%] z-10 flex h-[79px] w-[79px] items-center justify-center rounded-full border border-white/70 hover:border-white hover:bg-white/10 transition-all duration-300"
+          className="absolute bottom-[10%] left-[7.3%] z-10 flex h-[49px] w-[49px] items-center justify-center rounded-full border border-white/70 hover:border-white hover:bg-white/10 transition-all duration-300"
         >
           <ArrowLeftIcon />
         </Link>
 
         {/* Project title */}
-        <h1 className="absolute bottom-[10%] left-[calc(7.3%+100px)] z-10 font-[Neue_Montreal] text-[clamp(48px,7vw,100px)] font-medium leading-none text-white">
+        <h1 className="absolute bottom-[10%] left-[calc(7.3%+100px)] z-10 font-[Neue_Montreal] text-5xl font-medium leading-none text-white">
           {project.name}
         </h1>
 
@@ -293,6 +352,25 @@ export default async function ProjectPage({
               <MetaRow label="Localisation" value={project.location} />
               <MetaRow label="Année" value={project.year} isLast />
             </div>
+
+            {/* Tech stack */}
+            {project.techStack && project.techStack.length > 0 && (
+              <div>
+                <p className="font-mono text-[10px] uppercase tracking-widest text-white/40 mb-3">
+                  Stack
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {project.techStack.map((tech) => (
+                    <span
+                      key={tech}
+                      className="rounded-full border border-white/15 px-3 py-1 font-mono text-[11px] text-white/60"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
 
           {/* Right column — Objectifs */}
@@ -304,37 +382,50 @@ export default async function ProjectPage({
             <p className="font-[Neue_Montreal] text-[19px] leading-[1.42] text-white/85">
               {project.objectivesDescription}
             </p>
+
+            {/* Award */}
+            {project.awardImage && (
+              <div className="mt-10 flex items-center gap-5 rounded-[8px] border border-[#f5c842]/20 bg-[#f5c842]/5 p-5">
+                <div className="relative w-[88px] h-[88px] flex-shrink-0">
+                  <Image
+                    src={project.awardImage.src}
+                    alt={project.awardImage.label}
+                    fill
+                    className="object-contain"
+                  />
+                </div>
+                <div>
+                  <p className="font-mono text-[10px] uppercase tracking-widest text-[#f5c842]/70 mb-1">
+                    Récompense
+                  </p>
+                  <p className="font-[Neue_Montreal] text-[16px] font-medium text-white leading-snug">
+                    {project.awardImage.label}
+                  </p>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </section>
 
-      {/* ── GALLERY IMAGE 1 ── */}
-      {project.galleryImages[0] && (
+      {/* ── VIDEO (if first item is .mp4) ── */}
+      {project.galleryImages[0]?.endsWith(".mp4") && (
         <section className="px-[7.3%] pb-16">
           <div className="relative w-full aspect-[4/3] lg:aspect-[16/9] overflow-hidden rounded-[5px]">
-            <Image
-              src={project.galleryImages[0]}
-              alt={`${project.name} — aperçu 1`}
-              fill
-              className="object-cover"
-            />
+            <VideoPlayer src={project.galleryImages[0]} />
           </div>
         </section>
       )}
 
-      {/* ── GALLERY IMAGE 2 ── */}
-      {project.galleryImages[1] && (
-        <section className="px-[7.3%] pb-16">
-          <div className="relative w-full aspect-[16/7] overflow-hidden rounded-[5px]">
-            <Image
-              src={project.galleryImages[1]}
-              alt={`${project.name} — aperçu 2`}
-              fill
-              className="object-cover"
-            />
-          </div>
-        </section>
-      )}
+      {/* ── MASONRY GALLERY ── */}
+      {(() => {
+        const screenshots = project.galleryImages.filter(
+          (img) => !img.endsWith(".mp4")
+        );
+        return screenshots.length > 0 ? (
+          <ProjectGallery images={screenshots} projectName={project.name} />
+        ) : null;
+      })()}
 
       {/* ── TEXT SECTION 1 ── */}
       {project.sections[0] && (
@@ -342,20 +433,6 @@ export default async function ProjectPage({
           title={project.sections[0].title}
           body={project.sections[0].body}
         />
-      )}
-
-      {/* ── GALLERY IMAGE 3 ── */}
-      {project.galleryImages[2] && (
-        <section className="px-[7.3%] pb-16">
-          <div className="relative w-full aspect-[16/7] overflow-hidden rounded-[5px]">
-            <Image
-              src={project.galleryImages[2]}
-              alt={`${project.name} — aperçu 3`}
-              fill
-              className="object-cover"
-            />
-          </div>
-        </section>
       )}
 
       {/* ── TEXT SECTION 2 ── */}
