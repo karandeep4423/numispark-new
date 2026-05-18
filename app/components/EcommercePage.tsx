@@ -453,7 +453,7 @@ function ServiceSectionBlock({
                 <div className="absolute inset-0 bg-linear-to-t from-black/30 via-transparent to-transparent" />
                 <div className="absolute inset-x-0 bottom-0 p-4">
                   <div className="rounded-[14px] bg-black/68 p-4 backdrop-blur-sm">
-                    <p className="font-[Neue_Montreal] text-[13px] leading-6 text-white/86">
+                    <p className="font-[Neue_Montreal] text-[14px] lg:text-[15px] xl:text-[16px] leading-[1.7] text-white/86">
                       {section.description}
                     </p>
                   </div>
@@ -462,7 +462,7 @@ function ServiceSectionBlock({
             )}
           </div>
           {section.blurb && (
-            <p className="font-[Neue_Montreal] text-[14px] leading-7 text-black/60">
+            <p className="font-[Neue_Montreal] text-[15px] lg:text-[16px] xl:text-[17px] leading-[1.7] text-black/60">
               {section.blurb}
             </p>
           )}
@@ -473,7 +473,7 @@ function ServiceSectionBlock({
             <h3 className="font-[Neue_Montreal] text-[28px] font-medium leading-tight text-black lg:text-[34px]">
               {section.title}
             </h3>
-            <p className="mt-3 max-w-3xl font-[Neue_Montreal] text-[15px] leading-7 text-black">
+            <p className="mt-3 max-w-3xl font-[Neue_Montreal] text-[15px] lg:text-[16px] xl:text-[17px] leading-[1.7] text-black">
               {section.description}
             </p>
           </div>
@@ -489,7 +489,7 @@ function ServiceSectionBlock({
                     <span className="mt-0.5 font-mono text-[11px] text-black">
                       {item.number}
                     </span>
-                    <span className="max-w-175 font-[Neue_Montreal] text-[14px] leading-6 text-black">
+                    <span className="max-w-175 font-[Neue_Montreal] text-[15px] lg:text-[16px] xl:text-[17px] leading-[1.7] text-black">
                       {item.title}
                     </span>
                   </div>
@@ -502,7 +502,7 @@ function ServiceSectionBlock({
                   />
                 </summary>
                 {item.description ? (
-                  <p className="mt-3 max-w-2xl font-[Neue_Montreal] text-[13px] leading-7 text-black/55">
+                  <p className="mt-3 max-w-2xl font-[Neue_Montreal] text-[14px] lg:text-[15px] xl:text-[16px] leading-[1.7] text-black/55">
                     {item.description}
                   </p>
                 ) : null}
@@ -555,7 +555,7 @@ function EcommerceTypeSectionBlock({
             <h3 className="font-[Neue_Montreal] text-[28px] font-medium leading-tight text-black lg:text-[34px]">
               {section.title}
             </h3>
-            <p className="mt-3 max-w-2xl font-[Neue_Montreal] text-[15px] leading-7 text-black">
+            <p className="mt-3 max-w-2xl font-[Neue_Montreal] text-[15px] lg:text-[16px] xl:text-[17px] leading-[1.7] text-black">
               {section.description}
             </p>
           </div>
@@ -573,7 +573,7 @@ function EcommerceTypeSectionBlock({
                   className="size-5 shrink-0"
                   alt=""
                 />
-                <span className="font-[Neue_Montreal] text-[14px] leading-6 text-black">
+                <span className="font-[Neue_Montreal] text-[15px] lg:text-[16px] xl:text-[17px] leading-[1.7] text-black">
                   {item}
                 </span>
               </li>
@@ -594,10 +594,10 @@ function WhyCardBlock({ card }: { card: WhyChooseCard }) {
           {card.number}
         </span>
       </div>
-      <h3 className="mt-12 font-[Neue_Montreal] text-[28px] font-medium leading-tight text-black lg:text-[34px]">
+      <h3 className="mt-12 font-[Neue_Montreal] text-[28px] font-medium leading-tight text-black lg:text-[34px] xl:text-[38px]">
         {card.title}
       </h3>
-      <p className="mt-auto pt-20 font-[Neue_Montreal] text-[16px] leading-8 text-[#7f7f7f] lg:text-[18px]">
+      <p className="mt-auto pt-20 font-[Neue_Montreal] text-[16px] leading-[1.7] text-[#7f7f7f] lg:text-[18px] xl:text-[20px]">
         {card.description}
       </p>
     </article>
@@ -636,7 +636,7 @@ export default function EcommercePage() {
         <div className="absolute inset-0 bg-black/50" />
 
         <div className="relative max-w-7xl mx-auto w-full z-10 flex-1 flex flex-col justify-end px-10 md:px-20 pb-24">
-          <h1 className="font-[Neue_Montreal] text-[44px] font-medium leading-[1.05] tracking-[-0.04em] text-white sm:text-[54px]">
+          <h1 className="font-[Neue_Montreal] text-[44px] font-medium leading-[1.05] tracking-[-0.04em] text-white sm:text-[54px] lg:text-[60px] xl:text-[68px]">
             Transformez votre activité
             <br className="hidden sm:block" />
             avec une boutique en ligne performante
@@ -652,11 +652,11 @@ export default function EcommercePage() {
       <section className="border-t border-[#efefef] bg-white pt-16">
         <div className="mx-auto grid max-w-7xl w-full gap-10 px-6 sm:px-8 lg:grid-cols-[minmax(0,0.75fr)_minmax(0,1fr)] lg:px-12 xl:px-16">
           <div>
-            <h2 className="font-[Neue_Montreal] text-[32px] font-medium leading-tight text-black sm:text-[38px] lg:text-[44px]">
+            <h2 className="font-[Neue_Montreal] text-[32px] font-medium leading-tight text-black sm:text-[38px] lg:text-[44px] xl:text-[52px]">
               Technologies que nous maîtrisons
             </h2>
           </div>
-          <div className="grid gap-4 text-[15px] leading-7 text-black sm:grid-cols-2 lg:grid-cols-1">
+          <div className="grid gap-4 text-[15px] lg:text-[16px] xl:text-[17px] leading-[1.7] text-black sm:grid-cols-2 lg:grid-cols-1">
             <p>
               Chez Numispark, nous développons des solutions e-commerce
               sur-mesure qui transforment vos visiteurs en clients fidèles et
@@ -693,7 +693,7 @@ export default function EcommercePage() {
       {/* E-commerce types */}
       <section className="bg-white py-16">
         <div className="mx-auto max-w-7xl w-full px-6 sm:px-8 lg:px-12 xl:px-16">
-          <h2 className="font-[Neue_Montreal] text-[32px] font-medium leading-tight text-black sm:text-[38px] lg:text-[44px]">
+          <h2 className="font-[Neue_Montreal] text-[32px] font-medium leading-tight text-black sm:text-[38px] lg:text-[44px] xl:text-[52px]">
             Solutions e-commerce adaptées à vos besoins
           </h2>
         </div>
@@ -708,7 +708,7 @@ export default function EcommercePage() {
       {/* Why choose us */}
       <section className="bg-white">
         <div className="mx-auto max-w-7xl w-full px-6 sm:px-8 lg:px-12 xl:px-16">
-          <h2 className="font-[Neue_Montreal] text-[32px] font-medium leading-tight text-black sm:text-[38px] lg:text-[44px]">
+          <h2 className="font-[Neue_Montreal] text-[32px] font-medium leading-tight text-black sm:text-[38px] lg:text-[44px] xl:text-[52px]">
             Pourquoi choisir Numispark pour votre e-commerce&nbsp;?
           </h2>
         </div>

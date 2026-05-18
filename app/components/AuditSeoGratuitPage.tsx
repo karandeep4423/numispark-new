@@ -508,7 +508,7 @@ export default function AuditSeoGratuitPage() {
 
         {/* Title pinned toward bottom */}
         <div className="relative z-10 max-w-7xl mx-auto w-full flex flex-1 items-end px-8 pb-28 pt-40 md:px-20">
-          <h1 className="max-w-5xl font-[Neue_Montreal] text-[32px] font-medium leading-[1.05] text-white sm:text-[38px] lg:text-[52px]">
+          <h1 className="max-w-5xl font-[Neue_Montreal] text-[32px] font-medium leading-[1.05] text-white sm:text-[44px] lg:text-[58px] xl:text-[68px]">
             <span className="text-[#05ffe0]">Audit SEO Gratuit</span>
             <span>. Découvrez ce qui Freine Votre Visibilité sur Google</span>
           </h1>
@@ -560,10 +560,10 @@ export default function AuditSeoGratuitPage() {
           </div>
           {/* Sticky heading + scrollable form */}
           <div className="self-start lg:sticky lg:top-8">
-            <h2 className="font-[Neue_Montreal] text-[28px] font-medium leading-tight sm:text-[32px] lg:text-[36px]">
+            <h2 className="font-[Neue_Montreal] text-[28px] font-medium leading-tight sm:text-[36px] lg:text-[44px] xl:text-[52px]">
               Demander votre audit gratuit.
             </h2>
-            <p className="mt-4 font-[Neue_Montreal] text-[14px] leading-7 text-[#7f7f7f]">
+            <p className="mt-4 font-[Neue_Montreal] text-[15px] lg:text-[16px] xl:text-[17px] leading-[1.7] text-[#7f7f7f]">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
               enim ad minim veniam, quis nostrud exercitation ullamco laboris
@@ -582,7 +582,7 @@ export default function AuditSeoGratuitPage() {
       {/* ─── Problems Grid ─── */}
       <section className="bg-white py-16">
         <div className="mx-auto max-w-7xl w-full px-6 sm:px-8 lg:px-12 xl:px-16">
-          <h2 className="mb-10 font-[Neue_Montreal] text-[28px] font-medium leading-tight text-black sm:text-[32px] lg:text-[36px]">
+          <h2 className="mb-10 font-[Neue_Montreal] text-[28px] font-medium leading-tight text-black sm:text-[36px] lg:text-[44px] xl:text-[52px]">
             Bénéfices immédiats
             <br />
             de notre audit SEO gratuit.
@@ -596,7 +596,7 @@ export default function AuditSeoGratuitPage() {
                   <h3 className="font-[Neue_Montreal] text-[16px] font-medium leading-tight text-black sm:text-[18px]">
                     {problem.title}
                   </h3>
-                  <p className="mt-2 font-[Neue_Montreal] text-[14px] leading-7 text-[#7f7f7f]">
+                  <p className="mt-2 font-[Neue_Montreal] text-[15px] lg:text-[16px] xl:text-[17px] leading-[1.7] text-[#7f7f7f]">
                     {problem.description}
                   </p>
                 </div>
@@ -649,7 +649,7 @@ export default function AuditSeoGratuitPage() {
 
         {/* Benefits Items (dark) */}
         <div className="mx-auto max-w-7xl w-full px-6 py-16 sm:px-8 lg:px-12 xl:px-16">
-          <h2 className="mb-10 text-center font-[Neue_Montreal] text-[28px] font-medium leading-tight sm:text-[32px] lg:text-[36px]">
+          <h2 className="mb-10 text-center font-[Neue_Montreal] text-[28px] font-medium leading-tight sm:text-[36px] lg:text-[44px] xl:text-[52px]">
             <span className="text-[#05ffe0]">Bénéfices immédiats</span>{" "}
             de notre audit SEO gratuit
           </h2>
@@ -662,7 +662,7 @@ export default function AuditSeoGratuitPage() {
                   <h3 className="font-[Neue_Montreal] text-[16px] font-medium leading-tight text-white sm:text-[18px]">
                     {benefit.title}
                   </h3>
-                  <p className="mt-2 font-[Neue_Montreal] text-[14px] leading-7 text-[#7f7f7f]">
+                  <p className="mt-2 font-[Neue_Montreal] text-[15px] lg:text-[16px] xl:text-[17px] leading-[1.7] text-[#7f7f7f]">
                     {benefit.description}
                   </p>
                 </div>
@@ -675,7 +675,7 @@ export default function AuditSeoGratuitPage() {
 
         {/* 3 Pillar Tabs */}
         <div className="mx-auto max-w-7xl w-full px-6 py-16 sm:px-8 lg:px-12 xl:px-16">
-          <h2 className="mb-10 text-center font-[Neue_Montreal] text-[28px] font-medium leading-tight sm:text-[32px] lg:text-[36px]">
+          <h2 className="mb-10 text-center font-[Neue_Montreal] text-[28px] font-medium leading-tight sm:text-[36px] lg:text-[44px] xl:text-[52px]">
             Notre audit SEO gratuit couvre les{" "}
             <span className="text-[#05ffe0]">
               3 piliers essentiels du référencement
@@ -743,7 +743,7 @@ export default function AuditSeoGratuitPage() {
               <h4 className="mb-3 font-[Neue_Montreal] text-[22px] font-medium leading-tight text-white sm:text-[26px]">
                 {PILLAR_TABS[activeTab].subheading}
               </h4>
-              <p className="mb-6 font-[Neue_Montreal] text-[14px] leading-7 text-[#7f7f7f]">
+              <p className="mb-6 font-[Neue_Montreal] text-[15px] lg:text-[16px] xl:text-[17px] leading-[1.7] text-[#7f7f7f]">
                 {PILLAR_TABS[activeTab].description}
               </p>
 
@@ -789,11 +789,11 @@ export default function AuditSeoGratuitPage() {
               <p className="mb-2 font-[Roboto_Mono] text-[12px] text-[#8f8f8f] lg:text-left">
                 {"{ Comment ça marche }"}
               </p>
-              <h2 className="font-[Neue_Montreal] text-[28px] font-medium leading-tight text-black sm:text-[32px] lg:text-[36px]">
+              <h2 className="font-[Neue_Montreal] text-[28px] font-medium leading-tight text-black sm:text-[36px] lg:text-[44px] xl:text-[52px]">
                 Notre processus d&apos;audit SEO en 4 étapes
               </h2>
             </div>
-            <p className="self-end mb-8 font-[Neue_Montreal] text-[14px] leading-7 text-black">
+            <p className="self-end mb-8 font-[Neue_Montreal] text-[15px] lg:text-[16px] xl:text-[17px] leading-[1.7] text-black">
               Cet audit est 100% gratuit et sans engagement. Aucune obligation
               d&apos;achat ni de souscription à nos services.
             </p>
@@ -807,7 +807,7 @@ export default function AuditSeoGratuitPage() {
                   <h3 className="font-[Neue_Montreal] text-[16px] font-medium leading-tight text-black sm:text-[18px]">
                     {step.title}
                   </h3>
-                  <p className="mt-2 font-[Neue_Montreal] text-[14px] leading-7 text-[#7f7f7f]">
+                  <p className="mt-2 font-[Neue_Montreal] text-[15px] lg:text-[16px] xl:text-[17px] leading-[1.7] text-[#7f7f7f]">
                     {step.description}
                   </p>
                   <span className="mt-2 inline-block rounded-full bg-[#05ffe0] px-3 py-1 font-[Neue_Montreal] text-[12px] text-black">
@@ -823,7 +823,7 @@ export default function AuditSeoGratuitPage() {
       {/* ─── Advantages Grid ─── */}
       <section className="bg-white py-16">
         <div className="mx-auto max-w-7xl w-full px-6 sm:px-8 lg:px-12 xl:px-16">
-          <h2 className="mb-10 font-[Neue_Montreal] text-[28px] font-medium leading-tight text-black sm:text-[32px] lg:text-[36px]">
+          <h2 className="mb-10 font-[Neue_Montreal] text-[28px] font-medium leading-tight text-black sm:text-[36px] lg:text-[44px] xl:text-[52px]">
             Pourquoi votre site n&apos;apparaît pas en première page de Google ?
           </h2>
 
@@ -835,7 +835,7 @@ export default function AuditSeoGratuitPage() {
                   <h3 className="font-[Neue_Montreal] text-[16px] font-medium leading-tight text-black sm:text-[18px]">
                     {adv.title}
                   </h3>
-                  <p className="mt-2 font-[Neue_Montreal] text-[14px] leading-7 text-[#7f7f7f]">
+                  <p className="mt-2 font-[Neue_Montreal] text-[15px] lg:text-[16px] xl:text-[17px] leading-[1.7] text-[#7f7f7f]">
                     {adv.description}
                   </p>
                 </div>
@@ -848,7 +848,7 @@ export default function AuditSeoGratuitPage() {
       {/* ─── Audience Section (Dark) ─── */}
       <section className="bg-[#0f0f0f] py-16 text-white">
         <div className="mx-auto max-w-7xl w-full px-6 sm:px-8 lg:px-12 xl:px-16">
-          <h2 className="mb-10 font-[Neue_Montreal] text-[28px] font-medium leading-tight sm:text-[32px] lg:text-[36px]">
+          <h2 className="mb-10 font-[Neue_Montreal] text-[28px] font-medium leading-tight sm:text-[36px] lg:text-[44px] xl:text-[52px]">
             Pour qui est cet{" "}
             <span className="text-[#05ffe0]">audit SEO complet ?</span>
           </h2>
@@ -861,7 +861,7 @@ export default function AuditSeoGratuitPage() {
                   <h3 className="font-[Neue_Montreal] text-[16px] font-medium leading-tight text-white sm:text-[18px]">
                     {item.title}
                   </h3>
-                  <p className="mt-2 font-[Neue_Montreal] text-[14px] leading-7 text-[#7f7f7f]">
+                  <p className="mt-2 font-[Neue_Montreal] text-[15px] lg:text-[16px] xl:text-[17px] leading-[1.7] text-[#7f7f7f]">
                     {item.description}
                   </p>
                 </div>
@@ -877,11 +877,11 @@ export default function AuditSeoGratuitPage() {
         <div className="mx-auto grid max-w-7xl w-full gap-10 px-6 py-16 sm:px-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)] lg:gap-16 lg:px-12 xl:px-16">
           {/* Left: Heading */}
           <div className="self-start lg:sticky lg:top-8">
-            <h2 className="font-[Neue_Montreal] text-[28px] font-medium leading-tight sm:text-[32px] lg:text-[36px]">
+            <h2 className="font-[Neue_Montreal] text-[28px] font-medium leading-tight sm:text-[36px] lg:text-[44px] xl:text-[52px]">
               Demander votre audit{" "}
               <span className="text-[#05ffe0]">gratuit.</span>
             </h2>
-            <p className="mt-4 font-[Neue_Montreal] text-[14px] leading-7 text-[#7f7f7f]">
+            <p className="mt-4 font-[Neue_Montreal] text-[15px] lg:text-[16px] xl:text-[17px] leading-[1.7] text-[#7f7f7f]">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
               enim ad minim veniam, quis nostrud exercitation ullamco laboris

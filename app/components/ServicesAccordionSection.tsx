@@ -140,11 +140,11 @@ export default function ServicesAccordionSection({
               onClick={() => setActiveService(index)}
             >
               <div className="flex items-center gap-5">
-                <span className="font-mono text-xs text-[#8F8F8F] leading-none transition-all duration-500  group-hover:ml-2">
+                <span className="font-mono text-[13px] lg:text-[14px] text-[#8F8F8F] leading-none transition-all duration-500  group-hover:ml-2">
                   {service.number}
                 </span>
                 <span
-                  className={`font-[Neue_Montreal] text-[15px] leading-normal transition-colors duration-200 ${
+                  className={`font-[Neue_Montreal] text-[17px] lg:text-[19px] xl:text-[22px] leading-normal transition-colors duration-200 ${
                     activeService === index ? "font-semibold text-black" : "font-medium text-black"
                   }`}
                 >
@@ -158,19 +158,19 @@ export default function ServicesAccordionSection({
 
             {activeService === index && (
               <div className="px-8 pb-8">
-                <p className="text-[13px] text-[#7F7F7F] font-[Neue_Montreal] leading-relaxed mb-5">
+                <p className="text-[15px] lg:text-[17px] xl:text-[18px] text-[#7F7F7F] font-[Neue_Montreal] leading-[1.7] mb-5">
                   {service.description}
                 </p>
                 {service.expertise && (
                   <>
-                    <p className="font-[Neue_Montreal] text-[13px] font-semibold text-black mb-3">
+                    <p className="font-[Neue_Montreal] text-[14px] lg:text-[15px] xl:text-[16px] font-semibold text-black mb-3">
                       Notre expertise
                     </p>
                     <ul className="space-y-2">
                       {service.expertise.map((item, i) => (
                         <li
                           key={i}
-                          className="flex items-start gap-2 text-[13px] text-[#7F7F7F] font-[Neue_Montreal] leading-relaxed"
+                          className="flex items-start gap-2 text-[14px] lg:text-[15px] xl:text-[16px] text-[#7F7F7F] font-[Neue_Montreal] leading-[1.7]"
                         >
                           <span className="mt-1 shrink-0">•</span>
                           <span>{item}</span>

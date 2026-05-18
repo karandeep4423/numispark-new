@@ -53,7 +53,7 @@ export default function Footer() {
 
             {/* Right: tagline + description + CTA */}
             <div className="md:w-[55%] flex flex-col gap-5">
-              <h2 className="font-[Neue_Montreal] text-[28px] md:text-[36px] lg:text-[40px] font-medium leading-[1.1] text-white">
+              <h2 className="font-[Neue_Montreal] text-[28px] md:text-[36px] lg:text-[44px] xl:text-[52px] font-medium leading-[1.1] text-white">
                 Nous croyons en l&apos;humains
                 <br />
                 pour créer l&apos;avenir.

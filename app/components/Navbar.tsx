@@ -44,111 +44,113 @@ const Navbar = () => {
   return (
     <>
       {/* ━━━━━━━━━━━━━━━━━━ DESKTOP NAV ━━━━━━━━━━━━━━━━━━ */}
-      <nav className="absolute max-w-7xl mx-auto top-3 left-10 right-10 z-50 hidden md:flex items-center justify-between px-8 py-1">
-        {/* Logo */}
-        <Link
-          href="/"
-          className={`flex items-center shrink-0 transition-all duration-300 ${
-            isScrolled ? "opacity-0 pointer-events-none" : "opacity-100"
-          }`}
-        >
-          <Image
-            src="/full-logo-white.svg"
-            alt="Numispark"
-            width={140}
-            height={36}
-            priority
-          />
-        </Link>
-
-        {/* Center pill nav — sticky */}
-        <ul className="fixed top-4 right-1/7  z-70 -translate-x-1/2 flex items-center gap-1 rounded-full border border-black/8 bg-[#5a5a5a]/92 px-3 py-2 shadow-[0_10px_30px_rgba(0,0,0,0.12)] backdrop-blur-md">
-          {navLinks.map((link) => (
-            <li key={link.href}>
-              <Link
-                href={link.href}
-                className="rounded-full px-3 py-2 text-sm text-white/72 transition-colors duration-200 hover:bg-white/8 hover:text-white"
-              >
-                {link.label}
-              </Link>
-            </li>
-          ))}
-        </ul>
-
-        {/* Right side */}
-        <div
-          className={`flex items-center gap-3 transition-all duration-300 ${
-            isScrolled ? "opacity-0 pointer-events-none" : "opacity-100"
-          }`}
-        >
+      <nav className="fixed top-0 left-0 right-0 z-50 hidden lg:block pt-3 px-6">
+        <div className="max-w-7xl mx-auto grid grid-cols-[1fr_auto_1fr] items-center gap-4 px-4 py-2">
+          {/* Logo */}
           <Link
-            href="/services/audit-seo-gratuit"
-            className="inline-flex items-center px-4 py-2 rounded-full bg-[#05ffe0] text-black text-sm font-semibold hover:bg-white transition-colors duration-200"
+            href="/"
+            className={`flex items-center transition-all duration-300 ${
+              isScrolled ? "opacity-0 pointer-events-none" : "opacity-100"
+            }`}
           >
-            Pré-audit gratuit
+            <Image
+              src="/full-logo-white.svg"
+              alt="Numispark"
+              width={140}
+              height={36}
+              priority
+            />
           </Link>
 
-          {/* Language selector */}
-          <div className="relative">
-            <button
-              onClick={() => setLangOpen(!langOpen)}
-              className="flex items-center gap-1.5 px-3 py-2 rounded-full border border-white/10 text-white/70 hover:text-white hover:border-white/30 transition-colors duration-200 text-sm"
+          {/* Center pill nav */}
+          <ul className="flex items-center gap-1 rounded-full border border-black/8 bg-[#5a5a5a]/92 px-3 py-2 shadow-[0_10px_30px_rgba(0,0,0,0.12)] backdrop-blur-md">
+            {navLinks.map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  className="rounded-full px-3 py-2 text-sm text-white/72 transition-colors duration-200 hover:bg-white/8 hover:text-white whitespace-nowrap"
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+
+          {/* Right side */}
+          <div
+            className={`flex items-center justify-end gap-3 transition-all duration-300 ${
+              isScrolled ? "opacity-0 pointer-events-none" : "opacity-100"
+            }`}
+          >
+            <Link
+              href="/services/audit-seo-gratuit"
+              className="inline-flex items-center px-4 py-2 rounded-full bg-[#05ffe0] text-black text-sm font-semibold hover:bg-white transition-colors duration-200 whitespace-nowrap"
             >
-              <svg
-                width="14"
-                height="14"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.8"
-                strokeLinecap="round"
-                strokeLinejoin="round"
+              Pré-audit gratuit
+            </Link>
+
+            {/* Language selector */}
+            <div className="relative">
+              <button
+                onClick={() => setLangOpen(!langOpen)}
+                className="flex items-center gap-1.5 px-3 py-2 rounded-full border border-white/10 text-white/70 hover:text-white hover:border-white/30 transition-colors duration-200 text-sm"
               >
-                <circle cx="12" cy="12" r="10" />
-                <path d="M12 2a14.5 14.5 0 0 0 0 20A14.5 14.5 0 0 0 12 2" />
-                <path d="M2 12h20" />
-              </svg>
-              <span>{selectedLang}</span>
-              <svg
-                width="12"
-                height="12"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className={`transition-transform duration-200 ${langOpen ? "rotate-180" : ""}`}
-              >
-                <path d="m6 9 6 6 6-6" />
-              </svg>
-            </button>
-            {langOpen && (
-              <div className="absolute right-0 mt-2 w-36 rounded-xl bg-[#1a1a2e] border border-white/10 shadow-xl overflow-hidden z-80">
-                {languages.map((lang) => (
-                  <button
-                    key={lang}
-                    onClick={() => {
-                      setSelectedLang(lang);
-                      setLangOpen(false);
-                    }}
-                    className={`w-full text-left px-4 py-2.5 text-sm transition-colors duration-150 ${
-                      selectedLang === lang
-                        ? "text-white bg-white/10"
-                        : "text-white/60 hover:text-white hover:bg-white/5"
-                    }`}
-                  >
-                    {lang}
-                  </button>
-                ))}
-              </div>
-            )}
+                <svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.8"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <circle cx="12" cy="12" r="10" />
+                  <path d="M12 2a14.5 14.5 0 0 0 0 20A14.5 14.5 0 0 0 12 2" />
+                  <path d="M2 12h20" />
+                </svg>
+                <span>{selectedLang}</span>
+                <svg
+                  width="12"
+                  height="12"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className={`transition-transform duration-200 ${langOpen ? "rotate-180" : ""}`}
+                >
+                  <path d="m6 9 6 6 6-6" />
+                </svg>
+              </button>
+              {langOpen && (
+                <div className="absolute right-0 mt-2 w-36 rounded-xl bg-[#1a1a2e] border border-white/10 shadow-xl overflow-hidden z-80">
+                  {languages.map((lang) => (
+                    <button
+                      key={lang}
+                      onClick={() => {
+                        setSelectedLang(lang);
+                        setLangOpen(false);
+                      }}
+                      className={`w-full text-left px-4 py-2.5 text-sm transition-colors duration-150 ${
+                        selectedLang === lang
+                          ? "text-white bg-white/10"
+                          : "text-white/60 hover:text-white hover:bg-white/5"
+                      }`}
+                    >
+                      {lang}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </nav>
 
       {/* ━━━━━━━━━━━━━━━━━━ MOBILE TOP BAR (closed) ━━━━━━━━━━━━━━━━━━ */}
-      <div className="md:hidden absolute top-0 left-0 right-0 z-50 flex items-center justify-between px-4.5 pt-14 pb-4">
+      <div className="lg:hidden absolute top-0 left-0 right-0 z-50 flex items-center justify-between px-4.5 pt-14 pb-4">
         {/* Hamburger */}
         <button
           aria-label="Ouvrir le menu"
@@ -182,7 +184,7 @@ const Navbar = () => {
 
       {/* ━━━━━━━━━━━━━━━━━━ MOBILE MENU OVERLAY (open) ━━━━━━━━━━━━━━━━━━ */}
       <div
-        className={`md:hidden fixed inset-0 z-100 bg-[#0f0f0f] flex flex-col transition-all duration-500 ease-in-out ${
+        className={`lg:hidden fixed inset-0 z-100 bg-[#0f0f0f] flex flex-col transition-all duration-500 ease-in-out ${
           mobileMenuOpen
             ? "opacity-100 pointer-events-auto"
             : "opacity-0 pointer-events-none"

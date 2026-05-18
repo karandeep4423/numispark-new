@@ -139,10 +139,10 @@ function FeatureCardItem({ card }: { card: FeatureCard }) {
         </div>
         <span className="font-mono text-[11px] text-black">{card.number}</span>
       </div>
-      <h3 className="mt-8 font-[Neue_Montreal] text-[28px] font-medium leading-tight text-black transition-transform duration-600 group-hover:translate-y-3 group-hover:underline group-hover:decoration-1 group-hover:underline-offset-4">
+      <h3 className="mt-8 font-[Neue_Montreal] text-[28px] lg:text-[30px] xl:text-[32px] font-medium leading-tight text-black transition-transform duration-600 group-hover:translate-y-3 group-hover:underline group-hover:decoration-1 group-hover:underline-offset-4">
         {card.title}
       </h3>
-      <p className="mt-24 font-[Neue_Montreal] text-[14px] leading-7 text-black/45 transition-all duration-600 group-hover:-translate-y-3 group-hover:text-black">
+      <p className="mt-24 font-[Neue_Montreal] text-[15px] lg:text-[17px] xl:text-[18px] leading-[1.7] text-black/45 transition-all duration-600 group-hover:-translate-y-3 group-hover:text-black">
         {card.description}
       </p>
     </article>
@@ -171,7 +171,7 @@ export default function WebCreationPage() {
 
         {/* Bottom-left content */}
         <div className="relative max-w-7xl mx-auto w-full z-10 flex-1 flex flex-col justify-end px-10 md:px-20 pb-24">
-          <h1 className="font-[Neue_Montreal] text-4xl sm:text-5xl text-white leading-tight tracking-tight mb-10">
+          <h1 className="font-[Neue_Montreal] text-[44px] font-medium sm:text-[54px] lg:text-[60px] xl:text-[68px] text-white leading-[1.05] tracking-[-0.04em] mb-10">
             Agence experte en création de sites web sur mesure à Caen en
             Normandie
           </h1>
@@ -187,13 +187,13 @@ export default function WebCreationPage() {
         {/* 2-col header */}
         <div className="mx-auto grid max-w-7xl w-full gap-10 px-6 sm:px-8 lg:grid-cols-[minmax(0,0.75fr)_minmax(0,1fr)] lg:px-12 xl:px-16">
           <div>
-            <h2 className="font-[Neue_Montreal] text-[32px] font-medium leading-tight text-black sm:text-[38px] lg:text-[44px]">
+            <h2 className="font-[Neue_Montreal] text-[32px] font-medium leading-tight text-black sm:text-[38px] lg:text-[44px] xl:text-[52px]">
               Technologies
               <br />
               que nous maîtrisons
             </h2>
           </div>
-          <div className="grid gap-4 text-[15px] leading-7 text-black sm:grid-cols-2 lg:grid-cols-1">
+          <div className="grid gap-4 text-[15px] lg:text-[16px] xl:text-[17px] leading-[1.7] text-black sm:grid-cols-2 lg:grid-cols-1">
             <p>
               Nous concevons des sites web sur mesure, pensés pour allier
               performance, clarté et impact visuel.

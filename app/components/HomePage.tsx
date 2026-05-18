@@ -34,7 +34,7 @@ const Home = () => {
         <h2 className="text-[#8F8F8F] text-center font-mono text-sm font-normal leading-normal">
           {"{Qui sommes nous}"}
         </h2>
-        <p className="text-center font-[Neue_Montreal] text-[26px] md:text-[42px] font-medium leading-[1.2] md:leading-12.5 text-black">
+        <p className="text-center font-[Neue_Montreal] text-[26px] md:text-[44px] xl:text-[52px] font-medium leading-[1.2] md:leading-12.5 text-black">
           Depuis 3 ans, Numispark accompagne 60+ entreprises françaises dans
           leur transformation numérique.
         </p>
@@ -46,7 +46,7 @@ const Home = () => {
           <p className="font-[Neue_Montreal] text-[60px] md:text-[80px] font-medium leading-none text-black mb-6 transition-all duration-600 group-hover:translate-y-1">
             +60
           </p>
-          <p className="font-[Neue_Montreal] transition-all duration-600 group-hover:-translate-y-1 text-[14px] font-normal leading-5.5 text-[#7F7F7F] group-hover:text-black">
+          <p className="font-[Neue_Montreal] transition-all duration-600 group-hover:-translate-y-1 text-[15px] lg:text-[16px] xl:text-[17px] font-normal leading-[1.6] text-[#7F7F7F] group-hover:text-black">
             projets digitaux conçus, développés et livrés avec succès pour des
             clients allant de la startup au entreprise.
           </p>
@@ -55,7 +55,7 @@ const Home = () => {
           <p className="font-[Neue_Montreal] text-[60px] md:text-[80px] font-medium leading-none text-black mb-6 transition-all duration-600 group-hover:translate-y-1">
             10
           </p>
-          <p className="font-[Neue_Montreal]  group-hover:-translate-y-1 text-[14px] font-normal leading-5.5 text-[#7F7F7F] group-hover:text-black transition-all duration-600">
+          <p className="font-[Neue_Montreal]  group-hover:-translate-y-1 text-[15px] lg:text-[16px] xl:text-[17px] font-normal leading-[1.6] text-[#7F7F7F] group-hover:text-black transition-all duration-600">
             spécialistes pluridisciplinaires qui mettent leur savoir-faire et
             leur créativité au service exclusif de la réussite de votre
             transformation digitale.
@@ -65,7 +65,7 @@ const Home = () => {
           <p className="font-[Neue_Montreal] text-[60px] md:text-[80px] font-medium leading-none text-black mb-6 transition-all duration-600 group-hover:translate-y-1">
             100 %
           </p>
-          <p className="font-[Neue_Montreal] text-[14px] font-normal leading-5.5 text-[#7F7F7F] group-hover:text-black transition-all duration-600 group-hover:-translate-y-1">
+          <p className="font-[Neue_Montreal] text-[15px] lg:text-[16px] xl:text-[17px] font-normal leading-[1.6] text-[#7F7F7F] group-hover:text-black transition-all duration-600 group-hover:-translate-y-1">
             de nos projets bénéficient d&apos;une rigueur méthodologique et
             d&apos;une expertise confirmée, assurant une qualité de livraison
             irréprochable.
@@ -85,10 +85,10 @@ const Home = () => {
             </div>
             <span className="font-mono text-[11px] text-black">01</span>
           </div>
-          <h3 className="mt-8 font-[Neue_Montreal] text-[28px] font-medium leading-tight text-black transition-transform duration-600 group-hover:translate-y-3 group-hover:underline group-hover:decoration-1 group-hover:underline-offset-4">
+          <h3 className="mt-8 font-[Neue_Montreal] text-[28px] lg:text-[30px] xl:text-[32px] font-medium leading-tight text-black transition-transform duration-600 group-hover:translate-y-3 group-hover:underline group-hover:decoration-1 group-hover:underline-offset-4">
             Solutions sur mesure
           </h3>
-          <p className="mt-24 font-[Neue_Montreal] text-[14px] leading-7 text-black/45 transition-all duration-600 group-hover:-translate-y-3 group-hover:text-black">
+          <p className="mt-24 font-[Neue_Montreal] text-[15px] lg:text-[17px] xl:text-[18px] leading-[1.7] text-black/45 transition-all duration-600 group-hover:-translate-y-3 group-hover:text-black">
             Nous ne croyons pas aux solutions génériques. Nous développons des
             approches sur mesure, parfaitement alignées sur vos enjeux
             spécifiques, et créons de nouvelles fonctionnalités dès que vos
@@ -105,17 +105,17 @@ const Home = () => {
             </div>
             <span className="font-mono text-[11px] text-black">02</span>
           </div>
-          <h3 className="mt-8 font-[Neue_Montreal] text-[28px] font-medium leading-tight text-black transition-transform duration-600 group-hover:translate-y-3 group-hover:underline group-hover:decoration-1 group-hover:underline-offset-4">
+          <h3 className="mt-8 font-[Neue_Montreal] text-[28px] lg:text-[30px] xl:text-[32px] font-medium leading-tight text-black transition-transform duration-600 group-hover:translate-y-3 group-hover:underline group-hover:decoration-1 group-hover:underline-offset-4">
             Technologie évolutive
           </h3>
-          <p className="mt-24 font-[Neue_Montreal] text-[14px] leading-7 text-black/45 transition-all duration-600 group-hover:-translate-y-3 group-hover:text-black">
+          <p className="mt-24 font-[Neue_Montreal] text-[15px] lg:text-[17px] xl:text-[18px] leading-[1.7] text-black/45 transition-all duration-600 group-hover:-translate-y-3 group-hover:text-black">
             Nous concevons des architectures pérennes et extensibles. Notre
             priorité est de bâtir des solutions prêtes pour le futur, capables
             de s&rsquo;adapter et de grandir au rythme de l&rsquo;évolution de
             votre entreprise.
           </p>
         </div>
-        <div className="border border-[#ececec]">
+        <div className="border border-[#ececec] min-h-70 md:min-h-0">
           <img
             className="w-full h-full object-cover"
             src="/images/image-jpeg-51.png"
@@ -132,10 +132,10 @@ const Home = () => {
             </div>
             <span className="font-mono text-[11px] text-black">04</span>
           </div>
-          <h3 className="mt-8 font-[Neue_Montreal] text-[28px] font-medium leading-tight text-black transition-transform duration-600 group-hover:translate-y-3 group-hover:underline group-hover:decoration-1 group-hover:underline-offset-4">
+          <h3 className="mt-8 font-[Neue_Montreal] text-[28px] lg:text-[30px] xl:text-[32px] font-medium leading-tight text-black transition-transform duration-600 group-hover:translate-y-3 group-hover:underline group-hover:decoration-1 group-hover:underline-offset-4">
             Approche gagnant-gagnant
           </h3>
-          <p className="mt-24 font-[Neue_Montreal] text-[14px] leading-7 text-black/45 transition-all duration-600 group-hover:-translate-y-3 group-hover:text-black">
+          <p className="mt-24 font-[Neue_Montreal] text-[15px] lg:text-[17px] xl:text-[18px] leading-[1.7] text-black/45 transition-all duration-600 group-hover:-translate-y-3 group-hover:text-black">
             Notre succès est indissociable du vôtre. Nous privilégions une
             collaboration étroite et durable, en fournissant des services qui
             favorisent une croissance soutenable et renforcent les liens avec
@@ -152,17 +152,17 @@ const Home = () => {
             </div>
             <span className="font-mono text-[11px] text-black">05</span>
           </div>
-          <h3 className="mt-8 font-[Neue_Montreal] text-[28px] font-medium leading-tight text-black transition-transform duration-600 group-hover:translate-y-3 group-hover:underline group-hover:decoration-1 group-hover:underline-offset-4">
+          <h3 className="mt-8 font-[Neue_Montreal] text-[28px] lg:text-[30px] xl:text-[32px] font-medium leading-tight text-black transition-transform duration-600 group-hover:translate-y-3 group-hover:underline group-hover:decoration-1 group-hover:underline-offset-4">
             Expertise métier
           </h3>
-          <p className="mt-24 font-[Neue_Montreal] text-[14px] leading-7 text-black/45 transition-all duration-600 group-hover:-translate-y-3 group-hover:text-black">
+          <p className="mt-24 font-[Neue_Montreal] text-[15px] lg:text-[17px] xl:text-[18px] leading-[1.7] text-black/45 transition-all duration-600 group-hover:-translate-y-3 group-hover:text-black">
             Avec près d&apos;une décennie d&apos;expérience dans le secteur de
             l&apos;informatique, nous maîtrisons les subtilités technologiques
             pour délivrer, de manière constante, des résultats d&apos;une
             qualité exceptionnelle.
           </p>
         </div>
-        <div className="border border-[#ececec]">
+        <div className="border border-[#ececec] min-h-70 md:min-h-0">
           <img
             className="w-full h-full object-cover bg-[#00e5c0]"
             src="/images/capture-decran-20260307-a-1836221.png"
@@ -182,7 +182,7 @@ const Home = () => {
             {"{ Nos services }"}
           </h2>
           <p className="text-center md:text-left font-[Neue_Montreal] text-[30px] md:text-[52px] font-medium leading-[1.2] md:leading-16.25 text-black">
-            Une approche 360° pour donnerdu sens, de la force et de la
+            Une approche 360° pour donner du sens, de la force et de la
             cohérence.
           </p>
           <CtaButton className="mx-auto mt-8">En savoir plus</CtaButton>

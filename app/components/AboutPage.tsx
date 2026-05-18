@@ -232,10 +232,10 @@ function TeamCard({
       <div className="absolute inset-x-0 bottom-0 h-[34%] bg-linear-to-t from-black/90 via-black/36 to-transparent transition-all duration-500 ease-out group-hover:h-[54%] group-hover:from-black/94 group-hover:via-black/58" />
       <div className="absolute inset-x-0 bottom-0 p-5 text-white sm:p-6">
         <div className="max-w-[18rem]">
-          <p className="font-[Neue_Montreal] text-[20px] font-medium leading-tight sm:text-[21px]">
+          <p className="font-[Neue_Montreal] text-[22px] font-medium leading-tight sm:text-[24px]">
             {name}
           </p>
-          <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.14em] text-white/65 sm:text-[11px]">
+          <p className="mt-1 font-mono text-[11px] uppercase tracking-[0.14em] text-white/65 sm:text-[13px]">
             {role}
           </p>
           <div className="max-h-0 overflow-hidden opacity-0 transition-all duration-500 ease-out group-hover:mt-4 group-hover:max-h-24 group-hover:opacity-100">
@@ -265,10 +265,10 @@ function TeamTextCard({
     <div
       className={`flex flex-col justify-center bg-white px-0 py-4 sm:px-2 lg:px-4 ${className}`}
     >
-      <h3 className="whitespace-pre-line font-[Neue_Montreal] text-[28px] font-medium leading-[1.15] text-black">
+      <h3 className="whitespace-pre-line font-[Neue_Montreal] text-[28px] xl:text-[30px] font-medium leading-[1.15] text-black">
         {title}
       </h3>
-      <p className="mt-5  font-[Neue_Montreal] text-[16px] leading-[1.72] text-[#7f7f7f]">
+      <p className="mt-5  font-[Neue_Montreal] text-[16px] xl:text-[17px] leading-[1.72] text-[#7f7f7f]">
         {description}
       </p>
     </div>
@@ -306,7 +306,7 @@ export default function AboutPage() {
 
         {/* Hero title – pinned toward the bottom */}
         <div className="relative max-w-7xl mx-auto w-full z-10 flex-1 flex items-end px-6 md:px-20 pb-20 pt-32 md:pb-28 md:pt-40">
-          <h1 className="font-[Neue_Montreal] text-[32px] sm:text-[42px] lg:text-[52px] xl:text-[60px] font-medium leading-[1.1] text-white max-w-5xl">
+          <h1 className="font-[Neue_Montreal] text-[36px] sm:text-[48px] lg:text-[58px] xl:text-[68px] font-medium leading-[1.1] text-white max-w-5xl">
             Une agence digitale née pour construire{" "}
             <span className="text-[#05ffe0]">des produits qui performent.</span>
           </h1>
@@ -343,16 +343,24 @@ export default function AboutPage() {
         {/* ── Content ── */}
         <div className="max-w-7xl mx-auto w-full px-6 md:px-10 pt-12 md:pt-16">
           <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-start">
-            {/* Left: heading + large decorative image */}
-            <div className="lg:w-[40%]">
-              <h2 className="font-[Neue_Montreal] text-[36px] md:text-[48px] font-medium leading-tight text-black mb-8">
+            {/* Left: heading + decorative image */}
+            <div className="lg:w-[45%]">
+              <h2 className="font-[Neue_Montreal] text-[36px] md:text-[44px] xl:text-[52px] font-medium leading-tight text-black mb-8">
                 L&apos;agence
               </h2>
+              <div className="rounded-2xl overflow-hidden" style={{ aspectRatio: "4/5" }}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/about/agency-logo.jpg"
+                  alt=""
+                  className="w-full h-full object-cover"
+                />
+              </div>
             </div>
 
             {/* Right: description + CTA + 2×2 stats */}
-            <div className="lg:w-[60%] flex flex-col gap-6 pt-0 lg:pt-2">
-              <p className="font-[Neue_Montreal] text-[17px] leading-[1.75] text-black">
+            <div className="lg:w-[55%] flex flex-col gap-6 pt-0 lg:pt-2">
+              <p className="font-[Neue_Montreal] text-[16px] lg:text-[17px] xl:text-[18px] leading-[1.75] text-black">
                 Créée en 2022 par Karandeep et Thomas, Numispark est née
                 d&apos;un constat simple&nbsp;: les TPE et PME françaises
                 méritent la même expertise technique que les grandes
@@ -362,36 +370,25 @@ export default function AboutPage() {
               <div>
                 <CtaButton href="/contact">Planifier un appel</CtaButton>
               </div>
-            </div>
-          </div>
-          <div className="flex gap-10 flex-col md:flex-row items-center justify-center mt-6">
-            {/* Decorative 3-D shapes image */}
-            <div
-              className="relative w-full h-full overflow-y-visible"
-              style={{ aspectRatio: "4/5" }}
-            >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/about/agency-logo.jpg"
-                alt=""
-                className="w-full h-full object-cover"
-              />
-            </div>
-            {/* 2 × 2 stats grid */}
-            <div className="grid grid-cols-1  md:grid-cols-2 gap-x-10 gap-y-0   border-black/8 ">
-              {STATS.map((s) => (
-                <div
-                  key={s.value}
-                  className="group px-4 pt-6 pb-4 border-t-2 border-[#E0E0E0] hover:border-black transition-all duration-600 bg-[linear-gradient(127deg,transparent_0%,transparent_100%)] hover:bg-[linear-gradient(127deg,#E7ECF2_3.71%,rgba(231,236,242,0)_40.97%)]"
-                >
-                  <p className="font-[Neue_Montreal] text-[40px] md:text-[56px] font-medium text-black leading-none mb-3 transition-all duration-600 group-hover:translate-y-1">
-                    {s.value}
-                  </p>
-                  <p className="font-[Neue_Montreal] text-[13px] leading-[1.6] text-black/40 group-hover:text-black transition-all duration-600 group-hover:-translate-y-1">
-                    {s.desc}
-                  </p>
-                </div>
-              ))}
+              {/* 2 × 2 stats grid */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-0 mt-4">
+                {STATS.map((s) => (
+                  <div
+                    key={s.value}
+                    className="group px-4 pt-6 pb-4 border-t-2 border-[#E0E0E0] hover:border-black transition-all duration-600 bg-[linear-gradient(127deg,transparent_0%,transparent_100%)] hover:bg-[linear-gradient(127deg,#E7ECF2_3.71%,rgba(231,236,242,0)_40.97%)]"
+                  >
+                    <p className="font-[Neue_Montreal] text-[44px] md:text-[64px] xl:text-[80px] font-medium text-black leading-none mb-1 transition-all duration-600 group-hover:translate-y-1">
+                      {s.value}
+                    </p>
+                    <p className="font-[Neue_Montreal] text-[14px] lg:text-[15px] xl:text-[16px] font-semibold text-black mb-2">
+                      {s.label}
+                    </p>
+                    <p className="font-[Neue_Montreal] text-[14px] lg:text-[15px] xl:text-[16px] leading-[1.7] text-black/40 group-hover:text-black transition-all duration-600 group-hover:-translate-y-1">
+                      {s.desc}
+                    </p>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
@@ -405,8 +402,8 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-6 md:px-10 w-full">
           <div className="flex flex-col lg:flex-row gap-16 lg:gap-24">
             {/* Left: lists */}
-            <div className="lg:w-[45%] mt-10 px-6 md:px-10 lg:px-16">
-              <h2 className="font-[Neue_Montreal] text-[32px] md:text-[42px] font-medium leading-tight text-black mb-10 md:mb-14">
+            <div className="lg:w-[45%] mt-10">
+              <h2 className="font-[Neue_Montreal] text-[32px] md:text-[44px] xl:text-[52px] font-medium leading-tight text-black mb-10 md:mb-14">
                 Expertises
               </h2>
 
@@ -420,7 +417,7 @@ export default function AboutPage() {
                     key={skill}
                     className="group py-0.5 w-full cursor-default"
                   >
-                    <p className="inline-block font-[Neue_Montreal] text-[20px] text-black transition-all duration-500 ease-out group-hover:translate-x-[22px] group-hover:bg-[linear-gradient(90deg,#05D9FF_0%,#05FFE0_38%,#000000_82%)] group-hover:bg-clip-text group-hover:text-transparent motion-reduce:transform-none">
+                    <p className="inline-block font-[Neue_Montreal] text-[20px] xl:text-[26px] text-black transition-all duration-500 ease-out group-hover:translate-x-5.5 group-hover:bg-[linear-gradient(90deg,#05D9FF_0%,#05FFE0_38%,#000000_82%)] group-hover:bg-clip-text group-hover:text-transparent motion-reduce:transform-none">
                       {skill}
                     </p>
                   </div>
@@ -437,7 +434,7 @@ export default function AboutPage() {
                     key={skill}
                     className="group py-0.5 w-full cursor-default"
                   >
-                    <p className="inline-block font-[Neue_Montreal] text-[20px] text-black transition-all duration-500 ease-out group-hover:translate-x-[22px] group-hover:bg-[linear-gradient(90deg,#05D9FF_0%,#05FFE0_38%,#000000_82%)] group-hover:bg-clip-text group-hover:text-transparent motion-reduce:transform-none">
+                    <p className="inline-block font-[Neue_Montreal] text-[20px] xl:text-[26px] text-black transition-all duration-500 ease-out group-hover:translate-x-5.5 group-hover:bg-[linear-gradient(90deg,#05D9FF_0%,#05FFE0_38%,#000000_82%)] group-hover:bg-clip-text group-hover:text-transparent motion-reduce:transform-none">
                       {skill}
                     </p>
                   </div>
@@ -445,7 +442,7 @@ export default function AboutPage() {
               </div>
 
               {/* Company description */}
-              <p className="font-[Neue_Montreal] text-[18px] leading-[1.72] text-[#7f7f7f] mt-14 max-w-lg">
+              <p className="font-[Neue_Montreal] text-[16px] lg:text-[17px] xl:text-[18px] leading-[1.72] text-[#7f7f7f] mt-14 max-w-lg">
                 Nous accompagnons les entreprises dans la conception et le
                 développement de solutions digitales performantes. De
                 l&apos;interface utilisateur à l&apos;architecture technique,
@@ -482,7 +479,7 @@ export default function AboutPage() {
             {"{ Team Numispark }"}
           </p>
           <div className="mb-14 flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
-            <h2 className="font-[Neue_Montreal] text-[35px] font-medium leading-tight text-black">
+            <h2 className="font-[Neue_Montreal] text-[35px] xl:text-[52px] font-medium leading-tight text-black">
               Notre équipe
               <br />
               d&apos;experts full remote
@@ -579,7 +576,7 @@ export default function AboutPage() {
           6. SECTORS (dark)
       ════════════════════════════════════════════════════════════════════ */}
       <section className="py-20 bg-[#101010]">
-        <div className="max-w-7xl mx-auto w-full px-10 md:px-20">
+        <div className="max-w-7xl mx-auto w-full px-6 md:px-10">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-14">
             {SECTORS.map((s) => (
               <div key={s.num}>
@@ -595,7 +592,7 @@ export default function AboutPage() {
                   </p>
                 </div>
                 {/* Description indented to align with label */}
-                <p className="font-[Neue_Montreal] text-[15px] leading-[1.65] text-[#7f7f7f] ">
+                <p className="font-[Neue_Montreal] text-[15px] lg:text-[16px] xl:text-[17px] leading-[1.65] text-[#7f7f7f] ">
                   {s.desc}
                 </p>
               </div>

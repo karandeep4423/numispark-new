@@ -69,7 +69,7 @@ export default function FaqSection() {
           {"{ F.A.Q }"}
         </p>
 
-        <h2 className="mb-12 font-[Neue_Montreal] text-[38px] font-medium leading-[1.08] tracking-[-0.02em] text-black md:text-[50px]">
+        <h2 className="mb-12 font-[Neue_Montreal] text-[38px] font-medium leading-[1.08] tracking-[-0.02em] text-black md:text-[50px] xl:text-[52px]">
           Questions
           <br />
           fréquemment posées
@@ -96,7 +96,7 @@ export default function FaqSection() {
                     isOpen ? "px-3 hover:bg-black/[0.025]" : "hover:px-3"
                   }`}
                 >
-                  <span className="font-[Neue_Montreal] text-[14px] leading-snug font-normal text-black md:text-[15px]">
+                  <span className="font-[Neue_Montreal] text-[15px] leading-snug font-normal text-black md:text-[16px] lg:text-[17px] xl:text-[18px]">
                     {faq.question}
                   </span>
                   <FaqToggleIcon isOpen={isOpen} />
@@ -112,7 +112,7 @@ export default function FaqSection() {
                       isOpen ? "px-3 hover:bg-black/[0.045]" : ""
                     }`}
                   >
-                    <p className="font-[Neue_Montreal] text-[13px] leading-[1.78] text-black/40">
+                    <p className="font-[Neue_Montreal] text-[14px] md:text-[15px] lg:text-[16px] xl:text-[17px] leading-[1.78] text-black/40">
                       {faq.answer}
                     </p>
                   </div>
@@ -128,7 +128,7 @@ export default function FaqSection() {
       </div>
 
       <div className="relative hidden self-stretch bg-black md:block md:w-[45%]">
-        <div className="top-0 h-screen overflow-hidden">
+        <div className="sticky top-0 h-screen overflow-hidden">
           <video
             src="/faq-video.mp4"
             autoPlay

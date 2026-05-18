@@ -405,14 +405,14 @@ function ServiceSectionBlock({
             <div className="absolute inset-0 bg-linear-to-t from-black/30 via-transparent to-transparent" />
             <div className="absolute inset-x-0 bottom-0 p-4">
               <div className="rounded-[14px] bg-black/68 p-4 backdrop-blur-sm">
-                <p className="font-[Neue_Montreal] text-[13px] leading-6 text-white/86">
+                <p className="font-[Neue_Montreal] text-[14px] lg:text-[15px] xl:text-[16px] leading-[1.7] text-white/86">
                   {section.description}
                 </p>
               </div>
             </div>
           </div>
           {section.blurb && (
-            <p className="font-[Neue_Montreal] text-[14px] leading-7 text-black/60">
+            <p className="font-[Neue_Montreal] text-[15px] lg:text-[16px] xl:text-[17px] leading-[1.7] text-black/60">
               {section.blurb}
             </p>
           )}
@@ -423,7 +423,7 @@ function ServiceSectionBlock({
             <h3 className="font-[Neue_Montreal] text-[28px] font-medium leading-tight text-black lg:text-[34px]">
               {section.title}
             </h3>
-            <p className="mt-3 max-w-3xl font-[Neue_Montreal] text-[15px] leading-7 text-black">
+            <p className="mt-3 max-w-3xl font-[Neue_Montreal] text-[15px] lg:text-[16px] xl:text-[17px] leading-[1.7] text-black">
               {section.description}
             </p>
           </div>
@@ -439,7 +439,7 @@ function ServiceSectionBlock({
                     <span className="mt-0.5 font-mono text-[11px] text-black">
                       {item.number}
                     </span>
-                    <span className="max-w-175 font-[Neue_Montreal] text-[14px] leading-6 text-black">
+                    <span className="max-w-175 font-[Neue_Montreal] text-[15px] lg:text-[16px] xl:text-[17px] leading-[1.7] text-black">
                       {item.title}
                     </span>
                   </div>
@@ -496,7 +496,7 @@ function SeoTypeSectionBlock({ section }: { section: SeoTypeSection }) {
                   className="size-5 shrink-0"
                   alt=""
                 />
-                <span className="font-[Neue_Montreal] text-[14px] leading-6 text-black">
+                <span className="font-[Neue_Montreal] text-[15px] lg:text-[16px] xl:text-[17px] leading-[1.7] text-black">
                   {item}
                 </span>
               </li>
@@ -517,10 +517,10 @@ function WhyCardBlock({ card }: { card: WhyChooseCard }) {
         </div>
         <span className="font-mono text-[11px] text-black">{card.number}</span>
       </div>
-      <h3 className="mt-8 font-[Neue_Montreal] text-[28px] font-medium leading-tight text-black transition-transform duration-600 group-hover:translate-y-3 group-hover:underline group-hover:decoration-1 group-hover:underline-offset-4">
+      <h3 className="mt-8 font-[Neue_Montreal] text-[28px] lg:text-[30px] xl:text-[32px] font-medium leading-tight text-black transition-transform duration-600 group-hover:translate-y-3 group-hover:underline group-hover:decoration-1 group-hover:underline-offset-4">
         {card.title}
       </h3>
-      <p className="mt-24 font-[Neue_Montreal] text-[14px] leading-7 text-black/45 transition-all duration-600 group-hover:-translate-y-3 group-hover:text-black">
+      <p className="mt-24 font-[Neue_Montreal] text-[15px] lg:text-[17px] xl:text-[18px] leading-[1.7] text-black/45 transition-all duration-600 group-hover:-translate-y-3 group-hover:text-black">
         {card.description}
       </p>
     </article>
@@ -559,7 +559,7 @@ export default function SeoPage() {
         <div className="absolute inset-0 bg-black/50" />
 
         <div className="relative max-w-7xl mx-auto w-full z-10 flex-1 flex flex-col justify-end px-10 md:px-20 pb-24">
-          <h1 className="font-[Neue_Montreal] text-[44px] font-medium leading-[1.05] tracking-[-0.04em] text-white sm:text-[54px]">
+          <h1 className="font-[Neue_Montreal] text-[44px] font-medium leading-[1.05] tracking-[-0.04em] text-white sm:text-[54px] lg:text-[60px] xl:text-[68px]">
             Boostez votre visibilité et votre
             <br className="hidden sm:block" />
             trafic organique grâce à une
@@ -577,13 +577,13 @@ export default function SeoPage() {
       <section className="border-t border-[#efefef] bg-white pt-16">
         <div className="mx-auto grid max-w-7xl w-full gap-10 px-6 sm:px-8 lg:grid-cols-[minmax(0,0.75fr)_minmax(0,1fr)] lg:px-12 xl:px-16">
           <div>
-            <h2 className="font-[Neue_Montreal] text-[32px] font-medium leading-tight text-black sm:text-[38px] lg:text-[44px]">
+            <h2 className="font-[Neue_Montreal] text-[32px] font-medium leading-tight text-black sm:text-[38px] lg:text-[44px] xl:text-[52px]">
               Technologies
               <br />
               que nous maîtrisons
             </h2>
           </div>
-          <div className="grid gap-4 text-[15px] leading-7 text-black sm:grid-cols-2 lg:grid-cols-1">
+          <div className="grid gap-4 text-[15px] lg:text-[16px] xl:text-[17px] leading-[1.7] text-black sm:grid-cols-2 lg:grid-cols-1">
             <p>
               Nous maîtrisons les outils et technologies de référencement les
               plus performants pour garantir une visibilité maximale à votre
@@ -621,7 +621,7 @@ export default function SeoPage() {
       {/* SEO types */}
       <section className="bg-white py-16">
         <div className="mx-auto max-w-7xl w-full px-6 sm:px-8 lg:px-12 xl:px-16">
-          <h2 className="font-[Neue_Montreal] text-[32px] font-medium leading-tight text-black sm:text-[38px] lg:text-[44px]">
+          <h2 className="font-[Neue_Montreal] text-[32px] font-medium leading-tight text-black sm:text-[38px] lg:text-[44px] xl:text-[52px]">
             SEO adapté à vos besoins
           </h2>
         </div>
@@ -636,7 +636,7 @@ export default function SeoPage() {
       {/* Why choose us */}
       <section className="bg-white">
         <div className="mx-auto max-w-7xl w-full px-6 sm:px-8 lg:px-12 xl:px-16">
-          <h2 className="font-[Neue_Montreal] text-[32px] font-medium leading-tight text-black sm:text-[38px] lg:text-[44px]">
+          <h2 className="font-[Neue_Montreal] text-[32px] font-medium leading-tight text-black sm:text-[38px] lg:text-[44px] xl:text-[52px]">
             Pourquoi choisir Numispark pour votre SEO&nbsp;?
           </h2>
         </div>

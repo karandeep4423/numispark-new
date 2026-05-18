@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__Figma__get_screenshot",
+      "Bash(curl -s -o \"C:\\\\Users\\\\karan\\\\Desktop\\\\numispark-new\\\\figma_services.png\" \"https://www.figma.com/api/mcp/asset/b6b86225-e82b-49e3-93b7-6a29d075f3e3\")",
+      "mcp__Figma__get_design_context"
+    ]
+  },
+  "mcpServers": {
+    "Figma": {
+      "type": "http",
+      "url": "https://mcp.figma.com/mcp",
+      "headers": {
+        "X-Figma-Token": "figd_O3AS9doWZVnzqJVN1CuoMdGSccAFzgyaSYC2U3hL"
+      }
+    }
+  }
+}

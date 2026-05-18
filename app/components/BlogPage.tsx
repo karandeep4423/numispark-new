@@ -189,7 +189,7 @@ export default function BlogPage() {
 
           {/* Title + description grid */}
           <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
-            <h1 className="font-[Neue_Montreal] text-[38px] font-medium leading-[1.1] text-black sm:text-[44px] lg:text-[52px]">
+            <h1 className="font-[Neue_Montreal] text-[38px] font-medium leading-[1.1] text-black sm:text-[48px] lg:text-[58px] xl:text-[68px]">
               Suivez toute l&apos;actualité
               <br />
               de Numispark
@@ -254,7 +254,7 @@ export default function BlogPage() {
                 <p className="font-[Roboto_Mono] text-[11px] uppercase tracking-widest text-[#676768]">
                   {FEATURED_ARTICLE.date}
                 </p>
-                <h2 className="font-[Neue_Montreal] text-[32px] font-medium leading-tight text-black sm:text-[36px] lg:text-[42px]">
+                <h2 className="font-[Neue_Montreal] text-[32px] font-medium leading-tight text-black sm:text-[38px] lg:text-[44px] xl:text-[52px]">
                   {FEATURED_ARTICLE.title}
                 </h2>
                 <p className="font-[Neue_Montreal] text-[15px] leading-7 text-[#676768]">

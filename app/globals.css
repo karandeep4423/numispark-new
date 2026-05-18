@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
+@theme {
+  --font-sans: var(--font-space-grotesk), sans-serif;
+  --font-mono: var(--font-roboto-mono), ui-monospace, monospace;
+  --font-jost: var(--font-jost), sans-serif;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -18,9 +24,94 @@
   animation: marquee 30s linear infinite;
 }
 
+/* ─── IA / Automatisation page animations ─────────────────────────────── */
+@keyframes ai-pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.55;
+  }
+  50% {
+    transform: scale(1.45);
+    opacity: 1;
+  }
+}
+
+@keyframes ai-flow {
+  0% {
+    stroke-dashoffset: 200;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes ai-blink {
+  0%, 49% {
+    opacity: 1;
+  }
+  50%, 100% {
+    opacity: 0;
+  }
+}
+
+@keyframes ai-float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes ai-grid-shift {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 40px 40px;
+  }
+}
+
+@utility animate-ai-pulse {
+  animation: ai-pulse 2.6s ease-in-out infinite;
+}
+
+@utility animate-ai-flow {
+  animation: ai-flow 3s linear infinite;
+}
+
+@utility animate-ai-blink {
+  animation: ai-blink 1s steps(1, end) infinite;
+}
+
+@utility animate-ai-float {
+  animation: ai-float 4s ease-in-out infinite;
+}
+
+@utility animate-ai-grid-shift {
+  animation: ai-grid-shift 8s linear infinite;
+}
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: "Neue Montreal", sans-serif,"PP Neue Montreal";
+  font-family: var(--font-space-grotesk), sans-serif;
+}
+
+/* ─── Font-family aliases ────────────────────────────────────────────────────
+   Components use Tailwind arbitrary values like `font-[Neue_Montreal]` and
+   `font-['Jost']` that reference fonts by their original Figma names. We map
+   those names to the actual loaded Next.js fonts here so we don't have to
+   touch 180+ component locations. */
+
+.font-\[Neue_Montreal\] {
+  font-family: var(--font-space-grotesk), sans-serif;
+}
+
+.font-\[Roboto_Mono\] {
+  font-family: var(--font-roboto-mono), ui-monospace, monospace;
+}
+
+.font-\[\'Jost\'\] {
+  font-family: var(--font-jost), sans-serif;
 }

@@ -85,19 +85,21 @@ export default function HeroSection({
         )}
       </div>
 
-      {/* Desktop layout — title bottom-left, description bottom-right */}
-      <div className="hidden md:block absolute bottom-16 left-12 max-w-xl z-10">
-        <h1 className="text-[clamp(28px,7vw,54px)] text-white leading-tight tracking-tight">
-          {title}
-        </h1>
-      </div>
-      {description && (
-        <div className="hidden md:block absolute bottom-16 right-12 max-w-xs z-10 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-5">
-          <p className="text-white/60 text-sm leading-relaxed font-mono">
-            {description}
-          </p>
+      {/* Desktop layout — title bottom-left, description bottom-right, aligned to max-w-7xl */}
+      <div className="hidden md:block absolute inset-x-0 bottom-16 z-10">
+        <div className="max-w-7xl mx-auto w-full px-6 md:px-10 flex items-end justify-between gap-8">
+          <h1 className="text-[clamp(40px,5.5vw,72px)] text-white leading-tight tracking-tight">
+            {title}
+          </h1>
+          {description && (
+            <div className="max-w-xs bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-5 shrink-0">
+              <p className="text-white/60 text-sm leading-relaxed font-mono">
+                {description}
+              </p>
+            </div>
+          )}
         </div>
-      )}
+      </div>
     </section>
   );
 }

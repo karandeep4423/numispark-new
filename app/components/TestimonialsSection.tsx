@@ -157,10 +157,10 @@ export default function TestimonialsSection() {
                       height={28}
                     />
                   </div>
-                  <h3 className="font-[Neue_Montreal] text-[20px] font-semibold transition-all duration-500 group-hover:translate-y-2 text-black mb-4 leading-snug">
+                  <h3 className="font-[Neue_Montreal] text-[20px] lg:text-[22px] xl:text-[24px] font-semibold transition-all duration-500 group-hover:translate-y-2 text-black mb-4 leading-snug">
                     {t.title}
                   </h3>
-                  <p className="font-[Neue_Montreal] group-hover:text-black transition-all duration-500 group-hover:translate-y-2 text-[14px] leading-[1.72] text-black/50">
+                  <p className="font-[Neue_Montreal] group-hover:text-black transition-all duration-500 group-hover:translate-y-2 text-[14px] lg:text-[15px] xl:text-[17px] leading-[1.72] text-black/50">
                     {t.quote}
                   </p>
                 </div>

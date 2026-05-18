@@ -176,30 +176,30 @@ function ArrowIcon() {
 
 function ServiceCard({ service }: { service: (typeof SERVICES)[number] }) {
   return (
-    <div className="flex flex-col h-screen w-full overflow-hidden border-y border-[#dadada] bg-white lg:flex-row">
-      <div className="relative grid flex-1 grid-rows-[auto_1fr_auto] px-10 pt-12 pb-8 md:px-16 lg:px-20 xl:px-24 xl:pt-18 xl:pb-10">
-        <p className="absolute top-[6%] left-[4%] font-mono text-[13px] text-[#8f8f8f]">
+    <div className="flex flex-col w-full overflow-hidden border-b border-[#dadada] bg-white lg:h-screen lg:flex-row">
+      <div className="relative flex flex-1 flex-col px-8 pt-12 pb-8 md:px-14 lg:px-18 xl:px-24 xl:pt-18 xl:pb-10">
+        <p className="absolute top-[6%] left-[5%] font-mono text-[14px] text-[#8f8f8f]">
           {service.num}
         </p>
 
         <div className="mt-4">
-          <h2 className="max-w-full whitespace-pre-line font-[Neue_Montreal] text-[34px] font-medium leading-[1.05] text-black  xl:text-[48px]">
+          <h2 className="max-w-xl whitespace-pre-line font-[Neue_Montreal] text-[32px] font-medium leading-[1.05] text-black md:text-[38px] xl:text-[52px]">
             {service.title}
           </h2>
         </div>
 
-        <div className="min-h-0 pt-6 xl:pt-8">
-          <p className="mb-3 font-mono text-[12px] text-[#8f8f8f]">
+        <div className="pt-6 xl:pt-8">
+          <p className="mb-3 font-mono text-[13px] text-[#8f8f8f]">
             {"{ Points clés }"}
           </p>
           <div className="flex flex-col">
             {service.points.map((pt) => (
               <div
                 key={pt}
-                className="flex items-start gap-1.5 py-1.5 font-medium group   "
+                className="flex items-start gap-1.5 py-1.5 font-medium group"
               >
-                <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-black/20 transition-all duration-500 ease-out group-hover:translate-x-1 group-hover:bg-[linear-gradient(90deg,#05D9FF_0%,#05FFE0_38%,#000000_82%)] group-hover:bg-clip-text group-hover:text-transparent motion-reduce:transform-none" />
-                <p className="font-[Neue_Montreal] text-[16px] leading-[1.35] text-black lg:text-[17px] xl:text-[18px] transition-all duration-500 ease-out group-hover:translate-x-5.5 group-hover:bg-[linear-gradient(90deg,#05D9FF_0%,#05FFE0_38%,#000000_82%)] group-hover:bg-clip-text group-hover:text-transparent motion-reduce:transform-none">
+                <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-black/20 transition-all duration-500 ease-out group-hover:translate-x-1" />
+                <p className="font-[Neue_Montreal] text-[15px] leading-[1.35] text-black lg:text-[18px] xl:text-[22px] transition-all duration-500 ease-out group-hover:translate-x-5.5 group-hover:bg-[linear-gradient(90deg,#05D9FF_0%,#05FFE0_38%,#000000_82%)] group-hover:bg-clip-text group-hover:text-transparent motion-reduce:transform-none">
                   {pt}
                 </p>
               </div>
@@ -207,13 +207,13 @@ function ServiceCard({ service }: { service: (typeof SERVICES)[number] }) {
           </div>
         </div>
 
-        <div className="border-t border-black/8 bg-white pt-5 xl:pt-6">
-          <p className="max-w-110 font-[Neue_Montreal] text-[16px] leading-[1.6] text-[#7f7f7f] xl:text-[17px]">
+        <div className="pt-5 xl:pt-8">
+          <p className="max-w-sm font-[Neue_Montreal] text-[15px] leading-[1.6] text-[#7f7f7f] xl:text-[18px]">
             {service.desc}
           </p>
           <Link
             href={`/services/${service.slug}`}
-            className="mt-5 inline-flex self-start rounded-full border border-black bg-black px-6 py-4 font-mono text-[11px] uppercase tracking-widest text-white transition-all duration-200 hover:border-[#05ffe0] hover:bg-[#05ffe0] hover:text-black"
+            className="mt-5 inline-flex self-start rounded-full border border-black bg-black px-6 py-4 font-mono text-[12px] uppercase tracking-widest text-white transition-all duration-200 hover:border-[#05ffe0] hover:bg-[#05ffe0] hover:text-black"
           >
             <span className="flex items-center gap-8">
               En savoir plus
@@ -223,7 +223,8 @@ function ServiceCard({ service }: { service: (typeof SERVICES)[number] }) {
         </div>
       </div>
 
-      <div className="relative block shrink-0 overflow-hidden h-[38%] w-full lg:h-auto lg:w-[46%] xl:w-[48%]">
+      {/* Image / video – full height on desktop, fixed height on mobile */}
+      <div className="relative shrink-0 overflow-hidden h-64 w-full sm:h-80 lg:h-auto lg:w-[46%] xl:w-[48%]">
         {service.img ? (
           // eslint-disable-next-line @next/next/no-img-element
           <img
@@ -251,7 +252,7 @@ function ServiceCard({ service }: { service: (typeof SERVICES)[number] }) {
 export default function ServicesPage() {
   return (
     <main className="bg-[#101010]">
-      <section className="relative flex min-h-screen items-end overflow-hidden rounded-br-[70px] rounded-bl-[70px] bg-[#101010] pb-20">
+      <section className="relative flex min-h-screen items-end overflow-hidden rounded-br-[70px] rounded-bl-[70px] bg-[#101010] pb-16 md:pb-20">
         <video
           className="absolute inset-0 h-full w-full object-cover"
           src="/bg-video.mp4"
@@ -269,9 +270,10 @@ export default function ServicesPage() {
           }}
         />
 
-        <div className="relative z-10 max-w-7xl w-full mx-auto px-10 md:px-20">
-          <h1 className="font-[Neue_Montreal] text-4xl sm:text-[52px] font-medium leading-[1.15] text-white">
-            Une agence digitale globale <br className="hidden md:block" />
+        <div className="relative z-10 max-w-7xl mx-auto w-full px-6 md:px-10">
+          <h1 className="font-[Neue_Montreal] text-[34px] sm:text-[44px] lg:text-[56px] xl:text-[64px] font-medium leading-[1.12] text-white max-w-5xl">
+            Une agence digitale globale{" "}
+            <br className="hidden md:block" />
             qui accompagne la transformation
             <br className="hidden md:block" />
             des marques à travers des expériences numériques{" "}
@@ -284,7 +286,7 @@ export default function ServicesPage() {
         {SERVICES.map((service, index) => (
           <div
             key={service.num}
-            className="sticky top-0 max-w-7xl mx-auto w-full"
+            className="sticky top-0 w-full"
             style={{ zIndex: index + 1 }}
           >
             <ServiceCard service={service} />

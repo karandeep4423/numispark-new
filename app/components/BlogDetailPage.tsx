@@ -154,7 +154,7 @@ export default function BlogDetailPage() {
                 <p className="mb-1 font-[Roboto_Mono] text-[12px] uppercase tracking-widest text-[#676768]">
                   Rédigé le 23 janvier 2026
                 </p>
-                <h1 className="font-[Neue_Montreal] text-[28px] font-medium leading-tight text-black sm:text-[34px] lg:text-[42px]">
+                <h1 className="font-[Neue_Montreal] text-[28px] font-medium leading-tight text-black sm:text-[38px] lg:text-[48px] xl:text-[56px]">
                   Article à la une
                 </h1>
               </div>
@@ -179,7 +179,7 @@ export default function BlogDetailPage() {
       <section className="bg-white">
         <div className="mx-auto max-w-7xl w-full px-6 py-12 sm:px-8 lg:px-12 xl:px-16">
           {/* First heading + intro text */}
-          <h2 className="mb-6 font-[Neue_Montreal] text-[24px] font-medium leading-tight text-black sm:text-[28px] lg:text-[32px]">
+          <h2 className="mb-6 font-[Neue_Montreal] text-[24px] font-medium leading-tight text-black sm:text-[30px] lg:text-[36px] xl:text-[42px]">
             Ut porttitor leo a diam sollicitudin tempor
           </h2>
 
@@ -245,7 +245,7 @@ export default function BlogDetailPage() {
           </div>
 
           {/* Second heading + extended text */}
-          <h2 className="mb-6 font-[Neue_Montreal] text-[24px] font-medium leading-tight text-black sm:text-[28px] lg:text-[32px]">
+          <h2 className="mb-6 font-[Neue_Montreal] text-[24px] font-medium leading-tight text-black sm:text-[30px] lg:text-[36px] xl:text-[42px]">
             Ut porttitor leo a diam sollicitudin tempor
           </h2>
 

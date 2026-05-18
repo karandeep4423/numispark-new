@@ -148,14 +148,14 @@ export default function NosProjectsSection() {
               <div>
                 {/* Two-line heading: fixed "Nos projets" + animated project name in gray */}
                 <div className="mb-10">
-                  <h2 className="font-[Neue_Montreal] text-[44px] font-bold leading-none tracking-[-0.04em] text-black">
+                  <h2 className="font-[Neue_Montreal] text-[44px] xl:text-[52px] font-bold leading-none tracking-[-0.04em] text-black">
                     Nos projets
                   </h2>
                   <div className="relative h-13 overflow-hidden">
                     {projects.map((project, index) => (
                       <h2
                         key={project.id}
-                        className={`absolute font-[Neue_Montreal] text-[44px] font-bold leading-none tracking-[-0.04em] text-black/30 transition-all duration-500 ease-out ${
+                        className={`absolute font-[Neue_Montreal] text-[44px] xl:text-[52px] font-bold leading-none tracking-[-0.04em] text-black/30 transition-all duration-500 ease-out ${
                           index === activeIndex
                             ? "translate-y-0 opacity-100"
                             : index < activeIndex
@@ -180,7 +180,7 @@ export default function NosProjectsSection() {
                           : "pointer-events-none translate-y-6 opacity-0"
                       }`}
                     >
-                      <p className="max-w-md font-[Neue_Montreal] text-[17px] leading-[1.75] text-black/55">
+                      <p className="max-w-md font-[Neue_Montreal] text-[17px] lg:text-[18px] xl:text-[20px] leading-[1.75] text-black/55">
                         {project.description}
                       </p>
                     </div>
@@ -331,7 +331,7 @@ export default function NosProjectsSection() {
               <h3 className="mb-3 font-[Neue_Montreal] text-[22px] font-medium tracking-[-0.02em] text-black">
                 {project.name}
               </h3>
-              <p className="font-[Neue_Montreal] text-[14px] leading-[1.65] text-black/55">
+              <p className="font-[Neue_Montreal] text-[15px] lg:text-[16px] xl:text-[17px] leading-[1.65] text-black/55">
                 {project.description}
               </p>
             </div>

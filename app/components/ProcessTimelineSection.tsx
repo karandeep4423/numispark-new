@@ -170,14 +170,14 @@ export default function ProcessTimelineSection({
                   ETAPE {step.number}
                 </p>
                 <h3
-                  className={`font-[Neue_Montreal] text-[18px] font-medium mb-3 leading-snug transition-colors duration-700 ${
+                  className={`font-[Neue_Montreal] text-[18px] lg:text-[20px] xl:text-[22px] font-medium mb-3 leading-snug transition-colors duration-700 ${
                     isActive ? "text-white" : "text-[#333]"
                   }`}
                 >
                   {step.title}
                 </h3>
                 <p
-                  className={`font-[Neue_Montreal] text-[13px] leading-relaxed transition-colors duration-700 ${
+                  className={`font-[Neue_Montreal] text-[14px] lg:text-[15px] xl:text-[16px] leading-relaxed transition-colors duration-700 ${
                     isActive ? "text-[#ACACAC]" : "text-[#292929]"
                   }`}
                 >
