@@ -113,7 +113,7 @@ export default function NosAtoutsSection({
     <section className="bg-black">
       <div ref={atoutsSectionRef} className="relative h-[230vh] md:h-[240vh]">
         <div className="sticky mb-6 top-4 h-[calc(100vh-32px)] sm:top-6 sm:h-[calc(100vh-48px)]">
-          <div className="relative mx-auto h-full w-full max-w-7xl overflow-hidden bg-black">
+          <div className="relative mx-auto h-full w-full max-w-400 overflow-hidden bg-black">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.05),transparent_34%),radial-gradient(circle_at_73%_42%,rgba(255,255,255,0.02),transparent_44%)] opacity-80" />
 
             {/* Mobile: flex-col (title → circles → bullets)
@@ -152,7 +152,7 @@ export default function NosAtoutsSection({
 
               {/* ── 2. Concentric circles (middle on mobile, right column on desktop) ── */}
               <div className="flex flex-1 items-center justify-center lg:flex-none lg:col-start-2 lg:row-start-1 lg:row-span-2 lg:items-center lg:justify-end">
-                <div className="relative h-[min(78vw,340px)] w-[min(78vw,340px)] sm:h-[min(50vw,400px)] sm:w-[min(50vw,400px)] lg:-mr-8 lg:h-[min(70vh,520px)] lg:w-[min(70vh,520px)] xl:-mr-2.5">
+                <div className="relative h-[min(78vw,340px)] w-[min(78vw,340px)] sm:h-[min(50vw,400px)] sm:w-[min(50vw,400px)] lg:h-[min(72vh,52vw,680px)] lg:w-[min(72vh,52vw,680px)] xl:h-[min(80vh,50vw,920px)] xl:w-[min(80vh,50vw,920px)]">
                   {(
                     [
                       { key: "outer", size: "h-full w-full", zIndex: 10 },
