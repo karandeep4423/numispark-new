@@ -72,7 +72,7 @@ const ARTICLES: Article[] = [
     date: "Rédigé le 12 janvier 2026",
     title: "Article 5",
     excerpt:
-      "Nunc velit augue, scelerisque dignissim, lobortis et, aliquam in, risus. In eu eros. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia.",
+      "Nunc  augue, scelerisque dignissim, lobortis et, aliquam in, risus. In eu eros. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia.",
     image: IMG_ARTICLE_5,
   },
   {
