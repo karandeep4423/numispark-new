@@ -155,7 +155,7 @@ export default function ProcessTimelineSection({
 
             const card = (
               <div
-                className={`w-full max-w-95 bg-[#0D0D0D] border border-[#1E1E1E] rounded-xl p-10 transition-all duration-700 ${
+                className={`w-full max-w-150 rounded-[5px] border border-white/10 bg-[rgba(80,80,80,0.10)] backdrop-blur-[7px] p-10 transition-all duration-700 ${
                   isActive ? "opacity-100" : "opacity-20"
                 }`}
               >
