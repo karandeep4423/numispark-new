@@ -75,7 +75,7 @@ const GRID_ITEMS: GridItem[] = [
 
 function ValueCardItem({ card }: { card: ValueCard }) {
   return (
-    <div className="group relative flex flex-col border border-[#C8C8C8] bg-white px-6 py-8 sm:px-8 sm:py-10 lg:p-[10%] transition-all duration-600 hover:bg-linear-to-b hover:from-white hover:to-[#ebebeb] lg:aspect-865/695">
+    <div className="group relative flex flex-col border border-[#C8C8C8] bg-white px-6 py-8 sm:px-8 sm:py-10 lg:p-[10%] transition-all duration-600 hover:bg-linear-to-b hover:from-white hover:to-[#ebebeb] lg:h-[40.2vw] lg:max-h-173.75">
       <div className="flex items-start justify-between gap-6">
         <div className="transition-transform duration-600 group-hover:translate-y-3">
           {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -95,7 +95,7 @@ function ValueCardItem({ card }: { card: ValueCard }) {
 
 function ImageItem({ image }: { image: ImageCard }) {
   return (
-    <div className="border border-[#C8C8C8] overflow-hidden min-h-70 md:min-h-95 lg:min-h-0 lg:aspect-865/695">
+    <div className="border border-[#C8C8C8] overflow-hidden min-h-70 md:min-h-95 lg:min-h-0 lg:h-[40.2vw] lg:max-h-173.75">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         className={`w-full h-full object-cover ${image.className ?? ""}`}
