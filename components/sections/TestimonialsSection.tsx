@@ -131,7 +131,7 @@ export default function TestimonialsSection() {
       {/* Cards track */}
       <div
         ref={containerRef}
-        className=" grid grid-cols-3 px-8 overflow-hidden"
+        className=" grid grid-cols-3 px-4 sm:px-8 overflow-hidden"
       >
         <div
           className="flex transition-transform duration-500 ease-[cubic-bezier(0.25,0.46,0.45,0.94)]"
@@ -150,21 +150,21 @@ export default function TestimonialsSection() {
                       ? `${cardW}px`
                       : `calc((100% - ${(visibleCount - 1) * GAP}px) / ${visibleCount})`,
                 }}
-                className="group  relative shrink-0 rounded-[5px] border border-[#C8C8C8] bg-white pt-10 xl:pt-12 px-8 xl:px-10.5 pb-8 xl:pb-10.5 flex flex-col justify-between  transition-all duration-500 cursor-pointer hover:border-black hover:bg-[linear-gradient(145deg,#E7ECF2_0%,#F5F7FA_100%)] hover:shadow-[0_4px_24px_rgba(0,0,0,0.06)]"
+                className="group  relative shrink-0 rounded-[5px] border border-[#C8C8C8] bg-white pt-12 sm:pt-10 xl:pt-12 px-6 sm:px-8 xl:px-10.5 pb-8 xl:pb-10.5 flex flex-col justify-between  transition-all duration-500 cursor-pointer hover:border-black hover:bg-[linear-gradient(145deg,#E7ECF2_0%,#F5F7FA_100%)] hover:shadow-[0_4px_24px_rgba(0,0,0,0.06)]"
               >
                 {/* Quote icon pinned top-right at the same level as the title */}
                 <Image
                   src="/images/card-format-quote.svg"
                   alt=""
-                  width={36}
-                  height={28}
-                  className="absolute top-2.5 right-5"
+                  width={72}
+                  height={56}
+                  className="absolute top-4 right-5 w-14 h-11 sm:w-9 sm:h-7 sm:top-2.5"
                 />
                 <div>
-                  <h3 className="font-[Neue_Montreal] text-[20px] lg:text-[22px] xl:text-[31px] font-semibold transition-all duration-500 group-hover:translate-y-2 text-black mb-4 leading-snug">
+                  <h3 className="font-[Neue_Montreal] text-[24px] sm:text-[20px] lg:text-[22px] xl:text-[31px] font-semibold transition-all duration-500 group-hover:translate-y-2 text-black mb-4 leading-snug">
                     {t.title}
                   </h3>
-                  <p className="font-[Neue_Montreal] group-hover:text-black transition-all duration-500 group-hover:translate-y-2 text-[14px] lg:text-[17px] xl:text-[20px] leading-[1.72] text-black/50">
+                  <p className="font-[Neue_Montreal] group-hover:text-black transition-all duration-500 group-hover:translate-y-2 text-[15px] sm:text-[14px] lg:text-[17px] xl:text-[20px] leading-[1.72] text-black/50">
                     {t.quote}
                   </p>
                 </div>

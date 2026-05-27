@@ -125,7 +125,7 @@ export default function ServicesAccordionSection({
       </div>
 
       {/* Right: accordion list */}
-      <div className="w-full md:w-[55%] flex flex-col mx-16">
+      <div className="w-full md:w-[55%] flex flex-col px-4 md:px-0 md:mx-16">
         {services.map((service, index) => (
           <div key={index} className="border-b border-[#E0E0E0] first:border-t group transition-all duration-600 bg-[linear-gradient(127deg,transparent_0%,transparent_100%)] hover:bg-[linear-gradient(127deg,#E7ECF2_3.71%,rgba(231,236,242,0)_40.97%)]">
             <button

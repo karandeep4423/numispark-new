@@ -12,7 +12,7 @@ import ApproachSection from "./components/ApproachSection";
 
 export default function HomePage() {
   return (
-    <div>
+    <div className="overflow-x-clip">
       <HeroSection
         videoSrc="/HomePage/Home-hero-section-video.mp4"
         title={
