@@ -1,4 +1,4 @@
-import AuditSeoGratuitPage from "../../components/AuditSeoGratuitPage";
+import AuditSeoGratuitPage from "@/components/services/AuditSeoGratuitPage";
 
 export const metadata = {
   title: "Audit SEO Gratuit | Numispark",

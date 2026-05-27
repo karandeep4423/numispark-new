@@ -1,8 +1,8 @@
 "use client";
-import CtaButton from "./CtaButton";
 import { useState } from "react";
-import TestimonialsSection from "./TestimonialsSection";
-import Tools from "./Tools";
+import CtaButton from "@/components/ui/CtaButton";
+import TestimonialsSection from "@/components/sections/TestimonialsSection";
+import ToolsSection from "@/components/sections/ToolsSection";
 
 // ─── Figma asset URLs (temporary ~7 days – replace with local files) ─────────
 const P = {
@@ -571,7 +571,7 @@ export default function AboutPage() {
           5. TOOLS
       ════════════════════════════════════════════════════════════════════ */}
 
-      <Tools />
+      <ToolsSection />
       {/* ════════════════════════════════════════════════════════════════════
           6. SECTORS (dark)
       ════════════════════════════════════════════════════════════════════ */}

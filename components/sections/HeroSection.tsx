@@ -73,32 +73,30 @@ export default function HeroSection({
 
       {/* Mobile layout — title + description stacked at bottom */}
       <div className="absolute bottom-0 left-0 right-0 z-10 flex flex-col gap-3 px-5 pb-8 pt-24 md:hidden">
-        <h1 className="text-[44px] font-medium text-white leading-[1.1] tracking-tight">
+        <h1 className="font-[Neue_Montreal] text-[44px] font-medium text-white leading-[1.186]">
           {title}
         </h1>
         {description && (
-          <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-4">
-            <p className="text-white/60 text-sm leading-relaxed font-mono">
+          <div className="flex items-center justify-center rounded-[5px] bg-[rgba(46,46,46,0.70)] backdrop-blur-[20px] px-6 py-8">
+            <p className="text-white font-mono text-[15px] font-normal leading-5.75">
               {description}
             </p>
           </div>
         )}
       </div>
 
-      {/* Desktop layout — title bottom-left, description bottom-right, aligned to max-w-7xl */}
-      <div className="hidden md:block absolute inset-x-0 bottom-16 z-10">
-        <div className="max-w-7xl mx-auto w-full px-6 md:px-10 flex items-end justify-between gap-8">
-          <h1 className="text-[clamp(40px,5.5vw,72px)] text-white leading-tight tracking-tight">
-            {title}
-          </h1>
-          {description && (
-            <div className="max-w-xs bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-5 shrink-0">
-              <p className="text-white/60 text-sm leading-relaxed font-mono">
-                {description}
-              </p>
-            </div>
-          )}
-        </div>
+      {/* Desktop layout — title bottom-left, description bottom-right */}
+      <div className="hidden md:flex absolute inset-x-0 bottom-16 z-10 items-end justify-between gap-8 px-[70px] xl:px-[126px]">
+        <h1 className="font-[Neue_Montreal] text-5xl font-medium text-white leading-[1.186]">
+          {title}
+        </h1>
+        {description && (
+          <div className="flex items-center justify-center shrink-0 rounded-[5px] bg-[rgba(46,46,46,0.70)] backdrop-blur-[20px] w-[300px] xl:w-[453px] h-[147px] px-[42px] py-[55px] gap-[10px]">
+            <p className="w-[250px] xl:w-[369px] shrink-0 text-white font-mono text-[15px] font-normal leading-5.75">
+              {description}
+            </p>
+          </div>
+        )}
       </div>
     </section>
   );

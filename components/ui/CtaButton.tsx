@@ -22,9 +22,9 @@ const variantClasses: Record<CtaVariant, string> = {
   // Outline on dark bg (white text) → hover: slight white bg
   "outline-light":
     "bg-transparent border border-white/50 text-white hover:border-white hover:bg-white/10",
-  // Outline on dark bg with full white hover fill
+  // Outline on dark bg → hover: cyan fill (#05FFE0)
   "outline-footer":
-    "bg-transparent border border-white/25 text-white hover:bg-white hover:text-black hover:border-white",
+    "bg-transparent border border-white/25 text-white hover:bg-[#05FFE0] hover:text-black hover:border-[#05FFE0]",
 };
 
 interface CtaButtonProps {

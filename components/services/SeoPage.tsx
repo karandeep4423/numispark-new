@@ -1,12 +1,11 @@
 import Image from "next/image";
 import type { ReactNode } from "react";
-import CtaButton from "./CtaButton";
-import ProcessTimelineSection, {
-  type ProcessStep,
-} from "./ProcessTimelineSection";
-import NosProjectsSection from "./NosProjectsSection";
-import FaqSection from "./FaqSection";
-import Tools from "./Tools";
+import CtaButton from "@/components/ui/CtaButton";
+import ProcessTimelineSection from "@/components/sections/ProcessTimelineSection";
+import NosProjectsSection from "@/components/sections/NosProjectsSection";
+import FaqSection from "@/components/sections/FaqSection";
+import ToolsSection from "@/components/sections/ToolsSection";
+import type { ProcessStep } from "@/types/process";
 
 type SeoServiceSection = {
   title: string;
@@ -596,7 +595,7 @@ export default function SeoPage() {
             </p>
           </div>
         </div>
-        <Tools />
+        <ToolsSection />
       </section>
 
       {/* Service blocks */}

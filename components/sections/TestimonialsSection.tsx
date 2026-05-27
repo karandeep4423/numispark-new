@@ -89,13 +89,13 @@ export default function TestimonialsSection() {
   const handleNext = () => setOffset((o) => Math.min(maxOffset, o + 1));
 
   return (
-    <section className="py-24 bg-white max-w-7xl mx-auto w-full">
+    <section className="py-24 bg-white  w-full">
       {/* Header */}
       <div className="text-center px-8 mb-10">
         <p className="font-mono text-[12px] tracking-[0.18em] text-black/40">
           {"{ Témoignages }"}
         </p>
-        <h2 className="mt-3 font-[Neue_Montreal] text-[40px] lg:text-[52px] font-medium leading-tight tracking-[-0.03em] text-black">
+        <h2 className="mt-3 font-[Neue_Montreal] text-[40px] xl:text-[52px] font-medium leading-tight tracking-[-0.03em] text-black">
           Découvrez ce que nos clients ont à dire
         </h2>
       </div>
@@ -106,30 +106,33 @@ export default function TestimonialsSection() {
           onClick={handlePrev}
           disabled={!canPrev}
           aria-label="Précédent"
-          className={`w-12 h-12 rounded-full border flex items-center justify-center text-base transition-all duration-200 ${
+          className={`w-16 h-16 rounded-full border flex items-center justify-center text-base transition-all duration-200 ${
             !canPrev
               ? "border-black/15 text-black/25 cursor-not-allowed"
-              : "border-black/30 text-black hover:border-black"
+              : "border-black text-black  hover:bg-[#05ffe0] hover:border-[#05ffe0]"
           }`}
         >
-          ←
+          <Image src="/arrow-left.svg" alt="Précédent" width={24} height={24} />
         </button>
         <button
           onClick={handleNext}
           disabled={!canNext}
           aria-label="Suivant"
-          className={`w-12 h-12 rounded-full border flex items-center justify-center text-base transition-all duration-200 ${
+          className={`w-16 h-16 rounded-full border flex items-center justify-center text-base transition-all duration-200 ${
             !canNext
               ? "border-black/15 text-black/25 cursor-not-allowed"
-              : "border-black/30 text-black hover:bg-[#05ffe0] hover:border-[#05ffe0]"
+              : "border-black text-black hover:bg-[#05ffe0] hover:border-[#05ffe0]"
           }`}
         >
-          →
+          <Image src="/arrow-right.svg" alt="Suivant" width={24} height={24} />
         </button>
       </div>
 
       {/* Cards track */}
-      <div ref={containerRef} className="mx-auto max-w-6xl px-8 overflow-hidden">
+      <div
+        ref={containerRef}
+        className=" grid grid-cols-3 px-8 overflow-hidden"
+      >
         <div
           className="flex transition-transform duration-500 ease-[cubic-bezier(0.25,0.46,0.45,0.94)]"
           style={{
@@ -142,31 +145,32 @@ export default function TestimonialsSection() {
               <div
                 key={t.id}
                 style={{
-                  width: cardW > 0
-                    ? `${cardW}px`
-                    : `calc((100% - ${(visibleCount - 1) * GAP}px) / ${visibleCount})`,
+                  width:
+                    cardW > 0
+                      ? `${cardW}px`
+                      : `calc((100% - ${(visibleCount - 1) * GAP}px) / ${visibleCount})`,
                 }}
-                className="group shrink-0 border border-black/8 bg-white p-7 flex flex-col justify-between min-h-70 transition-all duration-500 cursor-pointer hover:border-black hover:bg-[linear-gradient(160deg,#f7f7f7_0%,#ffffff_100%)] hover:shadow-[0_4px_24px_rgba(0,0,0,0.06)]"
+                className="group  relative shrink-0 rounded-[5px] border border-[#C8C8C8] bg-white pt-10 xl:pt-12 px-8 xl:px-10.5 pb-8 xl:pb-10.5 flex flex-col justify-between  transition-all duration-500 cursor-pointer hover:border-black hover:bg-[linear-gradient(145deg,#E7ECF2_0%,#F5F7FA_100%)] hover:shadow-[0_4px_24px_rgba(0,0,0,0.06)]"
               >
+                {/* Quote icon pinned top-right at the same level as the title */}
+                <Image
+                  src="/images/card-format-quote.svg"
+                  alt=""
+                  width={36}
+                  height={28}
+                  className="absolute top-2.5 right-5"
+                />
                 <div>
-                  <div className="flex justify-end mb-5">
-                    <Image
-                      src="/images/card-format-quote.svg"
-                      alt=""
-                      width={36}
-                      height={28}
-                    />
-                  </div>
-                  <h3 className="font-[Neue_Montreal] text-[20px] lg:text-[22px] xl:text-[24px] font-semibold transition-all duration-500 group-hover:translate-y-2 text-black mb-4 leading-snug">
+                  <h3 className="font-[Neue_Montreal] text-[20px] lg:text-[22px] xl:text-[31px] font-semibold transition-all duration-500 group-hover:translate-y-2 text-black mb-4 leading-snug">
                     {t.title}
                   </h3>
-                  <p className="font-[Neue_Montreal] group-hover:text-black transition-all duration-500 group-hover:translate-y-2 text-[14px] lg:text-[15px] xl:text-[17px] leading-[1.72] text-black/50">
+                  <p className="font-[Neue_Montreal] group-hover:text-black transition-all duration-500 group-hover:translate-y-2 text-[14px] lg:text-[17px] xl:text-[20px] leading-[1.72] text-black/50">
                     {t.quote}
                   </p>
                 </div>
 
                 <div className="flex items-center gap-3 mt-8 transition-all duration-500 group-hover:-translate-y-2">
-                  <div className="w-10 h-10 rounded-full overflow-hidden bg-black/5 border border-black/8 flex items-center justify-center shrink-0">
+                  <div className="w-11 h-11 rounded-full overflow-hidden bg-black/5 border border-black/8 flex items-center justify-center shrink-0">
                     <Image
                       src={t.logo}
                       alt={t.name}
@@ -176,11 +180,11 @@ export default function TestimonialsSection() {
                     />
                   </div>
                   <div>
-                    <p className="font-[Neue_Montreal] text-[14px] font-medium text-black leading-tight">
+                    <p className="font-mono text-[14px] font-medium text-black leading-tight">
                       {t.name}
                     </p>
                     <p
-                      className="font-mono text-[11px] text-black/40 mt-0.5 uppercase"
+                      className="font-mono text-[14px] text-black/40 mt-0.5 uppercase"
                       style={{ letterSpacing: "0.06em" }}
                     >
                       {t.role}
@@ -192,22 +196,6 @@ export default function TestimonialsSection() {
           })}
         </div>
       </div>
-
-      {/* Dot indicators */}
-      {maxOffset > 0 && (
-        <div className="flex justify-center gap-2 mt-8">
-          {Array.from({ length: maxOffset + 1 }).map((_, i) => (
-            <button
-              key={i}
-              onClick={() => setOffset(i)}
-              aria-label={`Page ${i + 1}`}
-              className={`h-0.5 rounded-full transition-all duration-300 ${
-                i === offset ? "w-8 bg-black/50" : "w-4 bg-black/15"
-              }`}
-            />
-          ))}
-        </div>
-      )}
     </section>
   );
 }

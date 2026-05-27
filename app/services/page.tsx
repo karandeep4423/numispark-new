@@ -1,4 +1,4 @@
-import ServicesPage from "../components/ServicesPage";
+import ServicesPage from "@/components/services/ServicesPage";
 
 export const metadata = {
   title: "Services — NumiSpark",

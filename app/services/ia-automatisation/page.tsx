@@ -1,4 +1,4 @@
-import IaAutomatisationPage from "../../components/IaAutomatisationPage";
+import IaAutomatisationPage from "@/components/services/IaAutomatisationPage";
 
 export const metadata = {
   title: "Automatisation & Intelligence Artificielle | Numispark",

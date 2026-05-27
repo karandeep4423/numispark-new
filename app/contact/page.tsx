@@ -1,4 +1,4 @@
-import ContactPage from "../components/ContactPage";
+import ContactPage from "@/components/contact/ContactPage";
 
 export const metadata = {
   title: "Contact | Numispark",

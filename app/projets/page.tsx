@@ -1,14 +1,10 @@
-import React from 'react'
-import NosProjectsSection from '../components/NosProjectsSection'
-import FaqSection from '../components/FaqSection'
-const projets = () => {
-  return (
-    <div className='mt-16'>
-        <h1 className='text-center my-16 text-4xl font-[Neue_Montreal] font-semibold'>Notre Travail, Votre Image</h1>
-        <NosProjectsSection />
-        <FaqSection />
-    </div>
-  )
-}
+import ProjectsListPage from "@/components/projects/ProjectsListPage";
 
-export default projets
+export const metadata = {
+  title: "Projets | Numispark",
+  description: "Découvrez nos projets digitaux : sites web, applications mobiles, plateformes SaaS et expériences de marque.",
+};
+
+export default function Page() {
+  return <ProjectsListPage />;
+}

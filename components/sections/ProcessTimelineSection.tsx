@@ -1,13 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-
-// ─── Types ────────────────────────────────────────────────────────────────────
-export interface ProcessStep {
-  number: string;
-  title: string;
-  description: string;
-}
+import type { ProcessStep } from "@/types/process";
 
 // ─── Default steps ────────────────────────────────────────────────────────────
 const DEFAULT_STEPS: ProcessStep[] = [
@@ -126,29 +120,32 @@ export default function ProcessTimelineSection({
           </p>
           <h2 className="text-white font-[Neue_Montreal] text-[32px] md:text-[52px] font-medium leading-[1.2] md:leading-16.25">
             Comment nous{" "}
-            <span className="text-[#05FFE0] italic">construisons ensemble</span>
+            <span className="text-[#05FFE0]">construisons ensemble</span>
             <br />
             chaque étape de votre projet.
           </h2>
         </div>
 
         {/* Timeline */}
-        <div ref={processTimelineRef} className="relative">
-          {/* Dim background line */}
+        <div
+          ref={processTimelineRef}
+          className="relative [--line-top:32px] md:[--line-top:64px]"
+        >
+          {/* Dim background line — starts at first diamond */}
           <div
-            className="absolute inset-y-0 left-4 md:left-1/2 md:-translate-x-1/2 w-3 pointer-events-none"
+            className="absolute top-[var(--line-top)] bottom-0 left-4 md:left-1/2 md:-translate-x-1/2 w-3 pointer-events-none"
             style={{
               backgroundImage:
-                "repeating-linear-gradient(to bottom, #2A2A2A 0px, #2A2A2A 3px, transparent 3px, transparent 11px)",
+                "repeating-linear-gradient(to bottom, #2A2A2A 0px, #2A2A2A 2px, transparent 2px, transparent 16px)",
             }}
           />
-          {/* Bright progress line */}
+          {/* Bright progress line — starts at first diamond */}
           <div
-            className="absolute top-0 left-4 md:left-1/2 md:-translate-x-1/2 w-3 pointer-events-none"
+            className="absolute top-[var(--line-top)] left-4 md:left-1/2 md:-translate-x-1/2 w-3 pointer-events-none"
             style={{
-              height: `${lineProgress * 100}%`,
+              height: `max(0px, calc(${lineProgress * 100}% - var(--line-top)))`,
               backgroundImage:
-                "repeating-linear-gradient(to bottom, #05FFE0 0px, #05FFE0 3px, transparent 3px, transparent 11px)",
+                "repeating-linear-gradient(to bottom, #05FFE0 0px, #05FFE0 2px, transparent 2px, transparent 16px)",
             }}
           />
 
@@ -158,26 +155,26 @@ export default function ProcessTimelineSection({
 
             const card = (
               <div
-                className={`w-full max-w-95 bg-[#0D0D0D] border border-[#1E1E1E] rounded-xl p-6 transition-all duration-700 ${
+                className={`w-full max-w-95 bg-[#0D0D0D] border border-[#1E1E1E] rounded-xl p-10 transition-all duration-700 ${
                   isActive ? "opacity-100" : "opacity-20"
                 }`}
               >
                 <p
-                  className={`font-mono text-[11px] tracking-widest mb-3 transition-colors duration-700 ${
+                  className={`font-mono text-[14px] tracking-widest mb-3 transition-colors duration-700 ${
                     isActive ? "text-[#05FFE0]" : "text-[#333]"
                   }`}
                 >
                   ETAPE {step.number}
                 </p>
                 <h3
-                  className={`font-[Neue_Montreal] text-[18px] lg:text-[20px] xl:text-[22px] font-medium mb-3 leading-snug transition-colors duration-700 ${
+                  className={`font-[Neue_Montreal] text-[18px] lg:text-[20px] xl:text-[30px] font-medium mb-10 leading-snug transition-colors duration-700 ${
                     isActive ? "text-white" : "text-[#333]"
                   }`}
                 >
                   {step.title}
                 </h3>
                 <p
-                  className={`font-[Neue_Montreal] text-[14px] lg:text-[15px] xl:text-[16px] leading-relaxed transition-colors duration-700 ${
+                  className={`font-[Neue_Montreal] text-[14px] lg:text-[15px] xl:text-[17px] leading-relaxed transition-colors duration-700 ${
                     isActive ? "text-[#ACACAC]" : "text-[#292929]"
                   }`}
                 >
@@ -194,12 +191,13 @@ export default function ProcessTimelineSection({
                 </div>
 
                 {/* Diamond marker */}
-                <div className="w-8 md:w-14 ml-1.5 md:ml-0 flex justify-center items-start shrink-0 relative z-10 pt-1 md:pt-6">
+                <div className="w-8 md:w-14 ml-1.5 md:ml-0 flex justify-center items-start shrink-0 relative z-10 ">
                   <div
                     ref={(el) => { markerRefs.current[index] = el; }}
                     className="relative flex h-8 w-8 items-center justify-center"
                   >
-                    <div className="absolute h-5 w-5 rotate-45 bg-[#080808]" />
+                    {/* Mask to break the dashed line around the diamond */}
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-10 w-4 bg-[#080808]" />
                     <div
                       className={`relative z-10 w-3 h-3 rotate-45 transition-all duration-700 ${
                         isActive

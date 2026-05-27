@@ -24,7 +24,7 @@ const DEFAULT_ATOUTS: readonly Atout[] = [
       "Grands comptes et institutions",
       "E-commerce et retail",
       "Services B2B et B2C",
-      "Education et formation",
+      "Éducation et formation",
       "Tourisme et loisirs",
       "Coaching et développement personnel",
     ],
@@ -110,16 +110,13 @@ export default function NosAtoutsSection({
   const activeAtout = atouts[activeAtoutIndex];
 
   return (
-    <section className="bg-black">
+    <section className="bg-[#1F1F1F] mb-16 ">
       <div ref={atoutsSectionRef} className="relative h-[230vh] md:h-[240vh]">
         <div className="sticky mb-6 top-4 h-[calc(100vh-32px)] sm:top-6 sm:h-[calc(100vh-48px)]">
-          <div className="relative mx-auto h-full w-full max-w-400 overflow-hidden bg-black">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.05),transparent_34%),radial-gradient(circle_at_73%_42%,rgba(255,255,255,0.02),transparent_44%)] opacity-80" />
-
+          <div className="relative mx-auto h-full w-full max-w-400 bg-[#1F1F1F]">
             {/* Mobile: flex-col (title → circles → bullets)
                 Desktop: 2-col grid (title+bullets left, circles right) */}
             <div className="relative flex h-full flex-col px-5 py-6 sm:px-8 sm:py-8 lg:grid lg:grid-cols-[380px_1fr] lg:grid-rows-[1fr_auto] lg:gap-x-4 lg:px-12 lg:py-12 xl:grid-cols-[420px_1fr] xl:px-14 xl:py-14">
-
               {/* ── 1. Label + Title + Subtitle ── */}
               <div className="lg:col-start-1 lg:row-start-1 lg:self-start lg:pt-4">
                 <div className="relative min-h-40 sm:min-h-42.5 lg:min-h-52.5">
@@ -137,11 +134,11 @@ export default function NosAtoutsSection({
                         <p className="mb-5 text-center md:text-left font-mono text-[11px] tracking-[0.04em] text-[#C8C8C8]">
                           {"{ Nos atouts }"}
                         </p>
-                        <h2 className="text-center md:text-left font-[Neue_Montreal] text-[30px] font-medium leading-[0.98] tracking-[-0.03em] text-white sm:text-[34px] lg:text-[38px] xl:text-[40px]">
+                        <h2 className="text-center md:text-left font-[Neue_Montreal] text-[30px] font-medium leading-[0.98] tracking-[-0.03em] text-white sm:text-[34px] lg:text-[38px] ">
                           {atout.titlePrefix}{" "}
                           <span className="text-[#05FFE0]">{atout.accent}</span>
                         </h2>
-                        <p className="mt-4 text-center md:text-left font-[Neue_Montreal] text-[13px] leading-[1.65] text-[#ACACAC] sm:text-[14px] lg:max-w-82.5 xl:max-w-90">
+                        <p className="mt-4 text-center md:text-left font-[Neue_Montreal] text-[13px] leading-[1.65] text-[#ACACAC] sm:text-[18px] lg:max-w-82.5 xl:max-w-90">
                           {atout.subtitle}
                         </p>
                       </div>
@@ -167,7 +164,7 @@ export default function NosAtoutsSection({
                         className={`absolute bottom-0 left-1/2 -translate-x-1/2 rounded-full border transition-all duration-700 ${circle.size} ${
                           isActive
                             ? "border-[#05FFE0] shadow-[0_0_24px_0_rgba(5,255,224,0.24)]"
-                            : "border-white/16"
+                            : "border-[rgba(255,255,255,0.24)]"
                         }`}
                         style={{
                           zIndex: circle.zIndex,
@@ -190,7 +187,7 @@ export default function NosAtoutsSection({
                     return (
                       <ul
                         key={`${atout.accent}-list`}
-                        className={`absolute inset-x-0 top-6 max-w-75 space-y-2 font-mono text-[11px] leading-[1.8] text-[#B7B7B7] transition-all duration-500 sm:text-[12px] ${
+                        className={`absolute inset-x-0 top-6 max-w-75 font-mono text-[11px] leading-loose text-[#B7B7B7] transition-all duration-500 sm:text-[13px] ${
                           isActive
                             ? "translate-y-0 opacity-100"
                             : "pointer-events-none translate-y-4 opacity-0"

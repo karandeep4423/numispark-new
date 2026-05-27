@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const navLinks = [
   { label: "Accueil", href: "/" },
@@ -9,7 +10,6 @@ const navLinks = [
   { label: "Services", href: "/services" },
   { label: "Projets", href: "/projets" },
   { label: "Blog", href: "/blog" },
-  { label: "Contact", href: "/contact" },
 ];
 
 const socialLinks = [
@@ -22,6 +22,7 @@ const socialLinks = [
 const languages = ["Français", "English", "Deutsch"];
 
 const Navbar = () => {
+  const pathname = usePathname();
   const [langOpen, setLangOpen] = useState(false);
   const [selectedLang, setSelectedLang] = useState("Français");
   const [isScrolled, setIsScrolled] = useState(false);
@@ -44,8 +45,8 @@ const Navbar = () => {
   return (
     <>
       {/* ━━━━━━━━━━━━━━━━━━ DESKTOP NAV ━━━━━━━━━━━━━━━━━━ */}
-      <nav className="fixed top-0 left-0 right-0 z-50 hidden lg:block pt-3 px-6">
-        <div className="max-w-7xl mx-auto grid grid-cols-[1fr_auto_1fr] items-center gap-4 px-4 py-2">
+      <nav className="fixed top-0 left-0 right-0 z-50 hidden lg:block">
+        <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-4 xl:gap-6 px-4 xl:px-17.5 pt-5 xl:pt-10.5 pb-3">
           {/* Logo */}
           <Link
             href="/"
@@ -56,52 +57,75 @@ const Navbar = () => {
             <Image
               src="/full-logo-white.svg"
               alt="Numispark"
-              width={140}
-              height={36}
+              width={161}
+              height={46}
               priority
             />
           </Link>
 
           {/* Center pill nav */}
-          <ul className="flex items-center gap-1 rounded-full border border-black/8 bg-[#5a5a5a]/92 px-3 py-2 shadow-[0_10px_30px_rgba(0,0,0,0.12)] backdrop-blur-md">
-            {navLinks.map((link) => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  className="rounded-full px-3 py-2 text-sm text-white/72 transition-colors duration-200 hover:bg-white/8 hover:text-white whitespace-nowrap"
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
+          <ul className="inline-flex h-12 xl:h-15.5 items-center justify-center gap-6 xl:gap-8.5 rounded-[50px] bg-[rgba(46,46,46,0.80)] px-6 xl:px-9.25 py-3.75 backdrop-blur-[7px]">
+            {navLinks.map((link) => {
+              const isActive = pathname === link.href;
+              return (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className={`font-[Neue_Montreal] text-[17px] font-normal leading-normal whitespace-nowrap transition-colors duration-200 ${
+                      isActive ? "text-white" : "text-[rgba(255,255,255,0.38)] hover:text-white"
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
 
           {/* Right side */}
           <div
-            className={`flex items-center justify-end gap-3 transition-all duration-300 ${
+            className={`flex items-center justify-end gap-4 xl:gap-8 transition-all duration-300 ${
               isScrolled ? "opacity-0 pointer-events-none" : "opacity-100"
             }`}
           >
+            {/* Pré-audit gratuit */}
             <Link
               href="/services/audit-seo-gratuit"
-              className="inline-flex items-center px-4 py-2 rounded-full bg-[#05ffe0] text-black text-sm font-semibold hover:bg-white transition-colors duration-200 whitespace-nowrap"
+              className="inline-flex items-center px-3 py-2 xl:px-4 xl:py-2.5 rounded-[60px] bg-[#05ffe0] text-black font-[Neue_Montreal] text-[17px] font-semibold hover:bg-white transition-colors duration-200 whitespace-nowrap"
             >
               Pré-audit gratuit
             </Link>
+
+            {/* Separator */}
+            <div className="bg-white h-6.25 w-px shrink-0" />
+
+            {/* Mail icon */}
+            <a
+              href="mailto:contact@numispark.fr"
+              className="text-white hover:text-[#05ffe0] transition-colors duration-200 shrink-0"
+            >
+              <svg width="20" height="16" viewBox="0 0 24 20" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <rect width="20" height="16" x="2" y="2" rx="2" />
+                <path d="m22 5-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 5" />
+              </svg>
+            </a>
+
+            {/* Separator */}
+            <div className="bg-white h-6.25 w-px shrink-0" />
 
             {/* Language selector */}
             <div className="relative">
               <button
                 onClick={() => setLangOpen(!langOpen)}
-                className="flex items-center gap-1.5 px-3 py-2 rounded-full border border-white/10 text-white/70 hover:text-white hover:border-white/30 transition-colors duration-200 text-sm"
+                className="flex items-center gap-2.25 text-white"
               >
                 <svg
-                  width="14"
-                  height="14"
+                  width="20"
+                  height="20"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
-                  strokeWidth="1.8"
+                  strokeWidth="1.5"
                   strokeLinecap="round"
                   strokeLinejoin="round"
                 >
@@ -109,10 +133,12 @@ const Navbar = () => {
                   <path d="M12 2a14.5 14.5 0 0 0 0 20A14.5 14.5 0 0 0 12 2" />
                   <path d="M2 12h20" />
                 </svg>
-                <span>{selectedLang}</span>
+                <span className="font-['Jost'] text-[16px] text-white whitespace-nowrap">
+                  {selectedLang}
+                </span>
                 <svg
-                  width="12"
-                  height="12"
+                  width="24"
+                  height="24"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
@@ -125,7 +151,7 @@ const Navbar = () => {
                 </svg>
               </button>
               {langOpen && (
-                <div className="absolute right-0 mt-2 w-36 rounded-xl bg-[#1a1a2e] border border-white/10 shadow-xl overflow-hidden z-80">
+                <div className="absolute right-0 mt-2 w-36 rounded-xl bg-[#1a1a1a] border border-white/10 shadow-xl overflow-hidden z-80">
                   {languages.map((lang) => (
                     <button
                       key={lang}

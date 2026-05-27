@@ -1,15 +1,8 @@
 "use client";
 
 import { useState } from "react";
-
-// ─── Types ────────────────────────────────────────────────────────────────────
-export interface AccordionService {
-  number: string;
-  title: string;
-  description: string;
-  expertise: string[];
-  image: string;
-}
+import Image from "next/image";
+import type { AccordionService } from "@/types/service";
 
 // ─── Default data (homepage services list) ───────────────────────────────────
 const DEFAULT_SERVICES: AccordionService[] = [
@@ -119,32 +112,32 @@ export default function ServicesAccordionSection({
   const [activeService, setActiveService] = useState(0);
 
   return (
-    <div className="flex max-w-7xl mx-auto w-full flex-col md:flex-row bg-white border-t border-[#E0E0E0]">
-      {/* Left: sticky preview image */}
-      <div className="hidden md:block md:sticky md:top-0 md:w-[45%] md:h-screen overflow-hidden shrink-0">
+    <div className="flex  w-full flex-col md:flex-row md:items-stretch bg-white">
+      {/* Left: preview image — matches accordion column height */}
+      <div className="relative hidden md:block md:w-[45%] self-stretch overflow-hidden shrink-0">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           key={activeService}
           src={services[activeService].image}
           alt={services[activeService].title}
-          className="w-full h-full object-cover transition-opacity duration-500"
+          className="absolute inset-0 w-full h-full object-cover transition-opacity duration-500"
         />
       </div>
 
       {/* Right: accordion list */}
-      <div className="w-full md:w-[55%] flex flex-col">
+      <div className="w-full md:w-[55%] flex flex-col mx-16">
         {services.map((service, index) => (
-          <div key={index} className="border-b border-[#E0E0E0] group transition-all duration-600 bg-[linear-gradient(127deg,transparent_0%,transparent_100%)] hover:bg-[linear-gradient(127deg,#E7ECF2_3.71%,rgba(231,236,242,0)_40.97%)]">
+          <div key={index} className="border-b border-[#E0E0E0] first:border-t group transition-all duration-600 bg-[linear-gradient(127deg,transparent_0%,transparent_100%)] hover:bg-[linear-gradient(127deg,#E7ECF2_3.71%,rgba(231,236,242,0)_40.97%)]">
             <button
-              className="w-full flex items-center justify-between py-6 px-8 text-left cursor-pointer"
+              className="w-full flex items-center justify-between py-6 px-3 text-left cursor-pointer"
               onClick={() => setActiveService(index)}
             >
               <div className="flex items-center gap-5">
-                <span className="font-mono text-[13px] lg:text-[14px] text-[#8F8F8F] leading-none transition-all duration-500  group-hover:ml-2">
+                <span className="font-mono text-[13px] lg:text-[14px]  leading-none transition-all duration-500  group-hover:ml-2">
                   {service.number}
                 </span>
                 <span
-                  className={`font-[Neue_Montreal] text-[17px] lg:text-[19px] xl:text-[22px] leading-normal transition-colors duration-200 ${
+                  className={`font-[Neue_Montreal] text-[14px] lg:text-[19px] xl:text-[26px] leading-normal transition-colors duration-200 ${
                     activeService === index ? "font-semibold text-black" : "font-medium text-black"
                   }`}
                 >
@@ -152,7 +145,11 @@ export default function ServicesAccordionSection({
                 </span>
               </div>
               <span className="text-black text-2xl font-light leading-none shrink-0">
-                {activeService === index ? "−" : "+"}
+                {activeService === index ? (
+                  "−"
+                ) : (
+                  <Image className="transition-transform duration-500 group-hover:rotate-360" src="/faq-btn.svg" alt="Plus icon" width={20} height={20} />
+                )}
               </span>
             </button>
 
@@ -172,7 +169,7 @@ export default function ServicesAccordionSection({
                           key={i}
                           className="flex items-start gap-2 text-[14px] lg:text-[15px] xl:text-[16px] text-[#7F7F7F] font-[Neue_Montreal] leading-[1.7]"
                         >
-                          <span className="mt-1 shrink-0">•</span>
+                          <span className=" shrink-0">•</span>
                           <span>{item}</span>
                         </li>
                       ))}

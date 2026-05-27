@@ -1,0 +1,9 @@
+export { default as HeroSection } from "./HeroSection";
+export { default as FaqSection } from "./FaqSection";
+export { default as TestimonialsSection } from "./TestimonialsSection";
+export { default as NosProjectsSection } from "./NosProjectsSection";
+export { default as NosAtoutsSection } from "./NosAtoutsSection";
+export { default as ProcessTimelineSection } from "./ProcessTimelineSection";
+export { default as ServicesAccordionSection } from "./ServicesAccordionSection";
+export { default as ToolsSection } from "./ToolsSection";
+export { default as ProjectGallery } from "./ProjectGallery";

@@ -1,4 +1,4 @@
-import SaasPage from "../../components/SaasPage";
+import SaasPage from "@/components/services/SaasPage";
 
 export const metadata = {
   title: "Développement SaaS | Numispark",

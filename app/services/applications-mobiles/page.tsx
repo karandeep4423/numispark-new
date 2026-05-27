@@ -1,4 +1,4 @@
-import MobileDevelopmentPage from "../../components/MobileDevelopmentPage";
+import MobileDevelopmentPage from "@/components/services/MobileDevelopmentPage";
 
 export const metadata = {
   title: "Développement d'Applications Mobiles | Numispark",

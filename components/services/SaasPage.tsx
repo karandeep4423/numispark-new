@@ -2,11 +2,11 @@
 
 import Image from "next/image";
 import React from "react";
-import ProcessTimelineSection from "./ProcessTimelineSection";
-import CtaButton from "./CtaButton";
-import NosProjectsSection from "./NosProjectsSection";
-import FaqSection from "./FaqSection";
-import Tools from "./Tools";
+import CtaButton from "@/components/ui/CtaButton";
+import ProcessTimelineSection from "@/components/sections/ProcessTimelineSection";
+import NosProjectsSection from "@/components/sections/NosProjectsSection";
+import FaqSection from "@/components/sections/FaqSection";
+import ToolsSection from "@/components/sections/ToolsSection";
 
 // ─── Feature card data ──────────────────────────────────────────────────────
 
@@ -257,7 +257,7 @@ export default function SaasPage() {
             </p>
           </div>
         </div>
-        <Tools />
+        <ToolsSection />
       </section>
 
       {/* ── 3. Features — top 4 ─────────────────────────────────────────── */}

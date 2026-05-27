@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import BlogPage from "../components/BlogPage";
+import BlogPage from "@/components/blog/BlogPage";
 
 export const metadata: Metadata = {
   title: "Le Blog | Numispark",

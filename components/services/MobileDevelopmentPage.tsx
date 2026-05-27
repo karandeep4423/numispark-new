@@ -1,12 +1,11 @@
 import Image from "next/image";
 import type { ReactNode } from "react";
-import CtaButton from "./CtaButton";
-import ProcessTimelineSection, {
-  type ProcessStep,
-} from "./ProcessTimelineSection";
-import Tools from "./Tools";
-import NosProjectsSection from "./NosProjectsSection";
-import FaqSection from "./FaqSection";
+import CtaButton from "@/components/ui/CtaButton";
+import ProcessTimelineSection from "@/components/sections/ProcessTimelineSection";
+import ToolsSection from "@/components/sections/ToolsSection";
+import NosProjectsSection from "@/components/sections/NosProjectsSection";
+import FaqSection from "@/components/sections/FaqSection";
+import type { ProcessStep } from "@/types/process";
 
 type ServiceSection = {
   title: string;
@@ -609,7 +608,7 @@ export default function MobileDevelopmentPage() {
           </div>
         </div>
 
-        <Tools />
+        <ToolsSection />
       </section>
 
       {/* Service blocks */}

@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import CtaButton from "./CtaButton";
+import CtaButton from "@/components/ui/CtaButton";
 
 const socials = ["TIKTOK", "LINKEDIN", "INSTAGRAM", "FACEBOOK"];
 
@@ -27,13 +27,13 @@ export default function Footer() {
         className="absolute inset-0 w-full h-full object-cover"
       />
 
-      {/* Subtle dark vignette so card stands out */}
-      <div className="absolute inset-0 bg-black/25" />
+      {/* Dark overlay to darken video */}
+      <div className="absolute inset-0 bg-black/70" />
 
       {/* Outer padding â€” video shows above and around the card */}
-      <div className="relative z-10 px-6 md:px-10 pt-46 pb-8 max-w-7xl mx-auto w-full">
+      <div className="relative z-10 px-6 md:px-10 pt-40 lg:pt-64 xl:pt-96 pb-8  w-full">
         {/* â”€â”€ Inset dark card â”€â”€ */}
-        <div className="rounded-2xl overflow-hidden bg-[#111]/70 backdrop-blur-sm border border-white/5">
+        <div className="overflow-hidden bg-[rgba(46,46,46,0.60)] backdrop-blur-2xl">
           {/* Top section: socials (left) + tagline/CTA (right) */}
           <div className="flex flex-col md:flex-row gap-10 px-10 md:px-14 pt-12 pb-10">
             {/* Left: social links */}
@@ -58,7 +58,7 @@ export default function Footer() {
                 <br />
                 pour créer l&apos;avenir.
               </h2>
-              <p className="font-[Neue_Montreal]  text-[13px] leading-[1.75]  max-w-sm">
+              <p className="font-[Neue_Montreal]  text-[17px] leading-[1.75]  max-w-sm">
                 Créer des solutions numériques qui stimulent l&apos;innovation
                 et favorisent la croissance.
               </p>
@@ -95,6 +95,9 @@ export default function Footer() {
                   {l.label}
                 </Link>
               ))}
+              <span className="font-mono text-[10px] tracking-widest">
+                DESIGN MADE WITH <span className="align-middle">♡</span> BY BOLIEU STUDIO
+              </span>
             </div>
 
             {/* Language selector */}

@@ -4,9 +4,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
-const DESKTOP_CARD_VH = 90;
 const DESKTOP_GAP = 12;
-const DESKTOP_VISIBLE_CARDS = 1;
+
+// Card config per breakpoint — change these values to tune each layout
+const CONFIG_LG = { cardVh: 70, visibleCards: 1.5 }; // laptop  (lg, <1280px)
+const CONFIG_XL = { cardVh: 49, visibleCards: 2 };   // desktop (xl, ≥1280px)
 
 const projects = [
   {
@@ -18,7 +20,7 @@ const projects = [
     description:
       "Creation de la premiere plateforme collaborative inter-enseignes pour les professionnels de l'immobilier : partage de mandats, reseau social metier et agent IA integre.",
     tags: ["WEB", "SAAS", "IA"],
-    image: "/projects/monhubimmo/monhubimmo-hero-section.png",
+    image: "/images/capture-decran-20260307-a-1836221.png",
   },
   {
     id: "02",
@@ -66,30 +68,50 @@ const projects = [
   },
 ] as const;
 
-const maxDesktopSteps = Math.max(projects.length - DESKTOP_VISIBLE_CARDS, 0);
-const desktopCardHeightCss = `${DESKTOP_CARD_VH}vh`;
-const desktopTrackHeightCss = `calc(${DESKTOP_VISIBLE_CARDS} * ${DESKTOP_CARD_VH}vh + ${(DESKTOP_VISIBLE_CARDS - 1) * DESKTOP_GAP}px)`;
-const desktopSectionHeight = `calc(100vh + ${maxDesktopSteps} * (${DESKTOP_CARD_VH}vh + ${DESKTOP_GAP}px) + 120px)`;
-
 export default function NosProjectsSection() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [trackOffset, setTrackOffset] = useState(0);
+  const [cardConfig, setCardConfig] = useState(CONFIG_LG);
 
   const sectionRef = useRef<HTMLDivElement>(null);
   const lastOffsetRef = useRef(0);
   const lastActiveRef = useRef(0);
+  // Ref so scroll handler always reads the current config without stale closure
+  const cardConfigRef = useRef(CONFIG_LG);
+
+  // Switch card config on xl breakpoint
+  useEffect(() => {
+    const mql = window.matchMedia("(min-width: 1280px)");
+    const apply = (matches: boolean) => {
+      const cfg = matches ? CONFIG_XL : CONFIG_LG;
+      cardConfigRef.current = cfg;
+      setCardConfig(cfg);
+      // Reset scroll state so positions recalculate cleanly after resize
+      lastOffsetRef.current = 0;
+      lastActiveRef.current = 0;
+      setTrackOffset(0);
+      setActiveIndex(0);
+    };
+    apply(mql.matches);
+    const handler = (e: MediaQueryListEvent) => apply(e.matches);
+    mql.addEventListener("change", handler);
+    return () => mql.removeEventListener("change", handler);
+  }, []);
 
   useEffect(() => {
     let frameId = 0;
 
     const update = () => {
       frameId = 0;
-
       if (!sectionRef.current) return;
 
-      const cardHeight = (window.innerHeight * DESKTOP_CARD_VH) / 100;
+      const { cardVh, visibleCards } = cardConfigRef.current;
+      const totalCards = projects.length + 1;
+      const maxSteps = Math.max(totalCards - visibleCards, 0);
+
+      const cardHeight = (window.innerHeight * cardVh) / 100;
       const step = cardHeight + DESKTOP_GAP;
-      const maxOffset = maxDesktopSteps * step;
+      const maxOffset = maxSteps * step;
 
       const rect = sectionRef.current.getBoundingClientRect();
       const scrollDistance = Math.max(
@@ -98,8 +120,9 @@ export default function NosProjectsSection() {
       );
       const progress = Math.max(0, Math.min(1, -rect.top / scrollDistance));
       const nextOffset = progress * maxOffset;
+      // Cap active project at last real project (placeholder card has no info)
       const nextActive = Math.min(
-        maxDesktopSteps,
+        projects.length - 1,
         Math.round(nextOffset / Math.max(step, 1)),
       );
 
@@ -130,47 +153,53 @@ export default function NosProjectsSection() {
     };
   }, []);
 
-  const activeProject = projects[activeIndex];
+  const { cardVh, visibleCards } = cardConfig;
+  const totalCards = projects.length + 1;
+  const maxSteps = Math.max(totalCards - visibleCards, 0);
+  const cardHeightCss = `${cardVh}vh`;
+  const trackHeightCss = `calc(${visibleCards} * ${cardVh}vh + ${(visibleCards - 1) * DESKTOP_GAP}px)`;
+  const sectionHeight = `calc(100vh + ${maxSteps} * (${cardVh}vh + ${DESKTOP_GAP}px) + 120px)`;
 
   return (
     <section className="bg-white">
       <div
         ref={sectionRef}
         className="relative hidden lg:block"
-        style={{ height: desktopSectionHeight }}
+        style={{ height: sectionHeight }}
       >
-        <div className="sticky top-0 h-screen overflow-hidden ">
-          <div className="mx-auto flex h-full max-w-7xl w-full items-center gap-14 px-10 py-10 xl:px-16">
-            <div
-              className="flex w-[38%] shrink-0 flex-col justify-between py-4 pr-8"
-              style={{ height: desktopTrackHeightCss }}
-            >
+        <div className="sticky top-0 h-screen overflow-hidden">
+          {/* items-start: track aligns to top edge so no dead space above first card */}
+          <div className="flex h-full w-full items-start px-10  xl:px-16">
+            {/* Left column — always full screen height, independent of image sizing constants */}
+            <div className="relative w-[38%] xl:w-[28%] shrink-0 py-10 pr-8 h-full">
+              {/* Top: heading — anchored to top */}
               <div>
                 {/* Two-line heading: fixed "Nos projets" + animated project name in gray */}
-                <div className="mb-10">
-                  <h2 className="font-[Neue_Montreal] text-[44px] xl:text-[52px] font-bold leading-none tracking-[-0.04em] text-black">
-                    Nos projets
-                  </h2>
-                  <div className="relative h-13 overflow-hidden">
-                    {projects.map((project, index) => (
-                      <h2
-                        key={project.id}
-                        className={`absolute font-[Neue_Montreal] text-[44px] xl:text-[52px] font-bold leading-none tracking-[-0.04em] text-black/30 transition-all duration-500 ease-out ${
-                          index === activeIndex
-                            ? "translate-y-0 opacity-100"
-                            : index < activeIndex
-                              ? "-translate-y-full opacity-0"
-                              : "translate-y-full opacity-0"
-                        }`}
-                      >
-                        {project.name}
-                      </h2>
-                    ))}
-                  </div>
+                <h2 className="font-[Neue_Montreal] text-[34px] xl:text-[40px] font-semibold leading-[1.05] tracking-[-0.02em] text-black">
+                  Nos projets
+                </h2>
+                <div className="relative h-11 xl:h-13 overflow-hidden">
+                  {projects.map((project, index) => (
+                    <h2
+                      key={project.id}
+                      className={`absolute font-[Neue_Montreal] text-[34px] xl:text-[40px] font-semibold leading-[1.05] tracking-[-0.02em] text-black/35 transition-all duration-500 ease-out ${
+                        index === activeIndex
+                          ? "translate-y-0 opacity-100"
+                          : index < activeIndex
+                            ? "-translate-y-full opacity-0"
+                            : "translate-y-full opacity-0"
+                      }`}
+                    >
+                      {project.name}
+                    </h2>
+                  ))}
                 </div>
+              </div>
 
-                {/* Description */}
-                <div className="relative min-h-36">
+              {/* Bottom: description + thumbnail — pinned to bottom of container */}
+              <div className="absolute bottom-8 left-0 right-8">
+                {/* Description — fixed height keeps spacing consistent across all projects */}
+                <div className="relative h-32 xl:h-36 mb-5 overflow-hidden">
                   {projects.map((project, index) => (
                     <div
                       key={project.id}
@@ -180,77 +209,49 @@ export default function NosProjectsSection() {
                           : "pointer-events-none translate-y-6 opacity-0"
                       }`}
                     >
-                      <p className="max-w-md font-[Neue_Montreal] text-[17px] lg:text-[18px] xl:text-[20px] leading-[1.75] text-black/55">
+                      <p className="max-w-md font-[Neue_Montreal] text-[18px] xl:text-[20px] leading-[1.7] text-black/55">
                         {project.description}
                       </p>
                     </div>
                   ))}
                 </div>
-              </div>
 
-              <div>
-                {/* Metadata */}
-                <div className="relative h-15 mb-10">
+                {/* Small thumbnail + year — category caption */}
+                <div className="relative h-10">
                   {projects.map((project, index) => (
-                    <div
+                    <Link
                       key={project.id}
-                      className={`absolute inset-0 flex items-center gap-5 transition-all duration-500 ease-out ${
+                      href={`/projets/${project.slug}`}
+                      className={`absolute inset-0 flex items-center gap-4 transition-all duration-500 ease-out ${
                         index === activeIndex
                           ? "translate-y-0 opacity-100"
-                          : "pointer-events-none translate-y-4 opacity-0"
+                          : "pointer-events-none translate-y-3 opacity-0"
                       }`}
                     >
-                      <div className="flex h-15 w-15 items-center justify-center rounded-[18px] border border-black/8 bg-[#f4f4f1]">
-                        <span className="font-mono text-[22px] text-black/30">
-                          {project.id}
-                        </span>
+                      <div className="relative h-9 w-9 shrink-0 overflow-hidden rounded-md">
+                        <Image
+                          src={project.image}
+                          alt=""
+                          fill
+                          sizes="36px"
+                          className="object-cover"
+                        />
                       </div>
-                      <div className="flex flex-col gap-1.5">
-                        <span className="font-mono text-[12px] uppercase tracking-[0.32em] text-black/28">
-                          {project.year}
-                        </span>
-                        <span className="font-mono text-[14px] uppercase tracking-[0.22em] text-black/55">
-                          {project.category}
-                        </span>
-                      </div>
-                    </div>
+                      <span className="font-mono text-[14px] uppercase tracking-[0.18em] text-black">
+                        {project.year} — {project.category}
+                      </span>
+                    </Link>
                   ))}
                 </div>
-
-                {/* Progress indicators */}
-                <div className="mb-8 flex gap-3">
-                  {projects.map((_, index) => (
-                    <span
-                      key={index}
-                      className={`h-0.75 rounded-full transition-all duration-300 ${
-                        index === activeIndex
-                          ? "w-18 bg-black/70"
-                          : "w-9 bg-black/12"
-                      }`}
-                    />
-                  ))}
-                </div>
-
-                <Link
-                  href={`/projets/${activeProject.slug}`}
-                  className="inline-flex items-center gap-3 font-mono text-[14px] uppercase tracking-[0.34em] text-black/42 transition-colors duration-200 hover:text-black"
-                >
-                  <span className="border-b border-black/18 pb-1 transition-colors duration-200 hover:border-black">
-                    Voir le projet
-                  </span>
-                  <span className="transition-transform duration-200 hover:translate-x-1">
-                    →
-                  </span>
-                </Link>
               </div>
             </div>
 
             <div
-              className="relative flex-1 overflow-hidden "
-              style={{ height: desktopTrackHeightCss }}
+              className="relative flex-1 overflow-hidden"
+              style={{ height: trackHeightCss }}
             >
               <div
-                className="flex flex-col will-change-transform "
+                className="flex flex-col will-change-transform"
                 style={{
                   gap: `${DESKTOP_GAP}px`,
                   transform: `translateY(-${trackOffset}px)`,
@@ -262,23 +263,23 @@ export default function NosProjectsSection() {
                     key={project.id}
                     href={`/projets/${project.slug}`}
                     className="group relative block shrink-0 overflow-hidden bg-[#111]"
-                    style={{ height: desktopCardHeightCss }}
+                    style={{ height: cardHeightCss }}
                   >
                     <Image
                       src={project.image}
                       alt={project.name}
                       fill
                       sizes="(min-width: 1280px) 52vw, 100vw"
-                      className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
-                      priority={index < DESKTOP_VISIBLE_CARDS}
+                      className="object-cover bg-no-repeat transition-transform duration-500 group-hover:scale-[1.02]"
+                      priority={index < visibleCards}
                     />
                     <div className="absolute inset-0 bg-linear-to-t from-black/38 via-black/8 to-transparent" />
 
-                    <div className="absolute inset-x-6 bottom-6 flex flex-wrap gap-2">
+                    <div className="absolute inset-x-6 bottom-6 flex flex-wrap gap-2 transition-transform duration-500 ease-out group-hover:-translate-y-2">
                       {project.tags.map((tag) => (
                         <span
                           key={tag}
-                          className="rounded-full border border-white/18 bg-white/82 px-4 py-2 font-mono text-[11px] uppercase tracking-[0.16em] text-black backdrop-blur-sm"
+                          className="rounded-full hover:bg-[#05FFE0] border border-white/18 bg-white/82 px-4 py-2 font-mono text-[14px] uppercase tracking-[0.16em] text-black backdrop-blur-sm"
                         >
                           {tag}
                         </span>
@@ -286,6 +287,17 @@ export default function NosProjectsSection() {
                     </div>
                   </Link>
                 ))}
+
+                {/* Dark placeholder card — "Voir tous les projets" */}
+                <Link
+                  href="/projets"
+                  className="group relative flex shrink-0 items-end justify-end overflow-hidden bg-[#0A0A0A] p-10"
+                  style={{ height: cardHeightCss }}
+                >
+                  <span className="font-mono text-[12px] uppercase tracking-[0.22em] text-white/70 transition-colors duration-200 group-hover:text-white">
+                    {"{ Voir tous les projets }"}
+                  </span>
+                </Link>
               </div>
             </div>
           </div>

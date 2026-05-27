@@ -1,15 +1,15 @@
 "use client"
 import React from 'react'
 
-const Tools = () => {
+const ToolsSection = () => {
   return (
     <div className='max-w-7xl mx-auto w-full'>
          <div className="mt-16 ml-4 md:ml-16 pb-16 overflow-hidden">
         <div className="mb-8 px-4">
-          <p className="font-mono text-[13px] font-normal text-black">
+          <p className="font-mono text-[14px] font-normal text-black">
             La boite à outils du quotidien
           </p>
-          <p className="font-[Neue_Montreal] text-[15px] text-[#7F7F7F] mt-1">
+          <p className="font-[Neue_Montreal] text-[14px] text-[#7F7F7F] mt-1">
             Une maîtrise parfaite pour chaque projet.
           </p>
         </div>
@@ -76,4 +76,4 @@ const Tools = () => {
   )
 }
 
-export default Tools
+export default ToolsSection

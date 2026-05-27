@@ -1,7 +1,88 @@
 @import "tailwindcss";
 
+/* ─── PP Neue Montreal ───────────────────────────────────────────────────── */
+@font-face {
+  font-family: "Neue Montreal";
+  src: url("/fonts/PPNeueMontreal-Light.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Neue Montreal";
+  src: url("/fonts/PPNeueMontreal-LightItalic.otf") format("opentype");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Neue Montreal";
+  src: url("/fonts/PPNeueMontreal-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Neue Montreal";
+  src: url("/fonts/PPNeueMontreal-Italic.otf") format("opentype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Neue Montreal";
+  src: url("/fonts/PPNeueMontrealText-Book.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Neue Montreal";
+  src: url("/fonts/PPNeueMontrealText-BookItalic.otf") format("opentype");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Neue Montreal";
+  src: url("/fonts/PPNeueMontreal-Semibold.otf") format("opentype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Neue Montreal";
+  src: url("/fonts/PPNeueMontreal-SemiboldItalic.otf") format("opentype");
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Neue Montreal";
+  src: url("/fonts/PPNeueMontreal-Extrabold.otf") format("opentype");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Neue Montreal";
+  src: url("/fonts/PPNeueMontreal-ExtraboldItalic.otf") format("opentype");
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+}
+
 @theme {
-  --font-sans: var(--font-space-grotesk), sans-serif;
+  --font-sans: "Neue Montreal", sans-serif;
   --font-mono: var(--font-roboto-mono), ui-monospace, monospace;
   --font-jost: var(--font-jost), sans-serif;
 }
@@ -95,7 +176,7 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-space-grotesk), sans-serif;
+  font-family: "Neue Montreal", sans-serif;
 }
 
 /* ─── Font-family aliases ────────────────────────────────────────────────────
@@ -105,7 +186,12 @@ body {
    touch 180+ component locations. */
 
 .font-\[Neue_Montreal\] {
-  font-family: var(--font-space-grotesk), sans-serif;
+  font-family: "Neue Montreal", sans-serif;
+}
+
+/* Temporary fallback until PP Neue Machina font files are added */
+.font-\[PP_Neue_Machina\] {
+  font-family: "PP Neue Machina", "Neue Montreal", sans-serif;
 }
 
 .font-\[Roboto_Mono\] {

@@ -1,4 +1,4 @@
-import WebCreationPage from "../../components/WebCreationPage";
+import WebCreationPage from "@/components/services/WebCreationPage";
 
 export const metadata = {
   title: "Création de Site Web | Numispark",

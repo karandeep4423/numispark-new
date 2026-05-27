@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import CtaButton from "./CtaButton";
+import CtaButton from "@/components/ui/CtaButton";
+import Image from "next/image";
 
 const faqs = [
   {
@@ -39,37 +40,19 @@ const faqs = [
   },
 ] as const;
 
-function FaqToggleIcon({ isOpen }: { isOpen: boolean }) {
-  return (
-    <span
-      className={`relative mt-0.5 h-[15px] w-[15px] shrink-0 text-black/40 transition-transform duration-300 ${
-        isOpen ? "rotate-0" : "group-hover:rotate-180"
-      }`}
-    >
-      <span className="absolute top-1/2 left-0 h-px w-full -translate-y-1/2 bg-current" />
-      <span
-        className={`absolute top-0 left-1/2 h-full w-px -translate-x-1/2 bg-current transition-transform duration-300 ${
-          isOpen ? "scale-y-0" : "scale-y-100"
-        }`}
-      />
-    </span>
-  );
-}
-
 export default function FaqSection() {
   const [openId, setOpenId] = useState<number | null>(null);
 
-  const toggle = (id: number) =>
-    setOpenId((prev) => (prev === id ? null : id));
+  const toggle = (id: number) => setOpenId((prev) => (prev === id ? null : id));
 
   return (
-    <section className="flex w-full max-w-7xl mx-auto flex-col md:flex-row">
-      <div className="w-full bg-white px-8 py-20 md:w-[55%] md:px-14 lg:px-20">
+    <section className="flex w-full flex-col pb-20 md:flex-row md:items-stretch">
+      <div className="w-full bg-white px-8  md:w-1/2 md:px-14 xl:px-22.25">
         <p className="mb-6 font-mono text-[11px] tracking-[0.18em] text-black/35">
           {"{ F.A.Q }"}
         </p>
 
-        <h2 className="mb-12 font-[Neue_Montreal] text-[38px] font-medium leading-[1.08] tracking-[-0.02em] text-black md:text-[50px] xl:text-[52px]">
+        <h2 className="mb-12 font-[Neue_Montreal] text-[38px] font-medium leading-[1.08] tracking-[-0.02em] text-black md:text-[45px] xl:text-[52px]">
           Questions
           <br />
           fréquemment posées
@@ -93,13 +76,21 @@ export default function FaqSection() {
                 <button
                   onClick={() => toggle(faq.id)}
                   className={`group flex w-full items-start justify-between gap-6 py-6 text-left transition-all duration-200 ${
-                    isOpen ? "px-3 hover:bg-black/[0.025]" : "hover:px-3"
+                    isOpen ? "px-3" : "hover:px-3"
                   }`}
                 >
                   <span className="font-[Neue_Montreal] text-[15px] leading-snug font-normal text-black md:text-[16px] lg:text-[17px] xl:text-[18px]">
                     {faq.question}
                   </span>
-                  <FaqToggleIcon isOpen={isOpen} />
+                  <Image
+                    className={`h-7 w-7 shrink-0 transition-transform duration-500 ${
+                      isOpen ? "rotate-180" : "group-hover:rotate-180"
+                    }`}
+                    src="/faq-btn.svg"
+                    alt=""
+                    width={24}
+                    height={24}
+                  />
                 </button>
 
                 <div
@@ -109,10 +100,10 @@ export default function FaqSection() {
                 >
                   <div
                     className={`overflow-hidden transition-colors duration-200 ${
-                      isOpen ? "px-3 hover:bg-black/[0.045]" : ""
+                      isOpen ? "px-3" : ""
                     }`}
                   >
-                    <p className="font-[Neue_Montreal] text-[14px] md:text-[15px] lg:text-[16px] xl:text-[17px] leading-[1.78] text-black/40">
+                    <p className="font-[Neue_Montreal] text-[14px] md:text-[15px] lg:text-[16px] xl:text-[17px] leading-[1.78] text-[#7F7F7F]">
                       {faq.answer}
                     </p>
                   </div>
@@ -127,17 +118,15 @@ export default function FaqSection() {
         </div>
       </div>
 
-      <div className="relative hidden self-stretch bg-black md:block md:w-[45%]">
-        <div className="sticky top-0 h-screen overflow-hidden">
-          <video
-            src="/faq-video.mp4"
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="absolute inset-0 h-full w-full object-cover"
-          />
-        </div>
+      <div className="relative hidden self-stretch bg-black md:block md:w-1/2">
+        <video
+          src="/faq-video.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 h-full w-full object-cover"
+        />
       </div>
     </section>
   );

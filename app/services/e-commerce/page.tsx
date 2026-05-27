@@ -1,4 +1,4 @@
-import EcommercePage from "@/app/components/EcommercePage";
+import EcommercePage from "@/components/services/EcommercePage";
 
 export const metadata = {
   title: "E-commerce — Numispark",

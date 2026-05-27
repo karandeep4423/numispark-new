@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import TestimonialsSection from "./TestimonialsSection";
+import TestimonialsSection from "@/components/sections/TestimonialsSection";
 
 const SERVICES = [
   {
