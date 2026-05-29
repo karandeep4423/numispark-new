@@ -661,8 +661,8 @@ export default function MobileDevelopmentPage() {
           ))}
         </div>
       </section>
-      <NosProjectsSection />
-      <FaqSection />
+      <NosProjectsSection withTopDivider />
+      <FaqSection withTopDivider />
     </main>
   );
 }

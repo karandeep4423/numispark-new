@@ -110,7 +110,7 @@ export default function NosAtoutsSection({
   const activeAtout = atouts[activeAtoutIndex];
 
   return (
-    <section className="bg-[#1F1F1F] mb-16 ">
+    <section className="bg-[#1F1F1F]">
       <div ref={atoutsSectionRef} className="relative h-[230vh] md:h-[240vh]">
         <div className="sticky mb-6 top-4 h-[calc(100vh-32px)] sm:top-6 sm:h-[calc(100vh-48px)]">
           <div className="relative mx-auto h-full w-full max-w-400 bg-[#1F1F1F]">

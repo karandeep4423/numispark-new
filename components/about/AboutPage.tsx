@@ -305,8 +305,8 @@ export default function AboutPage() {
         </div>
 
         {/* Hero title – pinned toward the bottom */}
-        <div className="relative max-w-7xl mx-auto w-full z-10 flex-1 flex items-end px-6 md:px-20 pb-20 pt-32 md:pb-28 md:pt-40">
-          <h1 className="font-[Neue_Montreal] text-[36px] sm:text-[48px] lg:text-[58px] xl:text-[68px] font-medium leading-[1.1] text-white max-w-5xl">
+        <div className="relative w-full z-10 flex-1 flex items-end px-6 md:px-[7%] xl:px-[8.33%] pb-20 pt-32 md:pb-28 md:pt-40">
+          <h1 className="font-[Neue_Montreal] text-[36px] sm:text-[48px] lg:text-[64px] xl:text-[80px] font-medium leading-[1.1] text-white max-w-350">
             Une agence digitale née pour construire{" "}
             <span className="text-[#05ffe0]">des produits qui performent.</span>
           </h1>
@@ -317,49 +317,41 @@ export default function AboutPage() {
           2. L'AGENCE
       ════════════════════════════════════════════════════════════════════ */}
       <section id="agence" className="bg-white overflow-hidden">
-        {/* ── Sticky internal section nav ── */}
-        {/* <div className="sticky top-0 z-20 bg-white/80 backdrop-blur-sm border-b border-black/5">
-          <div className="px-10 md:px-20">
-            <div className="flex items-center gap-1 py-3">
-              {[
-                { label: "L'agence", href: "#agence" },
-                { label: "Expertises", href: "#expertises" },
-                { label: "Le team", href: "#team" },
-                { label: "Nos outils", href: "#outils" },
-                { label: "Témoignages", href: "#temoignages" },
-              ].map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  className="px-4 py-1.5 rounded-full font-mono text-[11px] tracking-widest text-black/40 uppercase hover:text-black hover:bg-black/5 transition-all duration-150 first:bg-[#101010] first:text-white"
-                >
-                  {link.label}
-                </a>
-              ))}
-            </div>
+        {/* ── Internal section nav (pill) ── */}
+        <div className="w-full px-6 md:px-[7%] xl:px-[8.33%] pt-10 md:pt-14">
+          <div className="inline-flex rounded-full bg-[#f1f1f1] p-1">
+            {[
+              { label: "L'agence", href: "#agence" },
+              { label: "Expertise", href: "#expertises" },
+              { label: "Le team", href: "#team" },
+              { label: "Expériences", href: "#outils" },
+              { label: "Témoignages", href: "#temoignages" },
+            ].map((link, i) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className={`rounded-full px-5 py-2.5 font-mono text-[11px] tracking-widest uppercase whitespace-nowrap transition-all duration-200 ${
+                  i === 0
+                    ? "bg-[#101010] text-white"
+                    : "text-black hover:text-black/60"
+                }`}
+              >
+                {link.label}
+              </a>
+            ))}
           </div>
-        </div> */}
+        </div>
 
-        {/* ── Content ── */}
-        <div className="max-w-7xl mx-auto w-full px-6 md:px-10 pt-12 md:pt-16">
-          <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-start">
-            {/* Left: heading + decorative image */}
-            <div className="lg:w-[45%]">
-              <h2 className="font-[Neue_Montreal] text-[36px] md:text-[44px] xl:text-[52px] font-medium leading-tight text-black mb-8">
-                L&apos;agence
-              </h2>
-              <div className="rounded-2xl overflow-hidden" style={{ aspectRatio: "4/5" }}>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src="/about/agency-logo.jpg"
-                  alt=""
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            </div>
+        {/* ── Content — Figma 2×2 layout: [Title | Description+Button] / [Image | Stats] ── */}
+        <div className="w-full px-6 md:px-[7%] xl:px-[8.33%] pt-10 md:pt-12">
+          <div className="grid grid-cols-1 lg:grid-cols-[45%_55%] gap-x-8 lg:gap-x-12 xl:gap-x-16 gap-y-10 lg:gap-y-14 items-start">
+            {/* Row 1 · Col 1 — Title */}
+            <h2 className="font-[Neue_Montreal] text-[36px] md:text-[44px] xl:text-[52px] font-medium leading-tight text-black">
+              L&apos;agence
+            </h2>
 
-            {/* Right: description + CTA + 2×2 stats */}
-            <div className="lg:w-[55%] flex flex-col gap-6 pt-0 lg:pt-2">
+            {/* Row 1 · Col 2 — Description + Button */}
+            <div className="flex flex-col gap-6 lg:gap-8">
               <p className="font-[Neue_Montreal] text-[16px] lg:text-[17px] xl:text-[18px] leading-[1.75] text-black">
                 Créée en 2022 par Karandeep et Thomas, Numispark est née
                 d&apos;un constat simple&nbsp;: les TPE et PME françaises
@@ -370,25 +362,36 @@ export default function AboutPage() {
               <div>
                 <CtaButton href="/contact">Planifier un appel</CtaButton>
               </div>
-              {/* 2 × 2 stats grid */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-0 mt-4">
-                {STATS.map((s) => (
-                  <div
-                    key={s.value}
-                    className="group px-4 pt-6 pb-4 border-t-2 border-[#E0E0E0] hover:border-black transition-all duration-600 bg-[linear-gradient(127deg,transparent_0%,transparent_100%)] hover:bg-[linear-gradient(127deg,#E7ECF2_3.71%,rgba(231,236,242,0)_40.97%)]"
-                  >
-                    <p className="font-[Neue_Montreal] text-[44px] md:text-[64px] xl:text-[80px] font-medium text-black leading-none mb-1 transition-all duration-600 group-hover:translate-y-1">
-                      {s.value}
-                    </p>
-                    <p className="font-[Neue_Montreal] text-[14px] lg:text-[15px] xl:text-[16px] font-semibold text-black mb-2">
-                      {s.label}
-                    </p>
-                    <p className="font-[Neue_Montreal] text-[14px] lg:text-[15px] xl:text-[16px] leading-[1.7] text-black/40 group-hover:text-black transition-all duration-600 group-hover:-translate-y-1">
-                      {s.desc}
-                    </p>
-                  </div>
-                ))}
-              </div>
+            </div>
+
+            {/* Row 2 · Col 1 — Snowflake image (bleeds to left edge, stretches to stats height, capped 933px) */}
+            <div className="self-stretch overflow-hidden -ml-6 md:-ml-[7vw] xl:-ml-[8.33vw] w-[calc(100%+1.5rem)] md:w-[calc(100%+7vw)] xl:w-[calc(100%+8.33vw)] max-h-233.25 min-h-100">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/about/agency-logo.jpg"
+                alt=""
+                className="w-full h-full object-cover"
+              />
+            </div>
+
+            {/* Row 2 · Col 2 — 2×2 Stats Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-0">
+              {STATS.map((s) => (
+                <div
+                  key={s.value}
+                  className="group px-4 pt-6 pb-4 border-t-2 border-[#E0E0E0] hover:border-black transition-all duration-600 bg-[linear-gradient(127deg,transparent_0%,transparent_100%)] hover:bg-[linear-gradient(127deg,#E7ECF2_3.71%,rgba(231,236,242,0)_40.97%)]"
+                >
+                  <p className="font-[Neue_Montreal] text-[44px] md:text-[64px] xl:text-[80px] font-medium text-black leading-none mb-1 transition-all duration-600 group-hover:translate-y-1">
+                    {s.value}
+                  </p>
+                  <p className="font-[Neue_Montreal] text-[14px] lg:text-[15px] xl:text-[16px] font-semibold text-black mb-2">
+                    {s.label}
+                  </p>
+                  <p className="font-[Neue_Montreal] text-[14px] lg:text-[15px] xl:text-[16px] leading-[1.7] text-black/40 group-hover:text-black transition-all duration-600 group-hover:-translate-y-1">
+                    {s.desc}
+                  </p>
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -397,10 +400,10 @@ export default function AboutPage() {
       {/* ════════════════════════════════════════════════════════════════════
           3. EXPERTISES
       ════════════════════════════════════════════════════════════════════ */}
-      <section className=" bg-white">
+      <section className="bg-white overflow-hidden">
         <div className="h-px bg-[#dadada] mb-0" />
-        <div className="max-w-7xl mx-auto px-6 md:px-10 w-full">
-          <div className="flex flex-col lg:flex-row gap-16 lg:gap-24">
+        <div className="w-full px-6 md:px-[7%] xl:px-[8.33%]">
+          <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 xl:gap-32">
             {/* Left: lists */}
             <div className="lg:w-[45%] mt-10">
               <h2 className="font-[Neue_Montreal] text-[32px] md:text-[44px] xl:text-[52px] font-medium leading-tight text-black mb-10 md:mb-14">
@@ -442,7 +445,7 @@ export default function AboutPage() {
               </div>
 
               {/* Company description */}
-              <p className="font-[Neue_Montreal] text-[16px] lg:text-[17px] xl:text-[18px] leading-[1.72] text-[#7f7f7f] mt-14 max-w-lg">
+              <p className="font-[Neue_Montreal] text-[16px] lg:text-[17px] xl:text-[18px] leading-[1.72] text-[#7f7f7f] my-14 max-w-lg">
                 Nous accompagnons les entreprises dans la conception et le
                 développement de solutions digitales performantes. De
                 l&apos;interface utilisateur à l&apos;architecture technique,
@@ -451,12 +454,9 @@ export default function AboutPage() {
               </p>
             </div>
 
-            {/* Right: sticky decorative image */}
-            <div className=" hidden md:flex lg:w-[55%] h-full">
-              <div
-                className=" overflow-hidden bg-[#eee]"
-                style={{ height: "155vh", maxHeight: "1200px" }}
-              >
+            {/* Right: decorative image (bleeds to right viewport edge, height matches left col) */}
+            <div className="hidden md:block lg:w-[55%] self-stretch relative">
+              <div className="absolute top-0 bottom-0 left-0 -right-6 md:-right-[7vw] xl:-right-[8.33vw] overflow-hidden bg-[#eee]">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src="/about/expertise.jpg"
@@ -474,7 +474,7 @@ export default function AboutPage() {
       ════════════════════════════════════════════════════════════════════ */}
       <section id="team" className="bg-white">
         <div className="h-px bg-[#dadada] mb-0" />
-        <div className="max-w-7xl mx-auto w-full px-5 md:px-20 pt-16 pb-8">
+        <div className="w-full px-6 md:px-[7%] xl:px-[8.33%] pt-16 pb-8">
           <p className="mb-4 font-mono text-[12px] tracking-widest text-black/30">
             {"{ Team Numispark }"}
           </p>
@@ -575,26 +575,26 @@ export default function AboutPage() {
       {/* ════════════════════════════════════════════════════════════════════
           6. SECTORS (dark)
       ════════════════════════════════════════════════════════════════════ */}
-      <section className="py-20 bg-[#101010]">
-        <div className="max-w-7xl mx-auto w-full px-6 md:px-10">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-14">
+      <section className="py-20 xl:py-28 bg-[#101010]">
+        <div className="w-full px-6 md:px-[7%] xl:px-[8.33%]">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 xl:gap-x-16 gap-y-10 xl:gap-y-14">
             {SECTORS.map((s) => (
-              <div key={s.num}>
-                {/* Number box + label on same row */}
-                <div className="flex flex-row gap-4 mb-4">
-                  <div className="bg-[#222] rounded-[5px] w-14 h-14 flex items-center justify-center shrink-0">
-                    <span className="font-mono text-[20px] font-light text-white">
-                      {s.num}
-                    </span>
-                  </div>
-                  <p className="font-[Neue_Montreal] text-[20px] font-medium text-white leading-snug ">
+              <div key={s.num} className="flex flex-row gap-4 xl:gap-5">
+                {/* Number box — fixed square, aligned to top */}
+                <div className="bg-[#222] rounded-[5px] w-14 h-14 xl:w-[68px] xl:h-[68px] flex items-center justify-center shrink-0">
+                  <span className="font-mono text-[20px] xl:text-[24px] font-light text-white">
+                    {s.num}
+                  </span>
+                </div>
+                {/* Title + description column — both aligned to title's left edge */}
+                <div className="flex-1 min-w-0">
+                  <p className="font-[Neue_Montreal] text-[20px] xl:text-[22px] font-medium text-white leading-snug mb-3 xl:mb-4">
                     {s.label}
                   </p>
+                  <p className="font-[Neue_Montreal] text-[15px] lg:text-[16px] xl:text-[18px] leading-[1.65] text-[#7f7f7f] max-w-[301px]">
+                    {s.desc}
+                  </p>
                 </div>
-                {/* Description indented to align with label */}
-                <p className="font-[Neue_Montreal] text-[15px] lg:text-[16px] xl:text-[17px] leading-[1.65] text-[#7f7f7f] ">
-                  {s.desc}
-                </p>
               </div>
             ))}
           </div>

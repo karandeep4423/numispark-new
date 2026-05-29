@@ -52,8 +52,8 @@ export default function EcommercePage() {
 
       <WhyChooseSection />
 
-      <NosProjectsSection />
-      <FaqSection />
+      <NosProjectsSection withTopDivider />
+      <FaqSection withTopDivider />
     </main>
   );
 }

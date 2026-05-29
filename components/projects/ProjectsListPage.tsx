@@ -7,8 +7,8 @@ export default function ProjectsListPage() {
       <h1 className="text-center my-16 text-4xl font-[Neue_Montreal] font-semibold">
         Notre Travail, Votre Image
       </h1>
-      <NosProjectsSection />
-      <FaqSection />
+      <NosProjectsSection withTopDivider />
+      <FaqSection withTopDivider />
     </div>
   );
 }

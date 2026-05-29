@@ -18,8 +18,8 @@ export default function IaAutomatisationPage() {
       <StatsSection />
       <UseCasesSection />
       <ProcessTimelineSection />
-      <NosProjectsSection />
-      <FaqSection />
+      <NosProjectsSection withTopDivider />
+      <FaqSection withTopDivider />
     </div>
   );
 }

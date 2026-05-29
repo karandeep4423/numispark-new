@@ -133,7 +133,7 @@ export default function ProcessTimelineSection({
         >
           {/* Dim background line — starts at first diamond */}
           <div
-            className="absolute top-[var(--line-top)] bottom-0 left-4 md:left-1/2 md:-translate-x-1/2 w-3 pointer-events-none"
+            className="absolute top-(--line-top) bottom-0 left-4 md:left-1/2 md:-translate-x-1/2 w-3 pointer-events-none"
             style={{
               backgroundImage:
                 "repeating-linear-gradient(to bottom, #2A2A2A 0px, #2A2A2A 2px, transparent 2px, transparent 16px)",
@@ -141,7 +141,7 @@ export default function ProcessTimelineSection({
           />
           {/* Bright progress line — starts at first diamond */}
           <div
-            className="absolute top-[var(--line-top)] left-4 md:left-1/2 md:-translate-x-1/2 w-3 pointer-events-none"
+            className="absolute top-(--line-top) left-4 md:left-1/2 md:-translate-x-1/2 w-3 pointer-events-none"
             style={{
               height: `max(0px, calc(${lineProgress * 100}% - var(--line-top)))`,
               backgroundImage:

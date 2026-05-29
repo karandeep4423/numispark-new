@@ -502,7 +502,7 @@ export default function ContactPage() {
       </section>
 
       {/* ─── FAQ ─── */}
-      <FaqSection />
+      <FaqSection withTopDivider />
     </main>
   );
 }

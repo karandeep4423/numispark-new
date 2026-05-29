@@ -354,10 +354,10 @@ export default function SaasPage() {
       <ProcessTimelineSection />
 
       {/* ── 8. Nos Projets ───────────────────────────────────────────────── */}
-      <NosProjectsSection />
+      <NosProjectsSection withTopDivider />
 
       {/* ── 9. FAQ ───────────────────────────────────────────────────────── */}
-      <FaqSection />
+      <FaqSection withTopDivider />
     </div>
   );
 }

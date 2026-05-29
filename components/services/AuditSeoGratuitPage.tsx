@@ -53,8 +53,8 @@ export default function AuditSeoGratuitPage() {
 
       <BottomFormSection />
 
-      <NosProjectsSection />
-      <FaqSection />
+      <NosProjectsSection withTopDivider />
+      <FaqSection withTopDivider />
     </main>
   );
 }

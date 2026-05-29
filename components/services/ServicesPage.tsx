@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import TestimonialsSection from "@/components/sections/TestimonialsSection";
 
 const SERVICES = [
@@ -146,34 +147,6 @@ const SERVICES = [
   },
 ] as const;
 
-function ArrowIcon() {
-  return (
-    <svg
-      width="16"
-      height="16"
-      viewBox="0 0 16 16"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      className="rotate-180"
-    >
-      <line
-        x1="0"
-        y1="8"
-        x2="14"
-        y2="8"
-        stroke="currentColor"
-        strokeWidth="1.2"
-      />
-      <polyline
-        points="8,2 14,8 8,14"
-        stroke="currentColor"
-        strokeWidth="1.2"
-        fill="none"
-      />
-    </svg>
-  );
-}
-
 function ServiceCard({ service }: { service: (typeof SERVICES)[number] }) {
   return (
     <div className="flex flex-col w-full overflow-hidden border-b border-[#dadada] bg-white lg:h-screen lg:flex-row">
@@ -213,12 +186,16 @@ function ServiceCard({ service }: { service: (typeof SERVICES)[number] }) {
           </p>
           <Link
             href={`/services/${service.slug}`}
-            className="mt-5 inline-flex self-start rounded-full border border-black bg-black px-6 py-4 font-mono text-[12px] uppercase tracking-widest text-white transition-all duration-200 hover:border-[#05ffe0] hover:bg-[#05ffe0] hover:text-black"
+            className="group mt-6 inline-flex self-start items-center gap-10 rounded-full border border-black bg-transparent px-6 py-3.5 font-mono text-[13px] uppercase tracking-widest text-black transition-colors duration-300 hover:border-[#05ffe0] hover:bg-[#05ffe0] xl:mt-8 xl:gap-12 xl:px-7 xl:py-4 xl:text-[14px]"
           >
-            <span className="flex items-center gap-8">
-              En savoir plus
-              <ArrowIcon />
-            </span>
+            <span>En savoir plus</span>
+            <Image
+              src="/faq-btn.svg"
+              alt=""
+              width={16}
+              height={16}
+              className="shrink-0 transition-transform duration-500 group-hover:rotate-360"
+            />
           </Link>
         </div>
       </div>
@@ -261,7 +238,7 @@ export default function ServicesPage() {
           loop
           playsInline
         />
-        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0 bg-black/70" />
 
         <div
           className="pointer-events-none absolute top-[-10%] right-[-5%] h-[60vh] w-[50vw] rounded-full opacity-30 blur-[120px]"

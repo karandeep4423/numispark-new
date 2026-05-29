@@ -278,10 +278,10 @@ export default function WebCreationPage() {
       <ProcessTimelineSection />
 
       {/* ── 7. Nos Projets ───────────────────────────────────────────────── */}
-      <NosProjectsSection />
+      <NosProjectsSection withTopDivider />
 
       {/* ── 8. FAQ ───────────────────────────────────────────────────────── */}
-      <FaqSection />
+      <FaqSection withTopDivider />
     </div>
   );
 }

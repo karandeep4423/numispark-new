@@ -649,8 +649,8 @@ export default function SeoPage() {
         </div>
       </section>
 
-      <NosProjectsSection />
-      <FaqSection />
+      <NosProjectsSection withTopDivider />
+      <FaqSection withTopDivider />
     </main>
   );
 }

@@ -40,14 +40,23 @@ const faqs = [
   },
 ] as const;
 
-export default function FaqSection() {
+interface FaqSectionProps {
+  /** Render a 1px horizontal divider at the top of the section (used on non-home pages per Figma) */
+  withTopDivider?: boolean;
+}
+
+export default function FaqSection({
+  withTopDivider = false,
+}: FaqSectionProps = {}) {
   const [openId, setOpenId] = useState<number | null>(null);
 
   const toggle = (id: number) => setOpenId((prev) => (prev === id ? null : id));
 
   return (
-    <section className="flex w-full flex-col pb-20 md:flex-row md:items-stretch">
-      <div className="w-full bg-white px-8  md:w-1/2 md:px-14 xl:px-22.25">
+    <>
+      {withTopDivider && <div className="h-px w-full bg-black/10 mt-10 xl:mt-12 mb-20 xl:mb-24 " />}
+      <section className="flex w-full flex-col pb-20 md:flex-row md:items-stretch">
+        <div className="w-full bg-white px-8  md:w-1/2 md:px-14 xl:px-22.25">
         <p className="mb-6 font-mono text-[11px] tracking-[0.18em] text-black/35">
           {"{ F.A.Q }"}
         </p>
@@ -118,16 +127,17 @@ export default function FaqSection() {
         </div>
       </div>
 
-      <div className="relative hidden self-stretch bg-black md:block md:w-1/2">
-        <video
-          src="/faq-video.mp4"
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute inset-0 h-full w-full object-cover"
-        />
-      </div>
-    </section>
+        <div className="relative hidden self-stretch bg-black md:block md:w-1/2">
+          <video
+            src="/faq-video.mp4"
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 h-full w-full object-cover"
+          />
+        </div>
+      </section>
+    </>
   );
 }

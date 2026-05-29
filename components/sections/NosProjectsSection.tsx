@@ -8,7 +8,7 @@ const DESKTOP_GAP = 12;
 
 // Card config per breakpoint — change these values to tune each layout
 const CONFIG_LG = { cardVh: 70, visibleCards: 1.5 }; // laptop  (lg, <1280px)
-const CONFIG_XL = { cardVh: 49, visibleCards: 2 };   // desktop (xl, ≥1280px)
+const CONFIG_XL = { cardVh: 49, visibleCards: 2 }; // desktop (xl, ≥1280px)
 
 const projects = [
   {
@@ -68,7 +68,14 @@ const projects = [
   },
 ] as const;
 
-export default function NosProjectsSection() {
+interface NosProjectsSectionProps {
+  /** Render a 1px horizontal divider at the top of the section (used on non-home pages per Figma) */
+  withTopDivider?: boolean;
+}
+
+export default function NosProjectsSection({
+  withTopDivider = false,
+}: NosProjectsSectionProps = {}) {
   const [activeIndex, setActiveIndex] = useState(0);
   const [trackOffset, setTrackOffset] = useState(0);
   const [cardConfig, setCardConfig] = useState(CONFIG_LG);
@@ -161,7 +168,7 @@ export default function NosProjectsSection() {
   const sectionHeight = `calc(100vh + ${maxSteps} * (${cardVh}vh + ${DESKTOP_GAP}px) + 120px)`;
 
   return (
-    <section className="bg-white">
+    <section className="bg-white py-10">
       <div
         ref={sectionRef}
         className="relative hidden lg:block"
@@ -349,13 +356,6 @@ export default function NosProjectsSection() {
             </div>
           </Link>
         ))}
-
-        <Link
-          href={`/projets/${projects[0].slug}`}
-          className="mt-4 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.16em] text-black/40 transition-colors duration-200 hover:text-black"
-        >
-          Voir le projet vedette →
-        </Link>
       </div>
     </section>
   );
